@@ -23,18 +23,6 @@
 #include <qbitmap.h>
 #include "ksvgrenderer.h"
 
-//Tile angles for face composition
-enum TileViewAngle { NW, NE, SE, SW };
-
-#define TILE_OFFSET      2
-#define TILE_CHARACTER   (0+TILE_OFFSET)
-#define TILE_BAMBOO      (9+TILE_OFFSET)
-#define TILE_ROD         (18+TILE_OFFSET)
-#define TILE_SEASON      (27+TILE_OFFSET)
-#define TILE_WIND        (31+TILE_OFFSET)
-#define TILE_DRAGON      (35+TILE_OFFSET)
-#define TILE_FLOWER      (38+TILE_OFFSET)
-
 typedef struct tilesetmetricsdata {
     short lvloff;   // used for 3D indentation
     short w;    // tile width ( +border +shadow)
@@ -43,10 +31,10 @@ typedef struct tilesetmetricsdata {
     short fh;   // face height
 } TILESETMETRICSDATA;
 
-class Tileset {
+class KMahjonggTileset {
    public:
-     Tileset();	     
-     ~Tileset();	
+     KMahjonggTileset();	     
+     ~KMahjonggTileset();	
 
      bool loadDefault();
      bool loadTileset(const QString &filesetPath);

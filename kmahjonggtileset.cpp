@@ -30,7 +30,7 @@
 
 // ---------------------------------------------------------
 
-Tileset::Tileset()
+KMahjonggTileset::KMahjonggTileset()
 {
 	filename = "";
 	buildElementIdTable();
@@ -38,10 +38,10 @@ Tileset::Tileset()
 
 // ---------------------------------------------------------
 
-Tileset::~Tileset() {
+KMahjonggTileset::~KMahjonggTileset() {
 }
 
-void Tileset::updateScaleInfo(short tilew, short tileh) 
+void KMahjonggTileset::updateScaleInfo(short tilew, short tileh) 
 {
 	scaleddata.w = tilew;
 	scaleddata.h = tileh;
@@ -51,7 +51,7 @@ void Tileset::updateScaleInfo(short tilew, short tileh)
 	scaleddata.fh     = (short) (originaldata.fh * ratio);
 }
 
-QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
+QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
 {
     //calculate our best tile size to fit the boardsize passed to us
     qreal newtilew, newtileh, aspectratio;
@@ -75,7 +75,7 @@ QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verti
     return QSize((short)newtilew, (short)newtileh);
 }
 
-bool Tileset::loadDefault()
+bool KMahjonggTileset::loadDefault()
 {
     QString picsPos = "pics/";
     picsPos += "default.tileset";
@@ -90,7 +90,7 @@ bool Tileset::loadDefault()
 
 
 // ---------------------------------------------------------
-bool Tileset::loadTileset( const QString& tilesetPath)
+bool KMahjonggTileset::loadTileset( const QString& tilesetPath)
 {
 
     QImage qiTiles;
@@ -161,7 +161,7 @@ bool Tileset::loadTileset( const QString& tilesetPath)
 }
 
 // ---------------------------------------------------------
-bool Tileset::reloadTileset( QSize newTilesize)
+bool KMahjonggTileset::reloadTileset( QSize newTilesize)
 {
     QString tilesetPath = filename;
 
@@ -182,7 +182,7 @@ bool Tileset::reloadTileset( QSize newTilesize)
     return( true );
 }
 
-void Tileset::buildElementIdTable() {
+void KMahjonggTileset::buildElementIdTable() {
 	//Build a list for faster lookup of element ids, mapped to the enumeration used by GameData and BoardWidget
 	//Unselected tiles
 	for (short idx=1; idx<=4; idx++) {
@@ -216,11 +216,11 @@ void Tileset::buildElementIdTable() {
 	}
 }
 
-QString Tileset::pixmapCacheNameFromElementId(QString & elementid) {
+QString KMahjonggTileset::pixmapCacheNameFromElementId(QString & elementid) {
 	return elementid+QString("W%1H%2").arg(scaleddata.w).arg(scaleddata.h);
 }
 
-QPixmap Tileset::renderElement(short width, short height, QString & elementid) {
+QPixmap KMahjonggTileset::renderElement(short width, short height, QString & elementid) {
 //qDebug() << "render element" << elementid << width << height;
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
@@ -232,7 +232,7 @@ QPixmap Tileset::renderElement(short width, short height, QString & elementid) {
     return QPixmap::fromImage(qiRend);
 }
 
-QPixmap Tileset::selectedTile(int num) {
+QPixmap KMahjonggTileset::selectedTile(int num) {
 	QPixmap pm;
 	QString elemId = elementIdTable.at(num+4);//selected offset in our idtable;
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
@@ -243,7 +243,7 @@ QPixmap Tileset::selectedTile(int num) {
 	return pm;
 }
 
-QPixmap Tileset::unselectedTile(int num) {
+QPixmap KMahjonggTileset::unselectedTile(int num) {
 	QPixmap pm;
 	QString elemId = elementIdTable.at(num);
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
@@ -254,7 +254,7 @@ QPixmap Tileset::unselectedTile(int num) {
 	return pm;
 }
 
-QPixmap Tileset::tileface(int num) {
+QPixmap KMahjonggTileset::tileface(int num) {
 	QPixmap pm;
 	QString elemId = elementIdTable.at(num+8);//tileface offset in our idtable;
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
