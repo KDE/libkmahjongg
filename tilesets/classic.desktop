@@ -1,0 +1,10 @@
+[KMahjonggTileset]
+Author=Robert Buchholz
+AuthorEmail=robertbuchholz@gmx.de
+FileName=default_tileset.svgz
+LevelOffset=10
+Name=Classic
+TileFaceHeight=95
+TileFaceWidth=69
+TileHeight=114
+TileWidth=90

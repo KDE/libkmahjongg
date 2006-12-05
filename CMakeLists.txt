@@ -1,5 +1,7 @@
 project(libkmahjongg)
 
+add_subdirectory( tilesets ) 
+
 ########### next target ###############
 
 set(kmahjongg_LIB_SRCS

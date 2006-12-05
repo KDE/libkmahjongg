@@ -37,7 +37,7 @@ class KMahjonggTileset {
      ~KMahjonggTileset();	
 
      bool loadDefault();
-     bool loadTileset(const QString &filesetPath);
+     bool loadTileset(QString tilesetPath);
      bool reloadTileset( QSize newTilesize);
      QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);
 
@@ -46,6 +46,7 @@ class KMahjonggTileset {
      short levelOffset() {return scaleddata.lvloff;};
      short qWidth() {return (short) (scaleddata.fw / 2.0);};
      short qHeight() {return (short) (scaleddata.fh / 2.0);};
+     QString path() {return filename;};
 
      QPixmap selectedTile(int num);
      QPixmap unselectedTile(int num);

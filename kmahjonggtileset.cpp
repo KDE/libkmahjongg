@@ -19,6 +19,8 @@
 
 #include <stdlib.h>
 #include "kmahjonggtileset.h"
+#include <klocale.h>
+#include <ksimpleconfig.h>
 #include <qimage.h>
 #include <kstandarddirs.h>
 #include <QPainter>
@@ -32,8 +34,16 @@
 
 KMahjonggTileset::KMahjonggTileset()
 {
-	filename = "";
-	buildElementIdTable();
+    filename = "";
+    buildElementIdTable();
+
+    static bool _inited = false;
+    if (_inited)
+        return;
+    KGlobal::dirs()->addResourceType("kmahjonggtileset", KStandardDirs::kde_default("data") + QString::fromLatin1("kmahjongglib/tilesets/"));
+
+    KGlobal::locale()->insertCatalog("libkmahjongglib");
+    _inited = true;
 }
 
 // ---------------------------------------------------------
@@ -77,11 +87,10 @@ QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, 
 
 bool KMahjonggTileset::loadDefault()
 {
-    QString picsPos = "pics/";
-    picsPos += "default.tileset";
+    QString idx = "default.desktop";
 
-    QString tilesetPath = KStandardDirs::locate("appdata", picsPos);
-
+    QString tilesetPath = KStandardDirs::locate("kmahjonggtileset", idx);
+qDebug() << "Inside LoadDefault(), located path at " << tilesetPath;
     if (tilesetPath.isEmpty()) {
 		return false;
     }
@@ -90,54 +99,45 @@ bool KMahjonggTileset::loadDefault()
 
 
 // ---------------------------------------------------------
-bool KMahjonggTileset::loadTileset( const QString& tilesetPath)
+bool KMahjonggTileset::loadTileset( QString tilesetPath)
 {
 
     QImage qiTiles;
     QString graphicsPath;
+qDebug() << "Attempting to load .desktop at " << tilesetPath;
 
     if (filename == tilesetPath) {
 	return true;
     }
 
-    // verify if it is a valid XML file first and if we can open it
-    QDomDocument doc("tileset");
+    // verify if it is a valid file first and if we can open it
     QFile tilesetfile(tilesetPath);
     if (!tilesetfile.open(QIODevice::ReadOnly)) {
       return (false);
     }
-    if (!doc.setContent(&tilesetfile)) {
-      tilesetfile.close();
-      return (false);
-    }
     tilesetfile.close();
 
-    //now see if it is a kdegames mahjongg tileset
-    QDomElement root = doc.documentElement();
-    if (root.tagName() != "kdegames-tileset") {
-        return (false);
-    } else if (root.hasAttribute("version")
-                && root.attribute("version") != "1.0") {
-        return (false);
-    }
+    KSimpleConfig tileconfig(tilesetPath);
+    tileconfig.setGroup(QString::fromLatin1("KMahjonggTileset"));
 
-    QDomElement graphics = root.firstChildElement("graphics");
-    if (!graphics.isNull()) {
-        QString graphName = graphics.firstChildElement("path").text();
-    	QString graphPos = "pics/"+graphName;
+    QString themeName = tileconfig.readEntry("Name"); // Returns translated data
+    //Versioning???
 
-    	graphicsPath = KStandardDirs::locate("appdata", graphPos);
-	filename = graphicsPath;
-	isSVG = (graphics.attribute("type") == "svg");
-	originaldata.w      = graphics.firstChildElement("tilewidth").text().toInt();
-	originaldata.h      = graphics.firstChildElement("tileheight").text().toInt();
-	originaldata.fw  =  graphics.firstChildElement("tilefacewidth").text().toInt();
-	originaldata.fh = graphics.firstChildElement("tilefaceheight").text().toInt();
-	originaldata.lvloff     =  graphics.firstChildElement("leveloffset").text().toInt();
-     	if (graphicsPath.isEmpty()) return (false);
-     } else {
-	return (false);
-     }
+    QString graphName = tileconfig.readEntry("FileName");
+
+    graphicsPath = KStandardDirs::locate("kmahjonggtileset", graphName);
+qDebug() << "Using tileset at " << graphicsPath;
+    filename = graphicsPath;
+
+    //only SVG for now
+    isSVG = true;
+
+    originaldata.w      = tileconfig.readEntry("TileWidth",0);
+    originaldata.h      = tileconfig.readEntry("TileHeight",0);
+    originaldata.fw  =  tileconfig.readEntry("TileFaceWidth",0);
+    originaldata.fh = tileconfig.readEntry("TileFaceHeight",0);
+    originaldata.lvloff     =  tileconfig.readEntry("LevelOffset",0);
+    if (graphicsPath.isEmpty()) return (false);
 
     if( isSVG ) {
 	//really?
