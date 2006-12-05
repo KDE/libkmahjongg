@@ -1,0 +1,10 @@
+This directory contains the library used for loading and rendering of Mahjongg tilesets.
+It is used by KMahjongg and (soon) KShisen. 
+Shared data is installed to {kdedir}/share/apps/kmahjongglib/*
+
+Contents:
+  kmahjonggtileset.cpp/.h : implementation of the KMahjonggTileset class
+  tilesets: Directory for svg files and .desktop data describing the metrics
+  bgs: (soon) backgrounds
+
+Questions? Contact Mauricio Piacentini <mauricio@tabuleiro.com>
