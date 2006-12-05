@@ -18,7 +18,7 @@
 */
 
 #include <stdlib.h>
-#include "Tileset.h"
+#include "kmahjonggtileset.h"
 #include <qimage.h>
 #include <kstandarddirs.h>
 #include <QPainter>
