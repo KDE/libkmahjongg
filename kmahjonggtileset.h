@@ -22,6 +22,7 @@
 
 #include <qbitmap.h>
 #include "ksvgrenderer.h"
+#include "libkmahjongg_export.h"
 
 typedef struct tilesetmetricsdata {
     short lvloff;   // used for 3D indentation
@@ -31,7 +32,7 @@ typedef struct tilesetmetricsdata {
     short fh;   // face height
 } TILESETMETRICSDATA;
 
-class KMahjonggTileset {
+class KMAHJONGGLIB_EXPORT KMahjonggTileset {
    public:
      KMahjonggTileset();	     
      ~KMahjonggTileset();	
