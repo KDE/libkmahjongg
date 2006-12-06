@@ -61,7 +61,7 @@ void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
 	scaleddata.fh     = (short) (originaldata.fh * ratio);
 }
 
-QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
+QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells)
 {
     //calculate our best tile size to fit the boardsize passed to us
     qreal newtilew, newtileh, aspectratio;
@@ -99,7 +99,7 @@ qDebug() << "Inside LoadDefault(), located path at " << tilesetPath;
 
 
 // ---------------------------------------------------------
-bool KMahjonggTileset::loadTileset( QString tilesetPath)
+bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 {
 
     QImage qiTiles;
@@ -161,7 +161,7 @@ qDebug() << "Using tileset at " << graphicsPath;
 }
 
 // ---------------------------------------------------------
-bool KMahjonggTileset::reloadTileset( QSize newTilesize)
+bool KMahjonggTileset::reloadTileset( const QSize & newTilesize)
 {
     QString tilesetPath = filename;
 
@@ -216,11 +216,11 @@ void KMahjonggTileset::buildElementIdTable() {
 	}
 }
 
-QString KMahjonggTileset::pixmapCacheNameFromElementId(QString & elementid) {
+QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid) {
 	return elementid+QString("W%1H%2").arg(scaleddata.w).arg(scaleddata.h);
 }
 
-QPixmap KMahjonggTileset::renderElement(short width, short height, QString & elementid) {
+QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) {
 //qDebug() << "render element" << elementid << width << height;
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);

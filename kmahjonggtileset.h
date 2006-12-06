@@ -37,9 +37,9 @@ class KMahjonggTileset {
      ~KMahjonggTileset();	
 
      bool loadDefault();
-     bool loadTileset(QString tilesetPath);
-     bool reloadTileset( QSize newTilesize);
-     QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);
+     bool loadTileset(const QString & tilesetPath);
+     bool reloadTileset(const QSize & newTilesize);
+     QSize preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells);
 
      short width() {return scaleddata.w;};
      short height() {return scaleddata.h;};
@@ -56,8 +56,8 @@ class KMahjonggTileset {
 
 	void updateScaleInfo(short tilew, short tileh);
 	void buildElementIdTable(void);
-	QString pixmapCacheNameFromElementId(QString & elementid);
-	QPixmap renderElement(short width, short height, QString & elementid);
+	QString pixmapCacheNameFromElementId(const QString & elementid);
+	QPixmap renderElement(short width, short height, const QString & elementid);
   
 
   private:
