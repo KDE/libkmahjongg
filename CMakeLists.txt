@@ -1,11 +1,13 @@
 project(libkmahjongg)
 
 add_subdirectory( tilesets ) 
+add_subdirectory( backgrounds ) 
 
 ########### next target ###############
 
 set(kmahjongg_LIB_SRCS
-   kmahjonggtileset.cpp )
+   kmahjonggtileset.cpp 
+   kmahjonggbackground.cpp )
 
 kde4_automoc(${kmahjongg_LIB_SRCS})
 
@@ -22,5 +24,6 @@ install(TARGETS kmahjongglib  DESTINATION ${LIB_INSTALL_DIR} )
 install(FILES
    libkmahjongg_export.h
    kmahjonggtileset.h
+   kmahjonggbackground.h 
 DESTINATION ${INCLUDE_INSTALL_DIR})
 
