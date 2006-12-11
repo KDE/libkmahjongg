@@ -97,6 +97,7 @@ qDebug() << "Inside LoadDefault(), located path at " << tilesetPath;
     return loadTileset(tilesetPath);
 }
 
+#define kTilesetVersionFormat 1
 
 // ---------------------------------------------------------
 bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
@@ -104,7 +105,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 
     QImage qiTiles;
     QString graphicsPath;
-qDebug() << "Attempting to load .desktop at " << tilesetPath;
+    qDebug() << "Attempting to load .desktop at " << tilesetPath;
 
     if (filename == tilesetPath) {
 	return true;
@@ -121,7 +122,12 @@ qDebug() << "Attempting to load .desktop at " << tilesetPath;
     tileconfig.setGroup(QString::fromLatin1("KMahjonggTileset"));
 
     QString themeName = tileconfig.readEntry("Name"); // Returns translated data
-    //Versioning???
+    //Version control
+    int tileversion = tileconfig.readEntry("VersionFormat",0);
+    //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
+    if (tileversion > kTilesetVersionFormat) {
+        return false;
+    }
 
     QString graphName = tileconfig.readEntry("FileName");
 
@@ -131,13 +137,13 @@ qDebug() << "Using tileset at " << graphicsPath;
 
     //only SVG for now
     isSVG = true;
+    if (graphicsPath.isEmpty()) return (false);
 
     originaldata.w      = tileconfig.readEntry("TileWidth",0);
     originaldata.h      = tileconfig.readEntry("TileHeight",0);
     originaldata.fw  =  tileconfig.readEntry("TileFaceWidth",0);
     originaldata.fh = tileconfig.readEntry("TileFaceHeight",0);
     originaldata.lvloff     =  tileconfig.readEntry("LevelOffset",0);
-    if (graphicsPath.isEmpty()) return (false);
 
     if( isSVG ) {
 	//really?
