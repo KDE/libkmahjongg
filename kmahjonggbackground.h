@@ -17,8 +17,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef _BACKGROUND_H
-#define _BACKGROUND_H
+#ifndef _KMAHJONGGBACKGROUND_H_
+#define _KMAHJONGGBACKGROUND_H_
 #include <QString>
 #include <QImage>
 #include <QBrush>

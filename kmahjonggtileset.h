@@ -17,8 +17,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef _TILE_SET_H_
-#define _TILE_SET_H_
+#ifndef _KMAHJONGGTILESET_H_
+#define _KMAHJONGGTILESET_H_
 
 #include <qbitmap.h>
 #include "ksvgrenderer.h"
