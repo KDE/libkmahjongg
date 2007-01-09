@@ -20,7 +20,7 @@
 #ifndef _KMAHJONGGTILESET_H_
 #define _KMAHJONGGTILESET_H_
 
-#include <qbitmap.h>
+#include <QBitmap>
 #include "ksvgrenderer.h"
 #include "libkmahjongg_export.h"
 
