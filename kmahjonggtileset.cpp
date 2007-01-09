@@ -2,7 +2,7 @@
     Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
     Copyright (C) 2006 Mauricio Piacentini  <mauricio@tabuleiro.com>
 
-    Kmahjongg is free software; you can redistribute it and/or modify
+    Libkmahjongg is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
@@ -25,9 +25,7 @@
 #include <kstandarddirs.h>
 #include <QPainter>
 #include <QPixmapCache>
-#include <QDomDocument>
 #include <QFile>
-#include <QMessageBox>
 #include <QtDebug>
 
 // ---------------------------------------------------------
