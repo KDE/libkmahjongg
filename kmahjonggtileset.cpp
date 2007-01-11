@@ -109,6 +109,9 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 	return true;
     }
 
+    //clear our properties map
+    authorproperties.clear();
+
     // verify if it is a valid file first and if we can open it
     QFile tilesetfile(tilesetPath);
     if (!tilesetfile.open(QIODevice::ReadOnly)) {
@@ -119,7 +122,12 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     KSimpleConfig tileconfig(tilesetPath);
     tileconfig.setGroup(QString::fromLatin1("KMahjonggTileset"));
 
-    QString themeName = tileconfig.readEntry("Name"); // Returns translated data
+    authorproperties.insert("Name", tileconfig.readEntry("Name"));// Returns translated data
+    authorproperties.insert("Author", tileconfig.readEntry("Author"));
+    authorproperties.insert("Description", tileconfig.readEntry("Description"));
+    authorproperties.insert("AuthorEmail", tileconfig.readEntry("AuthorEmail"));
+    authorproperties.insert("VersionString", tileconfig.readEntry("VersionString"));
+    authorproperties.insert("Description", tileconfig.readEntry("Description"));
     //Version control
     int tileversion = tileconfig.readEntry("VersionFormat",0);
     //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely

@@ -59,9 +59,9 @@ qDebug() << "Inside LoadDefault(), located background at " << bgPath;
 #define kBGVersionFormat 1
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
-  w=width;
-  h=height; 
 qDebug() << "Background loading";
+    //tiled for now
+    tile = true;
 
     QString graphicsPath;
     qDebug() << "Attempting to load .desktop at " << file;

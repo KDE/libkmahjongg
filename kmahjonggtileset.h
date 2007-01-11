@@ -21,6 +21,7 @@
 #define _KMAHJONGGTILESET_H_
 
 #include <QBitmap>
+#include <QMap>
 #include "ksvgrenderer.h"
 #include "libkmahjongg_export.h"
 
@@ -41,6 +42,7 @@ class KMAHJONGGLIB_EXPORT KMahjonggTileset {
      bool loadTileset(const QString & tilesetPath);
      bool reloadTileset(const QSize & newTilesize);
      QSize preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells);
+     QString authorProperty(QString & key) {return authorproperties[key];};
 
      short width() {return scaleddata.w;};
      short height() {return scaleddata.h;};
@@ -63,6 +65,7 @@ class KMAHJONGGLIB_EXPORT KMahjonggTileset {
 
   private:
     QList<QString> elementIdTable;
+    QMap<QString, QString> authorproperties;
 
     TILESETMETRICSDATA originaldata;
     TILESETMETRICSDATA scaleddata;

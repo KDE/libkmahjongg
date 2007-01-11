@@ -48,7 +48,7 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
     QString pixmapCacheNameFromElementId(QString & elementid);
     QPixmap renderBG(short width, short height);
 
-    int tileMode;    // scale background = 0, tile = 1
+    //int tileMode;    // scale background = 0, tile = 1
     //QImage backgroundImage;
     QImage sourceImage;
     QPixmap backgroundPixmap;
