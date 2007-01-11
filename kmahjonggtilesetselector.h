@@ -28,7 +28,7 @@ class KMahjonggTilesetSelector : public QWidget, public Ui::KMahjonggTilesetSele
 {
 Q_OBJECT
 public:
-    KMahjonggTilesetSelector( QWidget* parent );
+    explicit KMahjonggTilesetSelector( QWidget* parent );
 
     void setupData();
 
