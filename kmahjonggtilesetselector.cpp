@@ -58,8 +58,8 @@ void KMahjonggTilesetSelector::setupData()
 void KMahjonggTilesetSelector::tilesetChanged()
 {
     KMahjonggTileset * selTileset = tilesetMap.value(tilesetList->currentItem()->text());
+        //Sanity checkings. Should not happen.
     if (!selTileset) return;
-    //only if different, sanity checking. Should not happen.
     if (selTileset->path()==kcfg_TileSet->text()) {
         return;
     }
@@ -73,14 +73,14 @@ void KMahjonggTilesetSelector::tilesetChanged()
     tilesetVersion->setText(selTileset->authorProperty(versionstr));
     tilesetDescription->setText(selTileset->authorProperty(descstr));
 
-    //Let the tileset calculate its ideal size for the preview area
-    QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size(), 1, 1);
+    //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
+    QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);
     selTileset->reloadTileset(tilesize);
     //Draw the preview
     QImage qiRend(tilesetPreview->size(),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
     QPainter p(&qiRend);
-    //Calculate the margin
+    //Calculate the margins to center the tile
     QSize margin = tilesetPreview->size() - tilesize;
     //Draw unselected tile and first tileface
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->unselectedTile(1));
