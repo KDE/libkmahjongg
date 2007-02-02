@@ -105,10 +105,6 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     QString graphicsPath;
     qDebug() << "Attempting to load .desktop at " << tilesetPath;
 
-    if (filename == tilesetPath) {
-	return true;
-    }
-
     //clear our properties map
     authorproperties.clear();
 

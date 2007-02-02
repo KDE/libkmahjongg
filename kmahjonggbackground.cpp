@@ -66,10 +66,6 @@ qDebug() << "Background loading";
     QString graphicsPath;
     qDebug() << "Attempting to load .desktop at " << file;
 
-    if (file == filename) {
-  	return true;
-    }
-
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
