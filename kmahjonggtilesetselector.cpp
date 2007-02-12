@@ -38,7 +38,8 @@ void KMahjonggTilesetSelector::setupData()
     KMahjonggTileset tile;
 
     //Now get our tilesets into a list
-    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjonggtileset", QString("*.desktop") , true, false);
+    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjonggtileset", QString("*.desktop"),
+                                                                   KStandardDirs::Recursive);
 
     QString namestr("Name");
     for (int i = 0; i < tilesAvailable.size(); ++i)
