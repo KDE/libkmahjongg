@@ -115,7 +115,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     }
     tilesetfile.close();
 
-    KSimpleConfig tileconfig(tilesetPath);
+    KConfig tileconfig(tilesetPath, KConfig::OnlyLocal);
     tileconfig.setGroup(QString::fromLatin1("KMahjonggTileset"));
 
     authorproperties.insert("Name", tileconfig.readEntry("Name"));// Returns translated data
