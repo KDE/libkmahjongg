@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include "kmahjonggtileset.h"
 #include <klocale.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <qimage.h>
 #include <kstandarddirs.h>
 #include <QPainter>

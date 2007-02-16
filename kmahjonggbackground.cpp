@@ -21,7 +21,7 @@
 #include "kmahjonggbackground.h"
 #include <kstandarddirs.h>
 #include <klocale.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <QImage>
 #include <QFile>
 #include <QPixmap>

@@ -19,7 +19,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <krandom.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggconfigdialog.h"
