@@ -21,7 +21,7 @@
 #include "kmahjonggbackground.h"
 #include <kstandarddirs.h>
 #include <klocale.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <QImage>
 #include <QFile>
 #include <QPixmap>
@@ -73,7 +73,7 @@ qDebug() << "Background loading";
     }
     bgfile.close();
 
-    KSimpleConfig bgconfig(file);
+    KConfig bgconfig(file, KConfig::OnlyLocal);
     bgconfig.setGroup(QString::fromLatin1("KMahjonggBackground"));
 
     QString themeName = bgconfig.readEntry("Name"); // Returns translated data
