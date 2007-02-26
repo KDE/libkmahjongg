@@ -29,7 +29,7 @@
 #include <QPainter>
 #include <QtDebug>
 
-KMahjonggBackground::KMahjonggBackground(): tile(true) {
+KMahjonggBackground::KMahjonggBackground(): isTiled(true) {
     isSVG = false;
 
     static bool _inited = false;
@@ -94,9 +94,11 @@ qDebug() << "Using background at " << graphicsPath;
     {
         w      = group.readEntry("Width",0);
         h      = group.readEntry("Height",0);
+        isTiled = true;
     } else {
         w = width;
         h = height;
+        isTiled = false;
     }
 
     svg.load(graphicsPath);
@@ -115,7 +117,7 @@ qDebug() << "Using background at " << graphicsPath;
 
 void KMahjonggBackground::sizeChanged(int newW, int newH) {
         //in tiled mode we do not care about the whole field size
-        if (tile) return;
+        if (isTiled) return;
 
 	if (newW == w && newH == h)
 		return;

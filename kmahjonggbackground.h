@@ -33,7 +33,7 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
   public:
     KMahjonggBackground();
     ~KMahjonggBackground();
-    bool tile;
+    bool isTiled;
     bool isSVG;
 
     bool loadDefault();
