@@ -39,18 +39,12 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
     bool loadDefault();
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
-    void scaleModeChanged();
     QBrush & getBackground();
     QString path() {return filename;};
  private:
-    //void sourceToBackground();
-    void scale();
     QString pixmapCacheNameFromElementId(QString & elementid);
     QPixmap renderBG(short width, short height);
 
-    //int tileMode;    // scale background = 0, tile = 1
-    //QImage backgroundImage;
-    QImage sourceImage;
     QPixmap backgroundPixmap;
     QBrush backgroundBrush;
     QString filename;

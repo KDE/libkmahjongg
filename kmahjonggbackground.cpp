@@ -115,13 +115,6 @@ qDebug() << "Using background at " << graphicsPath;
    return true;
 }
 
-// slot used when tile/scale option changes
-void KMahjonggBackground::scaleModeChanged() {
-	//TODO implement tiling
-	//sourceToBackground();
-	//scale();
-}
-
 void KMahjonggBackground::sizeChanged(int newW, int newH) {
         //in tiled mode we do not care about the whole field size
         if (tile) return;
@@ -130,20 +123,6 @@ void KMahjonggBackground::sizeChanged(int newW, int newH) {
 		return;
 	w = newW;
 	h = newH;
-	//scale();
-}
-
-void KMahjonggBackground::scale() {
-qDebug() << "Background scaling";
-    if( isSVG) {
-	if (svg.isValid()) {
-	        sourceImage =  QImage(w, h ,QImage::Format_RGB32);
-		sourceImage.fill(0);
-	        QPainter p(&sourceImage);
-	        svg.render(&p);
-	    }
-    }
-    backgroundPixmap = QPixmap::fromImage(sourceImage);
 }
 
 QString KMahjonggBackground::pixmapCacheNameFromElementId(QString & elementid) {
@@ -169,52 +148,4 @@ QBrush & KMahjonggBackground::getBackground() {
 	backgroundBrush = QBrush(backgroundPixmap);
         return backgroundBrush;
 }
-
-/*
-void Background::sourceToBackground() {
-  //Sanity check, did we load anything?
-  if (!sourceImage) return;
-
-  // Deallocate the old image and create the new one
-  delete backgroundImage;
-  // the new version of kmahjongg uses true color images
-  // to avoid the old color limitation.
-  backgroundImage = new QImage(w, h, QImage::Format_RGB32);
-
-  // Now we decide if we should scale the incoming image
-  // or if we tile. First we check for an exact match which
-  // should be true for all images created specifically for us.
-  if ((sourceImage->width() == w) && (sourceImage->height() == h)) {
-    *backgroundImage = *sourceImage;
-
-  // Save a copy of the background as a pixmap for easy and quick
-  // blitting.
-  *backgroundPixmap = QPixmap::fromImage(*backgroundImage);
-
-    return;
-  }
-    
-  if (tile) {
-    // copy new to background wrapping on w and height
-    for (int y=0; y<backgroundImage->height(); y++) {
-      QRgb *dest = (QRgb *) backgroundImage->scanLine(y);
-      QRgb *src = (QRgb *) sourceImage->scanLine(y % sourceImage->height());
-      for (int x=0; x< backgroundImage->width(); x++) {
-	*dest = *(src + (x % sourceImage->width()));
-	dest++;
-      }
-    }
-  } else {
-    *backgroundImage = sourceImage->scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-    // Just incase the image is loaded 8 bit
-    if (backgroundImage->depth() != 32)
-      *backgroundImage = backgroundImage->convertToFormat(QImage::Format_RGB32);
-  }
-
-  // Save a copy of the background as a pixmap for easy and quick
-  // blitting.
-  *backgroundPixmap = QPixmap::fromImage(*backgroundImage);
-
-  return;
-}*/
 
