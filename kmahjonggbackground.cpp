@@ -60,8 +60,6 @@ qDebug() << "Inside LoadDefault(), located background at " << bgPath;
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
 qDebug() << "Background loading";
-    //tiled for now
-    tile = true;
 
     QString graphicsPath;
     qDebug() << "Attempting to load .desktop at " << file;
@@ -74,17 +72,17 @@ qDebug() << "Background loading";
     bgfile.close();
 
     KConfig bgconfig(file, KConfig::OnlyLocal);
-    bgconfig.setGroup(QString::fromLatin1("KMahjonggBackground"));
+    KConfigGroup group = bgconfig.group("KMahjonggBackground");
 
-    QString themeName = bgconfig.readEntry("Name"); // Returns translated data
+    QString themeName = group.readEntry("Name"); // Returns translated data
     //Version control
-    int bgversion = bgconfig.readEntry("VersionFormat",0);
+    int bgversion = group.readEntry("VersionFormat",0);
     //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
     if (bgversion > kBGVersionFormat) {
         return false;
     }
 
-    QString graphName = bgconfig.readEntry("FileName");
+    QString graphName = group.readEntry("FileName");
 
     graphicsPath = KStandardDirs::locate("kmahjonggbackground", graphName);
 qDebug() << "Using background at " << graphicsPath;
@@ -92,18 +90,18 @@ qDebug() << "Using background at " << graphicsPath;
 
     if (graphicsPath.isEmpty()) return (false);
 
-    w      = bgconfig.readEntry("Width",0);
-    h      = bgconfig.readEntry("Height",0);
+    if (group.readEntry("Tiled",0))
+    {
+        w      = group.readEntry("Width",0);
+        h      = group.readEntry("Height",0);
+    } else {
+        w = width;
+        h = height;
+    }
 
     svg.load(graphicsPath);
     if (svg.isValid()) {
 	isSVG = true;
-        //tile?
-        if (tile) {
-           //use default tile dimensions
-           w = svg.defaultSize().width(); 
-           h = svg.defaultSize().height(); 
-        }
     } else {
         qDebug() << "could not load svg";
         return( false );

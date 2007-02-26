@@ -116,22 +116,22 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     tilesetfile.close();
 
     KConfig tileconfig(tilesetPath, KConfig::OnlyLocal);
-    tileconfig.setGroup(QString::fromLatin1("KMahjonggTileset"));
+    KConfigGroup group = tileconfig.group("KMahjonggTileset");
 
-    authorproperties.insert("Name", tileconfig.readEntry("Name"));// Returns translated data
-    authorproperties.insert("Author", tileconfig.readEntry("Author"));
-    authorproperties.insert("Description", tileconfig.readEntry("Description"));
-    authorproperties.insert("AuthorEmail", tileconfig.readEntry("AuthorEmail"));
-    authorproperties.insert("VersionString", tileconfig.readEntry("VersionString"));
-    authorproperties.insert("Description", tileconfig.readEntry("Description"));
+    authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
+    authorproperties.insert("Author", group.readEntry("Author"));
+    authorproperties.insert("Description", group.readEntry("Description"));
+    authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+    authorproperties.insert("VersionString", group.readEntry("VersionString"));
+    authorproperties.insert("Description", group.readEntry("Description"));
     //Version control
-    int tileversion = tileconfig.readEntry("VersionFormat",0);
+    int tileversion = group.readEntry("VersionFormat",0);
     //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
     if (tileversion > kTilesetVersionFormat) {
         return false;
     }
 
-    QString graphName = tileconfig.readEntry("FileName");
+    QString graphName = group.readEntry("FileName");
 
     graphicsPath = KStandardDirs::locate("kmahjonggtileset", graphName);
 qDebug() << "Using tileset at " << graphicsPath;
@@ -141,11 +141,11 @@ qDebug() << "Using tileset at " << graphicsPath;
     isSVG = true;
     if (graphicsPath.isEmpty()) return (false);
 
-    originaldata.w      = tileconfig.readEntry("TileWidth",0);
-    originaldata.h      = tileconfig.readEntry("TileHeight",0);
-    originaldata.fw  =  tileconfig.readEntry("TileFaceWidth",0);
-    originaldata.fh = tileconfig.readEntry("TileFaceHeight",0);
-    originaldata.lvloff     =  tileconfig.readEntry("LevelOffset",0);
+    originaldata.w      = group.readEntry("TileWidth",0);
+    originaldata.h      = group.readEntry("TileHeight",0);
+    originaldata.fw  =  group.readEntry("TileFaceWidth",0);
+    originaldata.fh = group.readEntry("TileFaceHeight",0);
+    originaldata.lvloff     =  group.readEntry("LevelOffset",0);
 
     if( isSVG ) {
 	//really?
