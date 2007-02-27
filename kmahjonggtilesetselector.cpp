@@ -22,15 +22,20 @@
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggtileset.h"
 
-KMahjonggTilesetSelector::KMahjonggTilesetSelector( QWidget* parent )
+KMahjonggTilesetSelector::KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * aconfig )
         : QWidget( parent )
 {
         setupUi(this);
-        setupData();
+        setupData(aconfig);
 }
 
-void KMahjonggTilesetSelector::setupData()
+void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
 {
+    //Get our currently configured Tileset entry
+    KConfig * config = aconfig->config();
+    KConfigGroup group = config->group("General");
+    QString initialGroup = group.readEntry("Tileset_file");
+
     //The lineEdit widget holds our tileset path, but the user does not manipulate it directly
     kcfg_TileSet->hide();
 
@@ -45,9 +50,16 @@ void KMahjonggTilesetSelector::setupData()
     for (int i = 0; i < tilesAvailable.size(); ++i)
     {   
         KMahjonggTileset * aset = new KMahjonggTileset();
-        if (aset->loadTileset(tilesAvailable.at(i))) {
+        QString atileset = tilesAvailable.at(i);
+        if (aset->loadTileset(atileset)) {
             tilesetMap.insert(aset->authorProperty(namestr), aset);
             tilesetList->addItem(aset->authorProperty(namestr));
+            //Find if this is our currently configured Tileset
+            if (atileset==initialGroup) {
+                //Select it and show its properties
+                tilesetList->setCurrentRow(i);
+                tilesetChanged();
+            }
         } else {
             delete aset;
         }

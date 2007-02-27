@@ -24,10 +24,16 @@
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggconfigdialog.h"
 
+KMahjonggConfigDialog::KMahjonggConfigDialog( QWidget *parent, const QString& name,
+                 KConfigSkeleton *config) : KConfigDialog (parent, name, config, 
+            List, Ok|Apply|Cancel|Help, Ok, true)
+{
+    m_config = config;
+}
 
 void KMahjonggConfigDialog::addTilesetPage()
 {
-  KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(0);
+  KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(this, m_config);
   //TODO: Use the cards icon for our page for now, need to get one for tilesets made
   addPage(ts, i18n("Tiles"), "package_games_card");
 }

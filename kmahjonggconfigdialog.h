@@ -27,15 +27,10 @@ class KMAHJONGGLIB_EXPORT KMahjonggConfigDialog : public KConfigDialog
 Q_OBJECT
 public:
     KMahjonggConfigDialog( QWidget *parent, const QString& name,
-                 KConfigSkeleton *config,
-                 FaceType faceType = List,
-                 ButtonCodes dialogButtons = Default|Ok|Apply|Cancel|Help,
-                 ButtonCode defaultButton = Ok,
-                 bool modal=false ) : KConfigDialog (parent, name, config, 
-            faceType, dialogButtons, defaultButton, modal) {}
-
+                 KConfigSkeleton *config);
     void addTilesetPage();
 
+    KConfigSkeleton * m_config;
 protected slots:
     void updateWidgetsDefault();
     //void updateWidgets();

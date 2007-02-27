@@ -20,6 +20,7 @@
 #define __LIBKMAHJONGGCTILESETSELECTOR_H_
 
 #include <QMap>
+#include <KConfigSkeleton>
 #include "ui_kmahjonggtilesetselector.h"
 
 class KMahjonggTileset;
@@ -28,9 +29,9 @@ class KMahjonggTilesetSelector : public QWidget, public Ui::KMahjonggTilesetSele
 {
 Q_OBJECT
 public:
-    explicit KMahjonggTilesetSelector( QWidget* parent );
+    explicit KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * config );
 
-    void setupData();
+    void setupData(KConfigSkeleton * config);
 
     QMap<QString, KMahjonggTileset *> tilesetMap;
 public slots:
