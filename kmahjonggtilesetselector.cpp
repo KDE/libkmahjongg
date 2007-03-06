@@ -78,12 +78,10 @@ void KMahjonggTilesetSelector::tilesetChanged()
     }
     QString authstr("Author");
     QString contactstr("AuthorEmail");
-    QString versionstr("Description");
     QString descstr("Description");
     kcfg_TileSet->setText(selTileset->path());
     tilesetAuthor->setText(selTileset->authorProperty(authstr));
     tilesetContact->setText(selTileset->authorProperty(contactstr));
-    tilesetVersion->setText(selTileset->authorProperty(versionstr));
     tilesetDescription->setText(selTileset->authorProperty(descstr));
 
     //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)

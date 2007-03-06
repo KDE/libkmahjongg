@@ -122,8 +122,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     authorproperties.insert("Author", group.readEntry("Author"));
     authorproperties.insert("Description", group.readEntry("Description"));
     authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
-    authorproperties.insert("VersionString", group.readEntry("VersionString"));
-    authorproperties.insert("Description", group.readEntry("Description"));
+
     //Version control
     int tileversion = group.readEntry("VersionFormat",0);
     //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely

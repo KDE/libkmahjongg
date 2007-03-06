@@ -107,13 +107,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="labelVersion" >
-          <property name="text" >
-           <string>Version:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QLabel" name="labelDescription" >
           <property name="text" >
            <string>Description:</string>
@@ -139,13 +132,6 @@
         </item>
         <item>
          <widget class="QLabel" name="tilesetContact" >
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="tilesetVersion" >
           <property name="text" >
            <string/>
           </property>
