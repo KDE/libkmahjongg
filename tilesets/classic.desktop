@@ -1,5 +1,7 @@
 [KMahjonggTileset]
 Name=Classic
+Name[uk]=Класичні
+Name[x-test]=xxClassicxx
 VersionFormat=1
 Author=Robert Buchholz
 AuthorEmail=robertbuchholz@gmx.de

@@ -1,5 +1,7 @@
 [KMahjonggBackground]
 Name=Default
+Name[uk]=Типові
+Name[x-test]=xxDefaultxx
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com

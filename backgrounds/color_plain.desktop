@@ -1,5 +1,7 @@
 [KMahjonggBackground]
 Name=Plain Color
+Name[uk]=Звичайний колір
+Name[x-test]=xxPlain Colorxx
 VersionFormat=1
 Author=Mauricio Piacentini
 AuthorEmail=mauricio@tabuleiro.com
