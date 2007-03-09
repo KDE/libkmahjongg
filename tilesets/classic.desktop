@@ -1,5 +1,6 @@
 [KMahjonggTileset]
 Name=Classic
+Name[el]=Κλασσικό
 Name[uk]=Класичні
 Name[x-test]=xxClassicxx
 Description=Chinese tileset, inspired by the classic version shipped with KDE 3

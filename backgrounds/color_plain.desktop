@@ -1,5 +1,6 @@
 [KMahjonggBackground]
 Name=Plain Color
+Name[el]=Απλό χρώμα
 Name[uk]=Звичайний колір
 Name[x-test]=xxPlain Colorxx
 VersionFormat=1
