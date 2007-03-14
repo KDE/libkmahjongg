@@ -16,26 +16,27 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __LIBKMAHJONGGCONFIGDIALOG_H_
-#define __LIBKMAHJONGGCONFIGDIALOG_H_
+#ifndef __LIBKMAHJONGGCBACKGROUNDSELECTOR_H_
+#define __LIBKMAHJONGGCBACKGROUNDSELECTOR_H_
 
-#include <kconfigdialog.h>
-#include <libkmahjongg_export.h>
+#include <QMap>
+#include <KConfigSkeleton>
+#include "ui_kmahjonggbackgroundselector.h"
 
-class KMAHJONGGLIB_EXPORT KMahjonggConfigDialog : public KConfigDialog
+class KMahjonggBackground;
+
+class KMahjonggBackgroundSelector : public QWidget, public Ui::KMahjonggBackgroundSelector
 {
 Q_OBJECT
 public:
-    KMahjonggConfigDialog( QWidget *parent, const QString& name,
-                 KConfigSkeleton *config);
-    void addTilesetPage();
-    void addBackgroundPage();
+    explicit KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * config );
 
-    KConfigSkeleton * m_config;
-protected slots:
-    void updateWidgetsDefault();
-    //void updateWidgets();
-    //void updateSettings();
+    void setupData(KConfigSkeleton * config);
+
+    QMap<QString, KMahjonggBackground *> backgroundMap;
+public slots:
+    void backgroundChanged();
+    void show();
 };
 
 #endif

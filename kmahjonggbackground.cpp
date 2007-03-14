@@ -74,7 +74,11 @@ qDebug() << "Background loading";
     KConfig bgconfig(file, KConfig::OnlyLocal);
     KConfigGroup group = bgconfig.group("KMahjonggBackground");
 
-    QString themeName = group.readEntry("Name"); // Returns translated data
+    authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
+    authorproperties.insert("Author", group.readEntry("Author"));
+    authorproperties.insert("Description", group.readEntry("Description"));
+    authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+
     //Version control
     int bgversion = group.readEntry("VersionFormat",0);
     //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely

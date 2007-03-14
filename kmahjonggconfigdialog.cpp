@@ -22,6 +22,7 @@
 #include <kconfig.h>
 
 #include "kmahjonggtilesetselector.h"
+#include "kmahjonggbackgroundselector.h"
 #include "kmahjonggconfigdialog.h"
 
 KMahjonggConfigDialog::KMahjonggConfigDialog( QWidget *parent, const QString& name,
@@ -36,6 +37,13 @@ void KMahjonggConfigDialog::addTilesetPage()
   KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(this, m_config);
   //TODO: Use the cards icon for our page for now, need to get one for tilesets made
   addPage(ts, i18n("Tiles"), "package_games_card");
+}
+
+void KMahjonggConfigDialog::addBackgroundPage()
+{
+  KMahjonggBackgroundSelector * ts = new KMahjonggBackgroundSelector(this, m_config);
+  //TODO: need icon
+  addPage(ts, i18n("Background"), "background");
 }
 
 void KMahjonggConfigDialog::updateWidgetsDefault()

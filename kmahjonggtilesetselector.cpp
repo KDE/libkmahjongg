@@ -25,8 +25,10 @@
 KMahjonggTilesetSelector::KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * aconfig )
         : QWidget( parent )
 {
-        setupUi(this);
-        setupData(aconfig);
+    setupUi(this);
+    setupData(aconfig);
+    //Schedule the update of our preview information
+    QMetaObject::invokeMethod(this, "tilesetChanged", Qt::QueuedConnection);
 }
 
 void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
@@ -43,10 +45,10 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
     KMahjonggTileset tile;
 
     //Now get our tilesets into a list
-    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjonggtileset", QString("*.desktop"),
-                                                                   KStandardDirs::Recursive);
+    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjonggtileset", QString("*.desktop"), KStandardDirs::Recursive);
 
     QString namestr("Name");
+    int numvalidentries = 0;
     for (int i = 0; i < tilesAvailable.size(); ++i)
     {   
         KMahjonggTileset * aset = new KMahjonggTileset();
@@ -56,10 +58,11 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
             tilesetList->addItem(aset->authorProperty(namestr));
             //Find if this is our currently configured Tileset
             if (atileset==initialGroup) {
-                //Select it and show its properties
-                tilesetList->setCurrentRow(i);
+                //Select current entry
+                tilesetList->setCurrentRow(numvalidentries);
                 tilesetChanged();
             }
+            ++numvalidentries;
         } else {
             delete aset;
         }

@@ -23,6 +23,7 @@
 #include <QImage>
 #include <QBrush>
 #include <QPixmap>
+#include <QMap>
 #include "ksvgrenderer.h"
 #include "libkmahjongg_export.h"
 
@@ -41,7 +42,10 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
     void sizeChanged(int newW, int newH);
     QBrush & getBackground();
     QString path() {return filename;};
+    QString authorProperty(QString & key) {return authorproperties[key];};
+
  private:
+    QMap<QString, QString> authorproperties;
     QString pixmapCacheNameFromElementId(QString & elementid);
     QPixmap renderBG(short width, short height);
 
