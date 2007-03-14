@@ -29,12 +29,6 @@ KMahjonggBackgroundSelector::KMahjonggBackgroundSelector( QWidget* parent, KConf
     setupData(aconfig);
 }
 
-void KMahjonggBackgroundSelector::show ()
-{
-    show();
-    qDebug() << "showed";
-}
-
 void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
 {
     //Get our currently configured Tileset entry

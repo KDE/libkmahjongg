@@ -36,7 +36,6 @@ public:
     QMap<QString, KMahjonggBackground *> backgroundMap;
 public slots:
     void backgroundChanged();
-    void show();
 };
 
 #endif
