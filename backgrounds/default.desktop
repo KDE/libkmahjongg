@@ -3,6 +3,7 @@ Name=Default
 Name[el]=Προκαθορισμένο
 Name[uk]=Типові
 Name[x-test]=xxDefaultxx
+Description=A green background with light geometric patterns
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com
