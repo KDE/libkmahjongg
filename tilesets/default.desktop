@@ -4,6 +4,7 @@ Name[el]=Προκαθορισμένο
 Name[uk]=Типові
 Name[x-test]=xxDefaultxx
 Description=Art inspired by real japanese Mahjongg tiles
+Description[x-test]=xxArt inspired by real japanese Mahjongg tilesxx
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com

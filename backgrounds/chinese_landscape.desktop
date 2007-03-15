@@ -1,8 +1,5 @@
 [KMahjonggBackground]
 Name=Chinese Landscape
-Name[el]=Προκαθορισμένο
-Name[uk]=Типові
-Name[x-test]=xxDefaultxx
 Description=Chinese landscape with mountains and a waterfall
 VersionFormat=1
 Author=Eugene T
