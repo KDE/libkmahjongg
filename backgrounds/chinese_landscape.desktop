@@ -1,6 +1,8 @@
 [KMahjonggBackground]
 Name=Chinese Landscape
+Name[el]=Κινέζικο τοπίο
 Description=Chinese landscape with mountains and a waterfall
+Description[el]=Κινέζικο τοπίο με βουνά και ένα καταράκτη
 VersionFormat=1
 Author=Eugene T
 AuthorEmail=irs_me@hotmail.com
