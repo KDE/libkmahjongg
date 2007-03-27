@@ -41,8 +41,8 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     QBrush & getBackground();
-    QString path() {return filename;};
-    QString authorProperty(QString & key) {return authorproperties[key];};
+    QString path() {return filename;}
+    QString authorProperty(QString & key) {return authorproperties[key];}
 
  private:
     QMap<QString, QString> authorproperties;

@@ -42,14 +42,14 @@ class KMAHJONGGLIB_EXPORT KMahjonggTileset {
      bool loadTileset(const QString & tilesetPath);
      bool reloadTileset(const QSize & newTilesize);
      QSize preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells);
-     QString authorProperty(QString & key) {return authorproperties[key];};
+     QString authorProperty(QString & key) {return authorproperties[key];}
 
-     short width() {return scaleddata.w;};
-     short height() {return scaleddata.h;};
-     short levelOffset() {return scaleddata.lvloff;};
-     short qWidth() {return (short) (scaleddata.fw / 2.0);};
-     short qHeight() {return (short) (scaleddata.fh / 2.0);};
-     QString path() {return filename;};
+     short width() {return scaleddata.w;}
+     short height() {return scaleddata.h;}
+     short levelOffset() {return scaleddata.lvloff;}
+     short qWidth() {return (short) (scaleddata.fw / 2.0);}
+     short qHeight() {return (short) (scaleddata.fh / 2.0);}
+     QString path() {return filename;}
 
      QPixmap selectedTile(int num);
      QPixmap unselectedTile(int num);
