@@ -103,6 +103,9 @@
           <property name="text" >
            <string>Author:</string>
           </property>
+          <property name="alignment" >
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
          </widget>
         </item>
         <item>
@@ -110,12 +113,18 @@
           <property name="text" >
            <string>Contact:</string>
           </property>
+          <property name="alignment" >
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="labelDescription" >
           <property name="text" >
            <string>Description:</string>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
