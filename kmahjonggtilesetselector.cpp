@@ -27,8 +27,6 @@ KMahjonggTilesetSelector::KMahjonggTilesetSelector( QWidget* parent, KConfigSkel
 {
     setupUi(this);
     setupData(aconfig);
-    //Schedule the update of our preview information
-    QMetaObject::invokeMethod(this, "tilesetChanged", Qt::QueuedConnection);
 }
 
 void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
