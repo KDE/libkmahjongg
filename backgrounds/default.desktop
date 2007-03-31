@@ -1,10 +1,12 @@
 [KMahjonggBackground]
 Name=Default
 Name[el]=Προκαθορισμένο
+Name[sv]=Förval
 Name[uk]=Типові
 Name[x-test]=xxDefaultxx
 Description=A green background with light geometric patterns
 Description[el]=Ένα πράσινο φόντο με απαλά γεωμετρικά σχέδια
+Description[sv]=En grön bakgrund med ljusa geometriska mönster
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com

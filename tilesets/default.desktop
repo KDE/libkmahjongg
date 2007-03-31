@@ -1,9 +1,11 @@
 [KMahjonggTileset]
 Name=Default
 Name[el]=Προκαθορισμένο
+Name[sv]=Förval
 Name[uk]=Типові
 Name[x-test]=xxDefaultxx
 Description=Art inspired by real japanese Mahjongg tiles
+Description[sv]=Grafik inspirerad av riktiga japanska Mahjongg-brickor
 Description[x-test]=xxArt inspired by real japanese Mahjongg tilesxx
 VersionFormat=1
 Author=Raquel Ravanini
