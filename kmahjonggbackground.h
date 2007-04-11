@@ -19,18 +19,16 @@
 
 #ifndef _KMAHJONGGBACKGROUND_H_
 #define _KMAHJONGGBACKGROUND_H_
+
 #include <QString>
-#include <QImage>
 #include <QBrush>
-#include <QPixmap>
-#include <QMap>
-#include "ksvgrenderer.h"
+
 #include "libkmahjongg_export.h"
+
+class KMahjonggBackgroundPrivate;
 
 class KMAHJONGGLIB_EXPORT KMahjonggBackground  
 {
-
-
   public:
     KMahjonggBackground();
     ~KMahjonggBackground();
@@ -41,21 +39,14 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     QBrush & getBackground();
-    QString path() {return filename;}
-    QString authorProperty(QString & key) {return authorproperties[key];}
+    QString path() const;
+    QString authorProperty(const QString &key) const;
 
  private:
-    QMap<QString, QString> authorproperties;
-    QString pixmapCacheNameFromElementId(QString & elementid);
-    QPixmap renderBG(short width, short height);
+    friend class KMahjonggBackgroundPrivate;
+    KMahjonggBackgroundPrivate *const d;
 
-    QPixmap backgroundPixmap;
-    QBrush backgroundBrush;
-    QString filename;
-    short w;
-    short h;
-
-    KSvgRenderer svg;
+    Q_DISABLE_COPY(KMahjonggBackground)
 };
 
 #endif

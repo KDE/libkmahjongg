@@ -20,18 +20,12 @@
 #ifndef _KMAHJONGGTILESET_H_
 #define _KMAHJONGGTILESET_H_
 
-#include <QBitmap>
-#include <QMap>
-#include "ksvgrenderer.h"
-#include "libkmahjongg_export.h"
+#include <QtCore/QString>
+#include <QtGui/QPixmap>
 
-typedef struct tilesetmetricsdata {
-    short lvloff;   // used for 3D indentation
-    short w;    // tile width ( +border +shadow)
-    short h;    // tile height ( +border +shadow)
-    short fw;   // face width
-    short fh;   // face height
-} TILESETMETRICSDATA;
+#include <libkmahjongg_export.h>
+
+class KMahjonggTilesetPrivate;
 
 class KMAHJONGGLIB_EXPORT KMahjonggTileset {
    public:
@@ -42,14 +36,14 @@ class KMAHJONGGLIB_EXPORT KMahjonggTileset {
      bool loadTileset(const QString & tilesetPath);
      bool reloadTileset(const QSize & newTilesize);
      QSize preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells);
-     QString authorProperty(QString & key) {return authorproperties[key];}
+     QString authorProperty(const QString &key) const;
 
-     short width() {return scaleddata.w;}
-     short height() {return scaleddata.h;}
-     short levelOffset() {return scaleddata.lvloff;}
-     short qWidth() {return (short) (scaleddata.fw / 2.0);}
-     short qHeight() {return (short) (scaleddata.fh / 2.0);}
-     QString path() {return filename;}
+     short width() const;
+     short height() const;
+     short levelOffset() const;
+     short qWidth() const;
+     short qHeight() const;
+     QString path() const;
 
      QPixmap selectedTile(int num);
      QPixmap unselectedTile(int num);
@@ -64,18 +58,10 @@ class KMAHJONGGLIB_EXPORT KMahjonggTileset {
   
 
   private:
-    QList<QString> elementIdTable;
-    QMap<QString, QString> authorproperties;
+    friend class KMahjonggTilesetPrivate;
+    KMahjonggTilesetPrivate *const d;
 
-    TILESETMETRICSDATA originaldata;
-    TILESETMETRICSDATA scaleddata;
-    QString filename;  // cache the last file loaded to save reloading it
-
-    KSvgRenderer svg;
-    bool isSVG;
+    Q_DISABLE_COPY(KMahjonggTileset)
 };
 
-
 #endif
-
-

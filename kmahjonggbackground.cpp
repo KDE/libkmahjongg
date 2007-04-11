@@ -1,4 +1,3 @@
-
 /*
     Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
     Copyright (C) 2006 Mauricio Piacentini   <mauricio@tabuleiro.com>
@@ -19,18 +18,45 @@
 */
 
 #include "kmahjonggbackground.h"
+
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kconfig.h>
+#include <ksvgrenderer.h>
 #include <QImage>
 #include <QFile>
+#include <QMap>
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QPainter>
 #include <QtDebug>
 
-KMahjonggBackground::KMahjonggBackground(): isTiled(true) {
+class KMahjonggBackgroundPrivate
+{
+public:
+    KMahjonggBackgroundPrivate()
+        : w(1), h(1)
+    {
+    }
+
+    QMap<QString, QString> authorproperties;
+    QString pixmapCacheNameFromElementId(const QString &elementid);
+    QPixmap renderBG(short width, short height);
+
+    QPixmap backgroundPixmap;
+    QBrush backgroundBrush;
+    QString filename;
+    short w;
+    short h;
+
+    KSvgRenderer svg;
+};
+
+KMahjonggBackground::KMahjonggBackground()
+    : d(new KMahjonggBackgroundPrivate)
+{
     isSVG = false;
+    isTiled = true;
 
     static bool _inited = false;
     if (_inited)
@@ -42,6 +68,7 @@ KMahjonggBackground::KMahjonggBackground(): isTiled(true) {
 }
 
 KMahjonggBackground::~KMahjonggBackground() {
+    delete d;
 }
 
 bool KMahjonggBackground::loadDefault()
@@ -74,10 +101,10 @@ qDebug() << "Background loading";
     KConfig bgconfig(file, KConfig::OnlyLocal);
     KConfigGroup group = bgconfig.group("KMahjonggBackground");
 
-    authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
-    authorproperties.insert("Author", group.readEntry("Author"));
-    authorproperties.insert("Description", group.readEntry("Description"));
-    authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+    d->authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
+    d->authorproperties.insert("Author", group.readEntry("Author"));
+    d->authorproperties.insert("Description", group.readEntry("Description"));
+    d->authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
 
     //Version control
     int bgversion = group.readEntry("VersionFormat",0);
@@ -90,23 +117,23 @@ qDebug() << "Background loading";
 
     graphicsPath = KStandardDirs::locate("kmahjonggbackground", graphName);
 qDebug() << "Using background at " << graphicsPath;
-    filename = graphicsPath;
+    d->filename = graphicsPath;
 
     if (graphicsPath.isEmpty()) return (false);
 
     if (group.readEntry("Tiled",0))
     {
-        w      = group.readEntry("Width",0);
-        h      = group.readEntry("Height",0);
+        d->w = group.readEntry("Width",0);
+        d->h = group.readEntry("Height",0);
         isTiled = true;
     } else {
-        w = width;
-        h = height;
+        d->w = width;
+        d->h = height;
         isTiled = false;
     }
 
-    svg.load(graphicsPath);
-    if (svg.isValid()) {
+    d->svg.load(graphicsPath);
+    if (d->svg.isValid()) {
 	isSVG = true;
     } else {
         qDebug() << "could not load svg";
@@ -115,7 +142,7 @@ qDebug() << "Using background at " << graphicsPath;
 
   // call out to scale/tile the source image into the background image
   //in case of SVG we will be already at the right size
-  filename = file;
+    d->filename = file;
    return true;
 }
 
@@ -123,17 +150,17 @@ void KMahjonggBackground::sizeChanged(int newW, int newH) {
         //in tiled mode we do not care about the whole field size
         if (isTiled) return;
 
-	if (newW == w && newH == h)
+    if (newW == d->w && newH == d->h)
 		return;
-	w = newW;
-	h = newH;
+    d->w = newW;
+    d->h = newH;
 }
 
-QString KMahjonggBackground::pixmapCacheNameFromElementId(QString & elementid) {
+QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid) {
 	return elementid+QString("W%1H%2").arg(w).arg(h);
 }
 
-QPixmap KMahjonggBackground::renderBG(short width, short height) {
+QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height) {
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
@@ -145,11 +172,18 @@ QPixmap KMahjonggBackground::renderBG(short width, short height) {
 }
 
 QBrush & KMahjonggBackground::getBackground() {
- 	if (!QPixmapCache::find(pixmapCacheNameFromElementId(filename), backgroundPixmap)) {
-     		backgroundPixmap = renderBG(w, h);
-     		QPixmapCache::insert(pixmapCacheNameFromElementId(filename), backgroundPixmap);
+    if (!QPixmapCache::find(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap)) {
+        d->backgroundPixmap = d->renderBG(d->w, d->h);
+        QPixmapCache::insert(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap);
  	}
-	backgroundBrush = QBrush(backgroundPixmap);
-        return backgroundBrush;
+    d->backgroundBrush = QBrush(d->backgroundPixmap);
+    return d->backgroundBrush;
 }
 
+QString KMahjonggBackground::path() const {
+    return d->filename;
+}
+
+QString KMahjonggBackground::authorProperty(const QString &key) const {
+    return d->authorproperties[key];
+}

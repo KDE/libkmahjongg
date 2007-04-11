@@ -22,20 +22,28 @@
 #include <kconfigdialog.h>
 #include <libkmahjongg_export.h>
 
+class KMahjonggConfigDialogPrivate;
+
 class KMAHJONGGLIB_EXPORT KMahjonggConfigDialog : public KConfigDialog
 {
 Q_OBJECT
 public:
     KMahjonggConfigDialog( QWidget *parent, const QString& name,
                  KConfigSkeleton *config);
+    ~KMahjonggConfigDialog();
     void addTilesetPage();
     void addBackgroundPage();
 
-    KConfigSkeleton * m_config;
-protected slots:
+protected Q_SLOTS:
     void updateWidgetsDefault();
     //void updateWidgets();
     //void updateSettings();
+
+private:
+    friend class KMahjonggConfigDialogPrivate;
+    KMahjonggConfigDialogPrivate *const d;
+
+    Q_DISABLE_COPY(KMahjonggConfigDialog)
 };
 
 #endif

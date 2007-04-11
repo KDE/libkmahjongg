@@ -25,23 +25,35 @@
 #include "kmahjonggbackgroundselector.h"
 #include "kmahjonggconfigdialog.h"
 
-KMahjonggConfigDialog::KMahjonggConfigDialog( QWidget *parent, const QString& name,
-                 KConfigSkeleton *config) : KConfigDialog (parent, name, config, 
-            List, Ok|Apply|Cancel|Help, Ok, true)
+class KMahjonggConfigDialogPrivate
 {
-    m_config = config;
+public:
+    KConfigSkeleton * m_config;
+};
+
+KMahjonggConfigDialog::KMahjonggConfigDialog( QWidget *parent, const QString& name,
+                 KConfigSkeleton *config)
+    : KConfigDialog(parent, name, config, List, Ok | Apply | Cancel | Help, Ok, true),
+      d(new KMahjonggConfigDialogPrivate)
+{
+    d->m_config = config;
+}
+
+KMahjonggConfigDialog::~KMahjonggConfigDialog()
+{
+    delete d;
 }
 
 void KMahjonggConfigDialog::addTilesetPage()
 {
-  KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(this, m_config);
+  KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(this, d->m_config);
   //TODO: Use the cards icon for our page for now, need to get one for tilesets made
   addPage(ts, i18n("Tiles"), "package_games_card");
 }
 
 void KMahjonggConfigDialog::addBackgroundPage()
 {
-  KMahjonggBackgroundSelector * ts = new KMahjonggBackgroundSelector(this, m_config);
+  KMahjonggBackgroundSelector * ts = new KMahjonggBackgroundSelector(this, d->m_config);
   //TODO: need icon
   addPage(ts, i18n("Background"), "background");
 }

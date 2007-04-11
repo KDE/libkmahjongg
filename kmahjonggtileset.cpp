@@ -17,22 +17,48 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <stdlib.h>
 #include "kmahjonggtileset.h"
+
 #include <klocale.h>
 #include <kconfig.h>
 #include <qimage.h>
 #include <kstandarddirs.h>
+#include <ksvgrenderer.h>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QFile>
 #include <QtDebug>
+#include <QMap>
+
+#include <stdlib.h>
+
+typedef struct tilesetmetricsdata {
+    short lvloff;   // used for 3D indentation
+    short w;    // tile width ( +border +shadow)
+    short h;    // tile height ( +border +shadow)
+    short fw;   // face width
+    short fh;   // face height
+} TILESETMETRICSDATA;
+
+class KMahjonggTilesetPrivate
+{
+public:
+    QList<QString> elementIdTable;
+    QMap<QString, QString> authorproperties;
+
+    TILESETMETRICSDATA originaldata;
+    TILESETMETRICSDATA scaleddata;
+    QString filename;  // cache the last file loaded to save reloading it
+
+    KSvgRenderer svg;
+    bool isSVG;
+};
 
 // ---------------------------------------------------------
 
 KMahjonggTileset::KMahjonggTileset()
+    : d(new KMahjonggTilesetPrivate)
 {
-    filename = "";
     buildElementIdTable();
 
     static bool _inited = false;
@@ -47,16 +73,17 @@ KMahjonggTileset::KMahjonggTileset()
 // ---------------------------------------------------------
 
 KMahjonggTileset::~KMahjonggTileset() {
+    delete d;
 }
 
 void KMahjonggTileset::updateScaleInfo(short tilew, short tileh) 
 {
-	scaleddata.w = tilew;
-	scaleddata.h = tileh;
-	double ratio = ((qreal) scaleddata.w) / ((qreal) originaldata.w);
-	scaleddata.lvloff     = (short) (originaldata.lvloff * ratio);
-	scaleddata.fw     = (short) (originaldata.fw * ratio);
-	scaleddata.fh     = (short) (originaldata.fh * ratio);
+    d->scaleddata.w = tilew;
+    d->scaleddata.h = tileh;
+    double ratio = ((qreal) d->scaleddata.w) / ((qreal) d->originaldata.w);
+    d->scaleddata.lvloff = (short) (d->originaldata.lvloff * ratio);
+    d->scaleddata.fw = (short) (d->originaldata.fw * ratio);
+    d->scaleddata.fh = (short) (d->originaldata.fh * ratio);
 }
 
 QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells)
@@ -67,10 +94,10 @@ QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizonta
     qreal bh = boardsize.height();
 
     //use tileface for calculation, with one complete tile in the sum for extra margin
-    qreal fullh = (originaldata.fh*verticalCells)+originaldata.h;
-    qreal fullw = (originaldata.fw*horizontalCells)+originaldata.w;
-    qreal floatw = originaldata.w;
-    qreal floath = originaldata.h;
+    qreal fullh = (d->originaldata.fh * verticalCells) + d->originaldata.h;
+    qreal fullw = (d->originaldata.fw * horizontalCells) + d->originaldata.w;
+    qreal floatw = d->originaldata.w;
+    qreal floath = d->originaldata.h;
 
     if ((fullw/fullh)>(bw/bh)) {
         //space will be left on height, use width as limit
@@ -95,6 +122,41 @@ qDebug() << "Inside LoadDefault(), located path at " << tilesetPath;
     return loadTileset(tilesetPath);
 }
 
+QString KMahjonggTileset::authorProperty(const QString &key) const
+{
+    return d->authorproperties[key];
+}
+
+short KMahjonggTileset::width() const
+{
+    return d->scaleddata.w;
+}
+
+short KMahjonggTileset::height() const
+{
+    return d->scaleddata.h;
+}
+
+short KMahjonggTileset::levelOffset() const
+{
+    return d->scaleddata.lvloff;
+}
+
+short KMahjonggTileset::qWidth() const
+{
+    return (short) (d->scaleddata.fw / 2.0);
+}
+
+short KMahjonggTileset::qHeight() const
+{
+    return (short) (d->scaleddata.fh / 2.0);
+}
+
+QString KMahjonggTileset::path() const
+{
+    return d->filename;
+}
+
 #define kTilesetVersionFormat 1
 
 // ---------------------------------------------------------
@@ -106,7 +168,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     qDebug() << "Attempting to load .desktop at " << tilesetPath;
 
     //clear our properties map
-    authorproperties.clear();
+    d->authorproperties.clear();
 
     // verify if it is a valid file first and if we can open it
     QFile tilesetfile(tilesetPath);
@@ -118,10 +180,10 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     KConfig tileconfig(tilesetPath, KConfig::OnlyLocal);
     KConfigGroup group = tileconfig.group("KMahjonggTileset");
 
-    authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
-    authorproperties.insert("Author", group.readEntry("Author"));
-    authorproperties.insert("Description", group.readEntry("Description"));
-    authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+    d->authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
+    d->authorproperties.insert("Author", group.readEntry("Author"));
+    d->authorproperties.insert("Description", group.readEntry("Description"));
+    d->authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
 
     //Version control
     int tileversion = group.readEntry("VersionFormat",0);
@@ -134,28 +196,28 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 
     graphicsPath = KStandardDirs::locate("kmahjonggtileset", graphName);
 qDebug() << "Using tileset at " << graphicsPath;
-    filename = graphicsPath;
+    d->filename = graphicsPath;
 
     //only SVG for now
-    isSVG = true;
+    d->isSVG = true;
     if (graphicsPath.isEmpty()) return (false);
 
-    originaldata.w      = group.readEntry("TileWidth",0);
-    originaldata.h      = group.readEntry("TileHeight",0);
-    originaldata.fw  =  group.readEntry("TileFaceWidth",0);
-    originaldata.fh = group.readEntry("TileFaceHeight",0);
-    originaldata.lvloff     =  group.readEntry("LevelOffset",0);
+    d->originaldata.w = group.readEntry("TileWidth", 0);
+    d->originaldata.h = group.readEntry("TileHeight", 0);
+    d->originaldata.fw = group.readEntry("TileFaceWidth", 0);
+    d->originaldata.fh = group.readEntry("TileFaceHeight", 0);
+    d->originaldata.lvloff = group.readEntry("LevelOffset", 0);
 
-    if( isSVG ) {
+    if (d->isSVG) {
 	//really?
-	svg.load(graphicsPath);
-	if (svg.isValid()) {
-		filename = tilesetPath;
+	d->svg.load(graphicsPath);
+	if (d->svg.isValid()) {
+		d->filename = tilesetPath;
 		//invalidate our global cache
 		QPixmapCache::clear();
 
-		isSVG = true;
-		reloadTileset(QSize(originaldata.w,originaldata.h));
+		d->isSVG = true;
+		reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
 	    } else {
 	        return( false );
 	    }
@@ -170,12 +232,12 @@ qDebug() << "Using tileset at " << graphicsPath;
 // ---------------------------------------------------------
 bool KMahjonggTileset::reloadTileset( const QSize & newTilesize)
 {
-    QString tilesetPath = filename;
+    QString tilesetPath = d->filename;
 
-    if (QSize(scaleddata.w,scaleddata.h)==newTilesize) return false;
+    if (QSize(d->scaleddata.w, d->scaleddata.h) == newTilesize) return false;
 
-    if( isSVG ) {
-	if (svg.isValid()) {
+    if (d->isSVG) {
+	if (d->svg.isValid()) {
 		updateScaleInfo(newTilesize.width(), newTilesize.height());
 		//rendering will be done when needed, automatically using the global cache
 	    } else {
@@ -193,38 +255,38 @@ void KMahjonggTileset::buildElementIdTable() {
 	//Build a list for faster lookup of element ids, mapped to the enumeration used by GameData and BoardWidget
 	//Unselected tiles
 	for (short idx=1; idx<=4; idx++) {
-		elementIdTable.append(QString("TILE_%1").arg(idx));
+		d->elementIdTable.append(QString("TILE_%1").arg(idx));
 	}
 	//Selected tiles
 	for (short idx=1; idx<=4; idx++) {
-		elementIdTable.append(QString("TILE_%1_SEL").arg(idx));
+		d->elementIdTable.append(QString("TILE_%1_SEL").arg(idx));
 	}
 	//now faces
 	for (short idx=1; idx<=9; idx++) {
-		elementIdTable.append(QString("CHARACTER_%1").arg(idx));
+		d->elementIdTable.append(QString("CHARACTER_%1").arg(idx));
 	}
 	for (short idx=1; idx<=9; idx++) {
-		elementIdTable.append(QString("BAMBOO_%1").arg(idx));
+		d->elementIdTable.append(QString("BAMBOO_%1").arg(idx));
 	}
 	for (short idx=1; idx<=9; idx++) {
-		elementIdTable.append(QString("ROD_%1").arg(idx));
+		d->elementIdTable.append(QString("ROD_%1").arg(idx));
 	}
 	for (short idx=1; idx<=4; idx++) {
-		elementIdTable.append(QString("SEASON_%1").arg(idx));
+		d->elementIdTable.append(QString("SEASON_%1").arg(idx));
 	}
 	for (short idx=1; idx<=4; idx++) {
-		elementIdTable.append(QString("WIND_%1").arg(idx));
+		d->elementIdTable.append(QString("WIND_%1").arg(idx));
 	}
 	for (short idx=1; idx<=3; idx++) {
-		elementIdTable.append(QString("DRAGON_%1").arg(idx));
+		d->elementIdTable.append(QString("DRAGON_%1").arg(idx));
 	}
 	for (short idx=1; idx<=4; idx++) {
-		elementIdTable.append(QString("FLOWER_%1").arg(idx));
+		d->elementIdTable.append(QString("FLOWER_%1").arg(idx));
 	}
 }
 
 QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid) {
-	return elementid+QString("W%1H%2").arg(scaleddata.w).arg(scaleddata.h);
+	return elementid + QString("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) {
@@ -232,19 +294,19 @@ QPixmap KMahjonggTileset::renderElement(short width, short height, const QString
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
-    if (svg.isValid()) {
+    if (d->svg.isValid()) {
             QPainter p(&qiRend);
-	    svg.render(&p, elementid);
+	    d->svg.render(&p, elementid);
     }
     return QPixmap::fromImage(qiRend);
 }
 
 QPixmap KMahjonggTileset::selectedTile(int num) {
 	QPixmap pm;
-	QString elemId = elementIdTable.at(num+4);//selected offset in our idtable;
+	QString elemId = d->elementIdTable.at(num+4);//selected offset in our idtable;
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
 		//use tile size
-     		pm = renderElement(scaleddata.w, scaleddata.h, elemId);
+     		pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
@@ -252,10 +314,10 @@ QPixmap KMahjonggTileset::selectedTile(int num) {
 
 QPixmap KMahjonggTileset::unselectedTile(int num) {
 	QPixmap pm;
-	QString elemId = elementIdTable.at(num);
+	QString elemId = d->elementIdTable.at(num);
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
 		//use tile size
-     		pm = renderElement(scaleddata.w, scaleddata.h, elemId);
+     		pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
@@ -263,10 +325,10 @@ QPixmap KMahjonggTileset::unselectedTile(int num) {
 
 QPixmap KMahjonggTileset::tileface(int num) {
 	QPixmap pm;
-	QString elemId = elementIdTable.at(num+8);//tileface offset in our idtable;
+	QString elemId = d->elementIdTable.at(num + 8);//tileface offset in our idtable;
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
 		//use face size
-     		pm = renderElement(scaleddata.fw, scaleddata.fh, elemId);
+     		pm = renderElement(d->scaleddata.fw, d->scaleddata.fh, elemId);
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
