@@ -32,8 +32,6 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
   public:
     KMahjonggBackground();
     ~KMahjonggBackground();
-    bool isTiled;
-    bool isSVG;
 
     bool loadDefault();
     bool load(const QString &file, short width, short height);

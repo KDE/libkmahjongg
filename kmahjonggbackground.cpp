@@ -35,7 +35,7 @@ class KMahjonggBackgroundPrivate
 {
 public:
     KMahjonggBackgroundPrivate()
-        : w(1), h(1)
+        : w(1), h(1), isTiled(true), isSVG(false)
     {
     }
 
@@ -50,14 +50,14 @@ public:
     short h;
 
     KSvgRenderer svg;
+
+    bool isTiled;
+    bool isSVG;
 };
 
 KMahjonggBackground::KMahjonggBackground()
     : d(new KMahjonggBackgroundPrivate)
 {
-    isSVG = false;
-    isTiled = true;
-
     static bool _inited = false;
     if (_inited)
         return;
@@ -87,6 +87,7 @@ qDebug() << "Inside LoadDefault(), located background at " << bgPath;
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
 qDebug() << "Background loading";
+    d->isSVG = false;
 
     QString graphicsPath;
     qDebug() << "Attempting to load .desktop at " << file;
@@ -125,16 +126,16 @@ qDebug() << "Using background at " << graphicsPath;
     {
         d->w = group.readEntry("Width",0);
         d->h = group.readEntry("Height",0);
-        isTiled = true;
+        d->isTiled = true;
     } else {
         d->w = width;
         d->h = height;
-        isTiled = false;
+        d->isTiled = false;
     }
 
     d->svg.load(graphicsPath);
     if (d->svg.isValid()) {
-	isSVG = true;
+        d->isSVG = true;
     } else {
         qDebug() << "could not load svg";
         return( false );
@@ -148,7 +149,7 @@ qDebug() << "Using background at " << graphicsPath;
 
 void KMahjonggBackground::sizeChanged(int newW, int newH) {
         //in tiled mode we do not care about the whole field size
-        if (isTiled) return;
+    if (d->isTiled) return;
 
     if (newW == d->w && newH == d->h)
 		return;
