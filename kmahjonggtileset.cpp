@@ -32,13 +32,15 @@
 
 #include <stdlib.h>
 
-typedef struct tilesetmetricsdata {
+class KMahjonggTilesetMetricsData
+{
+public:
     short lvloff;   // used for 3D indentation
     short w;    // tile width ( +border +shadow)
     short h;    // tile height ( +border +shadow)
     short fw;   // face width
     short fh;   // face height
-} TILESETMETRICSDATA;
+};
 
 class KMahjonggTilesetPrivate
 {
@@ -46,8 +48,8 @@ public:
     QList<QString> elementIdTable;
     QMap<QString, QString> authorproperties;
 
-    TILESETMETRICSDATA originaldata;
-    TILESETMETRICSDATA scaleddata;
+    KMahjonggTilesetMetricsData originaldata;
+    KMahjonggTilesetMetricsData scaleddata;
     QString filename;  // cache the last file loaded to save reloading it
 
     KSvgRenderer svg;
