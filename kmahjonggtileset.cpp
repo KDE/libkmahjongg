@@ -35,7 +35,8 @@
 class KMahjonggTilesetMetricsData
 {
 public:
-    short lvloff;   // used for 3D indentation
+    short lvloffx;   // used for 3D indentation, x value
+    short lvloffy;   // used for 3D indentation, y value
     short w;    // tile width ( +border +shadow)
     short h;    // tile height ( +border +shadow)
     short fw;   // face width
@@ -83,7 +84,8 @@ void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
     d->scaleddata.w = tilew;
     d->scaleddata.h = tileh;
     double ratio = ((qreal) d->scaleddata.w) / ((qreal) d->originaldata.w);
-    d->scaleddata.lvloff = (short) (d->originaldata.lvloff * ratio);
+    d->scaleddata.lvloffx = (short) (d->originaldata.lvloffx * ratio);
+    d->scaleddata.lvloffy = (short) (d->originaldata.lvloffy * ratio);
     d->scaleddata.fw = (short) (d->originaldata.fw * ratio);
     d->scaleddata.fh = (short) (d->originaldata.fh * ratio);
 }
@@ -139,10 +141,16 @@ short KMahjonggTileset::height() const
     return d->scaleddata.h;
 }
 
-short KMahjonggTileset::levelOffset() const
+short KMahjonggTileset::levelOffsetX() const
 {
-    return d->scaleddata.lvloff;
+    return d->scaleddata.lvloffx;
 }
+
+short KMahjonggTileset::levelOffsetY() const
+{
+    return d->scaleddata.lvloffy;
+}
+
 
 short KMahjonggTileset::qWidth() const
 {
@@ -204,11 +212,12 @@ qDebug() << "Using tileset at " << graphicsPath;
     d->isSVG = true;
     if (graphicsPath.isEmpty()) return (false);
 
-    d->originaldata.w = group.readEntry("TileWidth", 0);
-    d->originaldata.h = group.readEntry("TileHeight", 0);
-    d->originaldata.fw = group.readEntry("TileFaceWidth", 0);
-    d->originaldata.fh = group.readEntry("TileFaceHeight", 0);
-    d->originaldata.lvloff = group.readEntry("LevelOffset", 0);
+    d->originaldata.w = group.readEntry("TileWidth", 30);
+    d->originaldata.h = group.readEntry("TileHeight", 50);
+    d->originaldata.fw = group.readEntry("TileFaceWidth", 30);
+    d->originaldata.fh = group.readEntry("TileFaceHeight", 50);
+    d->originaldata.lvloffx = group.readEntry("LevelOffsetX", 10);
+    d->originaldata.lvloffy = group.readEntry("LevelOffsetY", 10);
 
     if (d->isSVG) {
 	//really?

@@ -40,7 +40,8 @@ class KMAHJONGGLIB_EXPORT KMahjonggTileset {
 
      short width() const;
      short height() const;
-     short levelOffset() const;
+     short levelOffsetX() const;
+     short levelOffsetY() const;
      short qWidth() const;
      short qHeight() const;
      QString path() const;
