@@ -16,6 +16,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#include "kmahjonggconfigdialog.h"
+
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <krandom.h>
@@ -23,7 +25,6 @@
 
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggbackgroundselector.h"
-#include "kmahjonggconfigdialog.h"
 
 class KMahjonggConfigDialogPrivate
 {
