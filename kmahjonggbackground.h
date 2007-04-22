@@ -20,7 +20,7 @@
 #ifndef _KMAHJONGGBACKGROUND_H_
 #define _KMAHJONGGBACKGROUND_H_
 
-#include <QString>
+
 #include <QBrush>
 
 #include "libkmahjongg_export.h"
