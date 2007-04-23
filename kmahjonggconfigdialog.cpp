@@ -34,9 +34,13 @@ public:
 
 KMahjonggConfigDialog::KMahjonggConfigDialog( QWidget *parent, const QString& name,
                  KConfigSkeleton *config)
-    : KConfigDialog(parent, name, config, List, Ok | Apply | Cancel | Help, Ok, true),
+    : KConfigDialog(parent, name, config),
       d(new KMahjonggConfigDialogPrivate)
 {
+    setFaceType(List);
+    setButtons(Ok | Apply | Cancel | Help);
+    setDefaultButton(Ok);
+    setModal(true);
     d->m_config = config;
 }
 
