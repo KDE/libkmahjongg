@@ -2,9 +2,11 @@
 Name=Chinese Landscape
 Name[el]=Κινέζικο τοπίο
 Name[sv]=Kinesiskt landskap
+Name[x-test]=xxChinese Landscapexx
 Description=Chinese landscape with mountains and a waterfall
 Description[el]=Κινέζικο τοπίο με βουνά και ένα καταράκτη
 Description[sv]=Kinesiskt landskap med berg och ett vattenfall
+Description[x-test]=xxChinese landscape with mountains and a waterfallxx
 VersionFormat=1
 Author=Eugene T
 AuthorEmail=irs_me@hotmail.com

@@ -8,6 +8,7 @@ Name[x-test]=xxDefaultxx
 Description=A green background with light geometric patterns
 Description[el]=Ένα πράσινο φόντο με απαλά γεωμετρικά σχέδια
 Description[sv]=En grön bakgrund med ljusa geometriska mönster
+Description[x-test]=xxA green background with light geometric patternsxx
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com
