@@ -2,6 +2,7 @@
 Name=Default
 Name[be]=Прадвызначаны
 Name[el]=Προκαθορισμένο
+Name[es]=Predeterminado
 Name[ga]=Réamhshocrú
 Name[ja]=デフォルト
 Name[sv]=Förval
@@ -9,6 +10,7 @@ Name[uk]=Типові
 Name[x-test]=xxDefaultxx
 Description=A green background with light geometric patterns
 Description[el]=Ένα πράσινο φόντο με απαλά γεωμετρικά σχέδια
+Description[es]=Un fondo verde con patrones geométricos claros
 Description[sv]=En grön bakgrund med ljusa geometriska mönster
 Description[x-test]=xxA green background with light geometric patternsxx
 VersionFormat=1
