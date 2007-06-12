@@ -67,7 +67,7 @@ KMahjonggTileset::KMahjonggTileset()
     static bool _inited = false;
     if (_inited)
         return;
-    KGlobal::dirs()->addResourceType("kmahjonggtileset", KStandardDirs::kde_default("data") + QString::fromLatin1("kmahjongglib/tilesets/"));
+    KGlobal::dirs()->addResourceType("kmahjonggtileset", "data", QString::fromLatin1("kmahjongglib/tilesets/"));
 
     KGlobal::locale()->insertCatalog("libkmahjongglib");
     _inited = true;
