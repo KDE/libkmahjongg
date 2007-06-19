@@ -1,6 +1,5 @@
-/*
-    This file is part of kdegames
-    Copyright (c) 2006 Mauricio Piacentini <mauricio@tabuleiro.com>
+/*  This file is part of the KDE project
+    Copyright (C) 2007 David Faure <faure@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -15,29 +14,27 @@
     You should have received a copy of the GNU Library General Public License
     along with this library; see the file COPYING.LIB.  If not, write to
     the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
+    Boston, MA 02110-1301, USA.
 */
 
+#ifndef LIBKMAHJONGG_EXPORT_H
+#define LIBKMAHJONGG_EXPORT_H
 
-
-#ifndef _LIBKMAHJONGG_EXPORT_H
-#define _LIBKMAHJONGG_EXPORT_H
-
+/* needed for KDE_EXPORT and KDE_IMPORT macros */
 #include <kdemacros.h>
 
-#ifdef Q_WS_WIN
-
 #ifndef KMAHJONGGLIB_EXPORT
-# ifdef MAKE_KMAHJONGGLIB_LIB
+# if defined(MAKE_KMAHJOBGGLIB_LIB)
+   /* We are building this library */ 
 #  define KMAHJONGGLIB_EXPORT KDE_EXPORT
 # else
+   /* We are using this library */ 
 #  define KMAHJONGGLIB_EXPORT KDE_IMPORT
 # endif
 #endif
 
-#else // not windows
+# ifndef KMAHJONGGLIB_EXPORT_DEPRECATED
+#  define KMAHJONGGLIB_EXPORT_DEPRECATED KDE_DEPRECATED KMAHJONGGLIB_EXPORT
+# endif
 
-#define KMAHJONGGLIB_EXPORT KDE_EXPORT
-#endif /* not windows */
-
-#endif /* _LIBKMAHJONGG_EXPORT_H */
+#endif
