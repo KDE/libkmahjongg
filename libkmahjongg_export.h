@@ -24,7 +24,7 @@
 #include <kdemacros.h>
 
 #ifndef KMAHJONGGLIB_EXPORT
-# if defined(MAKE_KMAHJOBGGLIB_LIB)
+# if defined(MAKE_KMAHJONGGLIB_LIB)
    /* We are building this library */ 
 #  define KMAHJONGGLIB_EXPORT KDE_EXPORT
 # else
