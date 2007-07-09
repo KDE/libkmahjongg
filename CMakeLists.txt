@@ -12,8 +12,6 @@ set(kmahjongg_LIB_SRCS
    kmahjonggbackgroundselector.cpp 
    kmahjonggconfigdialog.cpp )
 
-kde4_automoc(${kmahjongg_LIB_SRCS})
-
 kde4_add_ui_files(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackgroundselector.ui )
 
 kde4_add_library(kmahjongglib SHARED ${kmahjongg_LIB_SRCS})
