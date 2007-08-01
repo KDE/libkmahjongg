@@ -65,15 +65,15 @@ void KMahjonggConfigDialog::addBackgroundPage()
 
 void KMahjonggConfigDialog::updateWidgetsDefault()
 {
-    qDebug() << "updateWidgetsDefault";
+    kDebug() << "updateWidgetsDefault";
 }
 /*void KMahjonggConfigDialog::updateWidgets()
 {
-    qDebug() << "updateWidgets";
+    kDebug() << "updateWidgets";
 }
 void KMahjonggConfigDialog::updateSettings()
 {
-    qDebug() << "updateSettings";
+    kDebug() << "updateSettings";
 }*/
 
 #include "kmahjonggconfigdialog.moc"

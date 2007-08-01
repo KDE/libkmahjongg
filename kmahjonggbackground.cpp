@@ -29,7 +29,7 @@
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QPainter>
-#include <QtDebug>
+#include <KDebug>
 
 class KMahjonggBackgroundPrivate
 {
@@ -76,7 +76,7 @@ bool KMahjonggBackground::loadDefault()
     QString idx = "default.desktop";
 
     QString bgPath = KStandardDirs::locate("kmahjonggbackground", idx);
-qDebug() << "Inside LoadDefault(), located background at " << bgPath;
+kDebug() << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
 		return false;
     }
@@ -86,11 +86,11 @@ qDebug() << "Inside LoadDefault(), located background at " << bgPath;
 #define kBGVersionFormat 1
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
-qDebug() << "Background loading";
+kDebug() << "Background loading";
     d->isSVG = false;
 
     QString graphicsPath;
-    qDebug() << "Attempting to load .desktop at " << file;
+    kDebug() << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
@@ -117,7 +117,7 @@ qDebug() << "Background loading";
     QString graphName = group.readEntry("FileName");
 
     graphicsPath = KStandardDirs::locate("kmahjonggbackground", graphName);
-qDebug() << "Using background at " << graphicsPath;
+kDebug() << "Using background at" << graphicsPath;
     d->filename = graphicsPath;
 
     if (graphicsPath.isEmpty()) return (false);
@@ -137,7 +137,7 @@ qDebug() << "Using background at " << graphicsPath;
     if (d->svg.isValid()) {
         d->isSVG = true;
     } else {
-        qDebug() << "could not load svg";
+        kDebug() << "could not load svg";
         return( false );
     }
 

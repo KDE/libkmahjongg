@@ -27,7 +27,7 @@
 #include <QPainter>
 #include <QPixmapCache>
 #include <QFile>
-#include <QtDebug>
+#include <KDebug>
 #include <QMap>
 
 #include <stdlib.h>
@@ -119,7 +119,7 @@ bool KMahjonggTileset::loadDefault()
     QString idx = "default.desktop";
 
     QString tilesetPath = KStandardDirs::locate("kmahjonggtileset", idx);
-qDebug() << "Inside LoadDefault(), located path at " << tilesetPath;
+kDebug() << "Inside LoadDefault(), located path at" << tilesetPath;
     if (tilesetPath.isEmpty()) {
 		return false;
     }
@@ -175,7 +175,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 
     QImage qiTiles;
     QString graphicsPath;
-    qDebug() << "Attempting to load .desktop at " << tilesetPath;
+    kDebug() << "Attempting to load .desktop at" << tilesetPath;
 
     //clear our properties map
     d->authorproperties.clear();
@@ -205,7 +205,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     QString graphName = group.readEntry("FileName");
 
     graphicsPath = KStandardDirs::locate("kmahjonggtileset", graphName);
-qDebug() << "Using tileset at " << graphicsPath;
+kDebug() << "Using tileset at" << graphicsPath;
     d->filename = graphicsPath;
 
     //only SVG for now
@@ -301,7 +301,7 @@ QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) {
-//qDebug() << "render element" << elementid << width << height;
+//kDebug() << "render element" << elementid << width << height;
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
