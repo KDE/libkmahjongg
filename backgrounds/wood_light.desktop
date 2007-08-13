@@ -1,0 +1,11 @@
+[KMahjonggBackground]
+Name=Light Wood
+Description=Resembles the surface a wood table
+VersionFormat=1
+Author=Raquel Ravanini
+AuthorEmail=raquel@tabuleiro.com
+Type=SVG
+FileName=wood_light.svg
+Tiled=1
+Width=205
+Height=180
