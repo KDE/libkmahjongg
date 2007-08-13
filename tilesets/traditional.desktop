@@ -1,0 +1,13 @@
+[KMahjonggTileset]
+Name=Traditional
+Description=Americanized tiles inspired by japanese Mahjongg tiles
+VersionFormat=1
+Author=James L. Hammons
+AuthorEmail=jlhamm@acm.org
+FileName=traditional.svgz
+LevelOffsetX=12
+LevelOffsetY=12
+TileFaceHeight=89
+TileFaceWidth=69
+TileHeight=116
+TileWidth=96
