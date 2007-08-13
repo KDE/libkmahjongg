@@ -14,3 +14,8 @@ install( FILES traditional.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib
 install( FILES traditional.svgz  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
 install( FILES traditional.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
 
+##alphabet
+install( FILES alphabet.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+install( FILES alphabet.svgz  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+install( FILES alphabet.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+

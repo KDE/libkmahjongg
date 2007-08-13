@@ -1,0 +1,13 @@
+[KMahjonggTileset]
+Name=Alphabet
+Description=A colorful tileset designed for kids of all ages.
+VersionFormat=1
+Author=Raquel Ravanini
+AuthorEmail=raquel@tabuleiro.com
+FileName=alphabet.svgz
+LevelOffsetX=28
+LevelOffsetY=32
+TileFaceWidth=173
+TileFaceHeight=211
+TileWidth=231
+TileHeight=283
