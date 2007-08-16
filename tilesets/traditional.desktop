@@ -1,10 +1,14 @@
 [KMahjonggTileset]
 Name=Traditional
+Name[es]=Tradicional
 Name[pt]=Tradicional
 Name[pt_BR]=Tradicional
+Name[sv]=Traditionella
 Description=Americanized tiles inspired by japanese Mahjongg tiles
+Description[es]=Fichas americanizadas inspiradas en las fichas del Mahjongg japonés
 Description[pt]=Peças americanas inspiradas nas peças reais do Mahjongg japonês
 Description[pt_BR]=Peças americanas inspiradas nas peças reais do Mahjongg japonês
+Description[sv]=Amerikaniserade brickor inspirerad av japanska Mahjongg-brickor
 VersionFormat=1
 Author=James L. Hammons
 AuthorEmail=jlhamm@acm.org
