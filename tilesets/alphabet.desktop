@@ -1,5 +1,6 @@
 [KMahjonggTileset]
 Name=Alphabet
+Name[el]=Αλφάβητο
 Name[es]=Alfabeto
 Name[ja]=アルファベット
 Name[pt]=Alfabeto
@@ -7,6 +8,7 @@ Name[pt_BR]=Alfabeto
 Name[sv]=Alfabet
 Name[zh_TW]=字母
 Description=A colorful tileset designed for kids of all ages.
+Description[el]=Ένα πολύχρωμο σύνολο σχεδιασμένο για παιδιά όλων των ηλικιών.
 Description[es]=Baldosas llenas de color diseñadas para niños de todas las edades.
 Description[pt]=Um conjunto de peças colorido desenhado para crianças de todas as idades.
 Description[pt_BR]=Um conjunto de peças colorido desenhado para crianças de todas as idades.
