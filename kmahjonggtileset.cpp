@@ -46,15 +46,18 @@ public:
 class KMahjonggTilesetPrivate
 {
 public:
+    KMahjonggTilesetPrivate() : graphicsLoaded(false), isSVG(false) {}
     QList<QString> elementIdTable;
     QMap<QString, QString> authorproperties;
 
     KMahjonggTilesetMetricsData originaldata;
     KMahjonggTilesetMetricsData scaleddata;
     QString filename;  // cache the last file loaded to save reloading it
+    QString graphicspath;
 
     KSvgRenderer svg;
     bool isSVG;
+    bool graphicsLoaded;
 };
 
 // ---------------------------------------------------------
@@ -174,7 +177,6 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 {
 
     QImage qiTiles;
-    QString graphicsPath;
     kDebug() << "Attempting to load .desktop at" << tilesetPath;
 
     //clear our properties map
@@ -204,13 +206,13 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 
     QString graphName = group.readEntry("FileName");
 
-    graphicsPath = KStandardDirs::locate("kmahjonggtileset", graphName);
-kDebug() << "Using tileset at" << graphicsPath;
-    d->filename = graphicsPath;
+    d->graphicspath = KStandardDirs::locate("kmahjonggtileset", graphName);
+    kDebug() << "Using tileset at" << d->graphicspath;
+    //d->filename = graphicsPath;
 
     //only SVG for now
     d->isSVG = true;
-    if (graphicsPath.isEmpty()) return (false);
+    if (d->graphicspath.isEmpty()) return (false);
 
     d->originaldata.w = group.readEntry("TileWidth", 30);
     d->originaldata.h = group.readEntry("TileHeight", 50);
@@ -218,8 +220,12 @@ kDebug() << "Using tileset at" << graphicsPath;
     d->originaldata.fh = group.readEntry("TileFaceHeight", 50);
     d->originaldata.lvloffx = group.readEntry("LevelOffsetX", 10);
     d->originaldata.lvloffy = group.readEntry("LevelOffsetY", 10);
+    
+    //client application needs to call loadGraphics()
+    d->graphicsLoaded = false;
+    d->filename = tilesetPath;
 
-    if (d->isSVG) {
+ /*   if (d->isSVG) {
 	//really?
 	d->svg.load(graphicsPath);
 	if (d->svg.isValid()) {
@@ -235,9 +241,32 @@ kDebug() << "Using tileset at" << graphicsPath;
     } else {
     //TODO add support for png??
 	return false;
-    }
+    }*/
 
     return( true );
+}
+
+// ---------------------------------------------------------
+bool KMahjonggTileset::loadGraphics()
+{
+  if (d->graphicsLoaded == true) return (true) ;
+  if (d->isSVG) {
+	//really?
+    d->svg.load(d->graphicspath);
+    if (d->svg.isValid()) {
+      //invalidate our global cache
+      QPixmapCache::clear();
+      d->graphicsLoaded = true;
+      reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
+    } else {
+      return( false );
+    }
+  } else {
+    //TODO add support for png??
+    return false;
+  }
+
+  return( true );
 }
 
 // ---------------------------------------------------------

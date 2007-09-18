@@ -34,6 +34,7 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
 
     bool loadDefault();
     bool load(const QString &file, short width, short height);
+    bool loadGraphics();
     void sizeChanged(int newW, int newH);
     QBrush & getBackground();
     QString path() const;

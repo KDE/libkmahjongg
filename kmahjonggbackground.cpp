@@ -35,7 +35,7 @@ class KMahjonggBackgroundPrivate
 {
 public:
     KMahjonggBackgroundPrivate()
-        : w(1), h(1), isTiled(true), isSVG(false)
+        : w(1), h(1), isTiled(true), isSVG(false), graphicsLoaded(false)
     {
     }
 
@@ -46,11 +46,13 @@ public:
     QPixmap backgroundPixmap;
     QBrush backgroundBrush;
     QString filename;
+    QString graphicspath;
     short w;
     short h;
 
     KSvgRenderer svg;
 
+    bool graphicsLoaded;
     bool isTiled;
     bool isSVG;
 };
@@ -89,7 +91,6 @@ bool KMahjonggBackground::load(const QString &file, short width, short height) {
 kDebug() << "Background loading";
     d->isSVG = false;
 
-    QString graphicsPath;
     kDebug() << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
@@ -116,11 +117,10 @@ kDebug() << "Background loading";
 
     QString graphName = group.readEntry("FileName");
 
-    graphicsPath = KStandardDirs::locate("kmahjonggbackground", graphName);
-kDebug() << "Using background at" << graphicsPath;
-    d->filename = graphicsPath;
+    d->graphicspath = KStandardDirs::locate("kmahjonggbackground", graphName);
+    kDebug() << "Using background at" << d->graphicspath;
 
-    if (graphicsPath.isEmpty()) return (false);
+    if (d->graphicspath.isEmpty()) return (false);
 
     if (group.readEntry("Tiled",0))
     {
@@ -132,19 +132,22 @@ kDebug() << "Using background at" << graphicsPath;
         d->h = height;
         d->isTiled = false;
     }
-
-    d->svg.load(graphicsPath);
-    if (d->svg.isValid()) {
-        d->isSVG = true;
-    } else {
-        kDebug() << "could not load svg";
-        return( false );
-    }
-
-  // call out to scale/tile the source image into the background image
-  //in case of SVG we will be already at the right size
+    d->graphicsLoaded = false;
     d->filename = file;
-   return true;
+    return true;
+}
+
+bool KMahjonggBackground::loadGraphics() {
+  if (d->graphicsLoaded == true) return (true) ;
+  
+  d->svg.load(d->graphicspath);
+  if (d->svg.isValid()) {
+    d->isSVG = true;
+  } else {
+    kDebug() << "could not load svg";
+    return( false );
+  }
+  return (true);
 }
 
 void KMahjonggBackground::sizeChanged(int newW, int newH) {

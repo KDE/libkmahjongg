@@ -87,6 +87,8 @@ void KMahjonggTilesetSelector::tilesetChanged()
     tilesetContact->setText(selTileset->authorProperty(contactstr));
     tilesetDescription->setText(selTileset->authorProperty(descstr));
 
+    //Make sure SVG is loaded when graphics is selected
+    if (!selTileset->loadGraphics()) return;
     //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
     QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);
     selTileset->reloadTileset(tilesize);
