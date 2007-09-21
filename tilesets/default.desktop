@@ -1,6 +1,7 @@
 [KMahjonggTileset]
 Name=Default
 Name[be]=Прадвызначаны
+Name[de]=Standard
 Name[el]=Προκαθορισμένο
 Name[es]=Predeterminado
 Name[fa]=پیش‌فرض
@@ -17,6 +18,7 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 Name[zh_TW]=預設
 Description=Art inspired by real japanese Mahjongg tiles
+Description[de]=Die enthaltene Kunst wurde inspiriert von echten japanischen Mahjongg Spielsteinen
 Description[el]=Τα γραφικά έχουν επηρεαστεί από το αρχικά ιαπωνικά Mahjongg πιόνιαÞ
 Description[es]=Arte inspirado en las fichas del Mahjongg japonés real
 Description[fa]=هنر الهام گرفته از کاشیهای Mahjongg ژاپنی واقعی

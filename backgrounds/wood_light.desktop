@@ -1,5 +1,6 @@
 [KMahjonggBackground]
 Name=Light Wood
+Name[de]=Leichtes Holz
 Name[el]=Ανοιχτό ξύλο
 Name[es]=Madera clara
 Name[nl]=Licht houd
@@ -10,6 +11,7 @@ Name[wa]=Bwès ledjir
 Name[zh_CN]=亮木色
 Name[zh_TW]=輕木頭
 Description=Resembles the surface a wood table
+Description[de]=Gleicht der Oberfläche eines Holztischs
 Description[el]=Παρομοιάζει την επιφάνεια ενός ξύλινου τραπεζιού
 Description[es]=Se asemeja a la superficie de una mesa de madera
 Description[nl]=Lijkt op een houten tafelblad

@@ -1,6 +1,7 @@
 [KMahjonggBackground]
 Name=Default
 Name[be]=Прадвызначаны
+Name[de]=Standard
 Name[el]=Προκαθορισμένο
 Name[es]=Predeterminado
 Name[fa]=پیش‌فرض
@@ -17,6 +18,7 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 Name[zh_TW]=預設
 Description=A green background with light geometric patterns
+Description[de]=Ein grüner Hintergrund mit ganz leichten geometrischen Mustern
 Description[el]=Ένα πράσινο φόντο με απαλά γεωμετρικά σχέδια
 Description[es]=Un fondo verde con patrones geométricos claros
 Description[fa]=زمینه سبز با الگوهای هندسی روشن
