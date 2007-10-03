@@ -21,6 +21,7 @@
 
 #include <klocale.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 #include <qimage.h>
 #include <kstandarddirs.h>
 #include <ksvgrenderer.h>

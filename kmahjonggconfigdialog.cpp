@@ -22,6 +22,7 @@
 #include <kstandarddirs.h>
 #include <krandom.h>
 #include <kconfig.h>
+#include <kdebug.h>
 
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggbackgroundselector.h"
