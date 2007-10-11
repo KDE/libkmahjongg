@@ -36,7 +36,7 @@ class KMahjonggBackgroundPrivate
 {
 public:
     KMahjonggBackgroundPrivate()
-        : w(1), h(1), isTiled(true), isSVG(false), graphicsLoaded(false)
+        : w(1), h(1), graphicsLoaded(false), isTiled(true), isSVG(false)
     {
     }
 

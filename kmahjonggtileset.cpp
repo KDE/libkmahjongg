@@ -47,7 +47,7 @@ public:
 class KMahjonggTilesetPrivate
 {
 public:
-    KMahjonggTilesetPrivate() : graphicsLoaded(false), isSVG(false) {}
+    KMahjonggTilesetPrivate() : isSVG(false), graphicsLoaded(false) {}
     QList<QString> elementIdTable;
     QMap<QString, QString> authorproperties;
 
