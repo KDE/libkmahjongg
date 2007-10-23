@@ -101,7 +101,7 @@ kDebug() << "Background loading";
     }
     bgfile.close();
 
-    KConfig bgconfig(file, KConfig::OnlyLocal);
+    KConfig bgconfig(file, KConfig::SimpleConfig);
     KConfigGroup group = bgconfig.group("KMahjonggBackground");
 
     d->authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
