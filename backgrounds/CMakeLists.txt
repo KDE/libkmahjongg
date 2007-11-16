@@ -14,6 +14,11 @@ install( FILES wood_light.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/
 install( FILES wood_light.svg  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
 install( FILES wood_light.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
 
+##summertime greens
+install( FILES summerfield.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
+install( FILES summerfield.svg  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
+install( FILES summerfield.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
+
 ##plain color
 install( FILES color_plain.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
 
