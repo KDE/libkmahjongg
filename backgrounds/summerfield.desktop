@@ -1,6 +1,12 @@
 [KMahjonggBackground]
 Name=Summer Field
+Name[pt]=Campo de Verão
+Name[pt_BR]=Campo de Verão
+Name[sv]=Sommaräng
 Description=The Summertime Greens
+Description[pt]=Os Prados Verdes de Verão
+Description[pt_BR]=Os Prados Verdes de Verão
+Description[sv]=Sommartidens gröna växter
 VersionFormat=1
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com
