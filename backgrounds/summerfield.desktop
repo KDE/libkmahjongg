@@ -1,11 +1,13 @@
 [KMahjonggBackground]
 Name=Summer Field
+Name[ca]=Camp d'estiu
 Name[pt]=Campo de Verão
 Name[pt_BR]=Campo de Verão
 Name[sv]=Sommaräng
 Name[x-test]=xxSummer Fieldxx
 Name[zh_TW]=夏日原野
 Description=The Summertime Greens
+Description[ca]=Els verds del temps estival
 Description[pt]=Os Prados Verdes de Verão
 Description[pt_BR]=Os Prados Verdes de Verão
 Description[sv]=Sommartidens gröna växter

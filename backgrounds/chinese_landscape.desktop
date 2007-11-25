@@ -1,6 +1,7 @@
 [KMahjonggBackground]
 Name=Chinese Landscape
 Name[be]=Кітайскі пейзаж
+Name[ca]=Paisatge xinès
 Name[de]=Chinesische Landschaft
 Name[el]=Κινέζικο τοπίο
 Name[es]=Paisaje chino
@@ -20,6 +21,7 @@ Name[zh_CN]=中国山水
 Name[zh_TW]=中國山水畫
 Description=Chinese landscape with mountains and a waterfall
 Description[be]=Кітайскі пейзаж з гарамі і вадападам
+Description[ca]=Paisatge xinès amb muntanyes i una cascada
 Description[de]=Chinesische Landschaft mit Bergen und einem Wasserfall
 Description[el]=Κινέζικο τοπίο με βουνά και ένα καταρράκτη
 Description[es]=Paisaje chino con montañas y cataratas

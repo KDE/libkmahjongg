@@ -1,5 +1,6 @@
 [KMahjonggTileset]
 Name=Alphabet
+Name[ca]=Alfabet
 Name[el]=Αλφάβητο
 Name[es]=Alfabeto
 Name[fi]=Aakkoset
@@ -14,6 +15,7 @@ Name[x-test]=xxAlphabetxx
 Name[zh_CN]=字母表
 Name[zh_TW]=字母
 Description=A colorful tileset designed for kids of all ages.
+Description[ca]=Un conjunt de fitxers dissenyat per nens de totes les edats.
 Description[de]=Ein farbenfroher Spielsteinsatz für Kinder in allen Altersstufen.
 Description[el]=Ένα πολύχρωμο σύνολο σχεδιασμένο για παιδιά όλων των ηλικιών.
 Description[es]=Baldosas llenas de color diseñadas para niños de todas las edades.
