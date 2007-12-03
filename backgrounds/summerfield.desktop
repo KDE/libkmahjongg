@@ -1,6 +1,7 @@
 [KMahjonggBackground]
 Name=Summer Field
 Name[ca]=Camp d'estiu
+Name[de]=Sommerplatz
 Name[es]=Campo de verano
 Name[ja]=夏の野原
 Name[nl]=Zomerveld
@@ -13,6 +14,7 @@ Name[zh_CN]=夏日原野
 Name[zh_TW]=夏日原野
 Description=The Summertime Greens
 Description[ca]=Els verds del temps estival
+Description[de]=Die Sommer Grünflächen
 Description[es]=El césped de verano
 Description[ja]=夏の緑
 Description[nl]=De velden in de zomer
