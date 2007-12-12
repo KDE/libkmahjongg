@@ -42,6 +42,10 @@ public:
     short h;    // tile height ( +border +shadow)
     short fw;   // face width
     short fh;   // face height
+
+    KMahjonggTilesetMetricsData()
+     : lvloffx(0), lvloffy(0), w(0), h(0), fw(0), fh(0)
+    {}
 };
 
 class KMahjonggTilesetPrivate
