@@ -94,6 +94,7 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     qiRend.fill(0);
     QPainter p(&qiRend);
     p.fillRect(p.viewport(), selBG->getBackground() );
+    p.end();
     backgroundPreview->setPixmap(QPixmap::fromImage(qiRend));
 
 }

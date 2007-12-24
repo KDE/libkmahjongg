@@ -101,6 +101,7 @@ void KMahjonggTilesetSelector::tilesetChanged()
     //Draw unselected tile and first tileface
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->unselectedTile(1));
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->tileface(0));
+    p.end();
     tilesetPreview->setPixmap(QPixmap::fromImage(qiRend));
 
 }
