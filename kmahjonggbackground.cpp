@@ -162,7 +162,7 @@ void KMahjonggBackground::sizeChanged(int newW, int newH) {
 }
 
 QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid) {
-	return elementid+QString("W%1H%2").arg(w).arg(h);
+  return authorproperties["Name"]+ elementid+QString("W%1H%2").arg(w).arg(h);
 }
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height) {

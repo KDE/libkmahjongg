@@ -331,7 +331,7 @@ void KMahjonggTileset::buildElementIdTable() {
 }
 
 QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid) {
-	return elementid + QString("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
+	return authorProperty("Name")+ elementid + QString("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) {
