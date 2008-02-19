@@ -20,7 +20,7 @@ target_link_libraries(kmahjongglib kdegames )
 
 set_target_properties(kmahjongglib PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
-install(TARGETS kmahjongglib  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kmahjongglib ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
