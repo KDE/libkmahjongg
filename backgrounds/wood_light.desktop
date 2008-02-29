@@ -2,6 +2,7 @@
 Name=Light Wood
 Name[ca]=Fusta lleugera
 Name[cs]=Světlé dřevo
+Name[da]=Lyst træ
 Name[de]=Leichtes Holz
 Name[el]=Ανοιχτό ξύλο
 Name[eo]=Hela ligno
@@ -29,6 +30,7 @@ Name[zh_CN]=亮木色
 Name[zh_TW]=輕木頭
 Description=Resembles the surface a wood table
 Description[ca]=Sembla la superfície de fusta d'una taula
+Description[da]=Minder om et træbords overflade
 Description[de]=Gleicht der Oberfläche eines Holztischs
 Description[el]=Παρομοιάζει την επιφάνεια ενός ξύλινου τραπεζιού
 Description[eo]=Similas al la surfaco de tabulo el ligno
