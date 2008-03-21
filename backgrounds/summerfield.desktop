@@ -1,6 +1,7 @@
 [KMahjonggBackground]
 Name=Summer Field
 Name[ca]=Camp d'estiu
+Name[da]=Sommermark
 Name[de]=Sommerplatz
 Name[el]=Καλοκαιρινό χωράφι
 Name[es]=Campo de verano
@@ -25,6 +26,7 @@ Name[zh_CN]=夏日原野
 Name[zh_TW]=夏日原野
 Description=The Summertime Greens
 Description[ca]=Els verds del temps estival
+Description[da]=Grønne sommerfarver
 Description[de]=Die Sommer Grünflächen
 Description[el]=Καλοκαιρινό πράσινο
 Description[es]=El césped de verano
