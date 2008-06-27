@@ -29,5 +29,5 @@ install(FILES
    kmahjonggtileset.h
    kmahjonggbackground.h 
    kmahjonggconfigdialog.h 
-DESTINATION ${INCLUDE_INSTALL_DIR})
+DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
