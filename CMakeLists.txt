@@ -16,7 +16,7 @@ kde4_add_ui_files(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackgr
 
 kde4_add_library(kmahjongglib SHARED ${kmahjongg_LIB_SRCS})
 
-target_link_libraries(kmahjongglib kdegames )
+target_link_libraries(kmahjongglib kdegames ${KDE4_KDEUI_LIBS})
 
 set_target_properties(kmahjongglib PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
