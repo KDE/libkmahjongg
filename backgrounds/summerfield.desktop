@@ -1,5 +1,6 @@
 [KMahjonggBackground]
 Name=Summer Field
+Name[ar]=مجال الصيف
 Name[ca]=Camp d'estiu
 Name[cs]=Letní pole
 Name[da]=Sommermark
@@ -28,6 +29,7 @@ Name[x-test]=xxSummer Fieldxx
 Name[zh_CN]=夏日原野
 Name[zh_TW]=夏日原野
 Description=The Summertime Greens
+Description[ar]=الصيف الخضر
 Description[ca]=Els verds del temps estival
 Description[da]=Grønne sommerfarver
 Description[de]=Die Sommer Grünflächen
