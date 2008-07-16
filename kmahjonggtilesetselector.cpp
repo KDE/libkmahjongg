@@ -31,6 +31,11 @@ KMahjonggTilesetSelector::KMahjonggTilesetSelector( QWidget* parent, KConfigSkel
     setupData(aconfig);
 }
 
+KMahjonggTilesetSelector::~KMahjonggTilesetSelector()
+{
+     tilesetMap.clear();
+}
+
 void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
 {
     //Get our currently configured Tileset entry
