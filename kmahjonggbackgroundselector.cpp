@@ -21,7 +21,6 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <QPainter>
-
 #include "kmahjonggbackground.h"
 
 KMahjonggBackgroundSelector::KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * aconfig )
@@ -29,6 +28,14 @@ KMahjonggBackgroundSelector::KMahjonggBackgroundSelector( QWidget* parent, KConf
 {
     setupUi(this);
     setupData(aconfig);
+}
+
+KMahjonggBackgroundSelector::~KMahjonggBackgroundSelector()
+{
+    foreach(KMahjonggBackground* bg, backgroundMap) {
+          delete bg;
+    }
+    backgroundMap.clear();
 }
 
 void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
