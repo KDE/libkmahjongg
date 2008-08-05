@@ -30,7 +30,7 @@ class KMahjonggBackgroundSelector : public QWidget, public Ui::KMahjonggBackgrou
 Q_OBJECT
 public:
     explicit KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * config );
-
+    ~KMahjonggBackgroundSelector();
     void setupData(KConfigSkeleton * config);
 
     QMap<QString, KMahjonggBackground *> backgroundMap;
