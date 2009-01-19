@@ -175,7 +175,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="kcfg_Background" >
+    <widget class="KLineEdit" name="kcfg_Background" >
      <property name="enabled" >
       <bool>false</bool>
      </property>

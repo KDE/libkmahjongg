@@ -175,7 +175,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="kcfg_TileSet" >
+    <widget class="KLineEdit" name="kcfg_TileSet" >
      <property name="enabled" >
       <bool>false</bool>
      </property>
