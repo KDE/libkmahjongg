@@ -370,6 +370,11 @@ QPixmap KMahjonggTileset::unselectedTile(int num) {
 
 QPixmap KMahjonggTileset::tileface(int num) {
 	QPixmap pm;
+	if ((num + 8) >= d->elementIdTable.count()) {
+	  kDebug() << "Client asked for invalid tileface id";
+	  return pm;
+	}
+
 	QString elemId = d->elementIdTable.at(num + 8);//tileface offset in our idtable;
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
 		//use face size
