@@ -22,3 +22,6 @@ install( FILES summerfield.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg
 ##plain color
 install( FILES color_plain.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
 
+##egyptian
+install( FILES egyptian.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
+install( FILES egyptian.svgz DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/backgrounds/ )
