@@ -1,5 +1,13 @@
 [KMahjonggBackground]
 Name=Egyptian
+Name[el]=Αιγύπτιο
+Name[et]=Egiptus
+Name[pt]=Egípcio
+Name[pt_BR]=Egípcio
+Name[sv]=Egyptisk
+Name[uk]=Єгиптянин
+Name[x-test]=xxEgyptianxx
+Name[zh_TW]=埃及式
 Description=A Egyptian style background
 VersionFormat=1
 Author=Sean Wilson
