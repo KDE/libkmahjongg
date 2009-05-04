@@ -1,0 +1,13 @@
+[KMahjonggTileset]
+Name=Bamboo
+Description=Japanese tileset with brightly-colored kanji on a soft woodgrain
+VersionFormat=1
+Author=Matthew Woehlke
+AuthorEmail=mw_triad@users.sourceforge.net
+FileName=bamboo.svgz
+LevelOffsetX=10
+LevelOffsetY=10
+TileFaceHeight=100
+TileFaceWidth=70
+TileHeight=125
+TileWidth=95
