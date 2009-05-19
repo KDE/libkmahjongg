@@ -2,6 +2,7 @@
 Name=Egyptian
 Name[el]=Αιγύπτιο
 Name[et]=Egiptus
+Name[nn]=Egyptisk
 Name[pt]=Egípcio
 Name[pt_BR]=Egípcio
 Name[sv]=Egyptisk
@@ -10,6 +11,7 @@ Name[x-test]=xxEgyptianxx
 Name[zh_TW]=埃及式
 Description=A Egyptian style background
 Description[et]=Egiptuse stiilis taust
+Description[nn]=Egypt
 Description[pt]=Um fundo de estilo Egípcio
 Description[pt_BR]=Um fundo de estilo Egípcio
 Description[sv]=En bakgrund med egyptisk stil
