@@ -1,5 +1,6 @@
 [KMahjonggTileset]
 Name=Bamboo
+Name[da]=Bambus
 Name[et]=Bambus
 Name[nn]=Bambus
 Name[pt]=Bambu
@@ -11,6 +12,7 @@ Name[uk]=Бамбук
 Name[zh_CN]=Bovo
 Name[zh_TW]=竹子
 Description=Japanese tileset with brightly-colored kanji on a soft woodgrain
+Description[da]=Japanske brikker med klartfarvede kanji på en blød træåre
 Description[en_GB]=Japanese tileset with brightly-coloured kanji on a soft woodgrain
 Description[et]=Jaapani klotsid heledate kanjidega pehmetoonilisel puidul
 Description[pt]=Conjunto de peças japonesas com um Kanji colorido sobre um tom suave de serradura
