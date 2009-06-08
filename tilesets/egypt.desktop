@@ -1,0 +1,25 @@
+[KMahjonggTileset]
+Name=Ancient Egyptians
+Name[da]=Oldtidens egyptere
+Name[de]=Antike Ägypter
+Name[el]=Αρχαία Αίγυπτος
+Name[et]=Vana-Egiptus
+Name[nn]=Egypt i oldtida
+Name[pt]=Antigo Egipto
+Name[pt_BR]=Antigo Egipto
+Name[sr]=Стари Египћани
+Name[sr@latin]=Stari Egipćani
+Name[sv]=Forntida egyptier
+Name[uk]=Давні єгиптяни
+Name[zh_CN]=古埃及
+Name[zh_TW]=古埃及
+VersionFormat=1
+Author=Eugene Trounev [it-s] & Sean Wilson [Half-Left]
+AuthorEmail=eugene.trounev@gmail.com; suseux@googlemail.com
+FileName=egypt.svgz
+LevelOffsetX=12
+LevelOffsetY=12
+TileFaceHeight=89
+TileFaceWidth=69
+TileHeight=116
+TileWidth=96
