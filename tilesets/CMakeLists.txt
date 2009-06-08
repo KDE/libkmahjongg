@@ -24,6 +24,12 @@ install( FILES alphabet.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/ti
 install( FILES alphabet.svgz  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
 install( FILES alphabet.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
 
+##alphabet
+install( FILES egypt.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+install( FILES egypt.svgz  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+install( FILES egypt.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+
 ##Jade
 install( FILES jade.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
 install( FILES jade.svgz  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+install( FILES jade.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
