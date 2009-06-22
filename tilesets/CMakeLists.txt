@@ -10,9 +10,9 @@ install( FILES classic.svg  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilese
 install( FILES classic.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
 
 ##bamboo
-install( FILES bamboo.desktop DESTINATION ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
-install( FILES bamboo.svgz  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
-install( FILES bamboo.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+#install( FILES bamboo.desktop DESTINATION ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+#install( FILES bamboo.svgz  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
+#install( FILES bamboo.copyright  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
 
 ##traditional
 install( FILES traditional.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongglib/tilesets/ )
