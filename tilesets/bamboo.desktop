@@ -1,14 +1,17 @@
 [KMahjonggTileset]
 Name=Bamboo
+Name[ca]=Bamboo
 Name[da]=Bambus
 Name[de]=Bambus
 Name[el]=Μπαμπού
+Name[en_GB]=Bamboo
 Name[es]=Bambú
 Name[et]=Bambus
 Name[fr]=Bambou
 Name[hu]=Bambusz
 Name[it]=Bambu
 Name[km]=ឫស្សី
+Name[lv]=Bamboo
 Name[nds]=Bambus
 Name[nl]=Bamboe
 Name[nn]=Bambus
@@ -21,6 +24,7 @@ Name[sl]=Bambus
 Name[sr]=Бамбус
 Name[sr@latin]=Bambus
 Name[sv]=Bambu
+Name[tr]=Bamboo
 Name[uk]=Бамбук
 Name[x-test]=xxBambooxx
 Name[zh_CN]=Bovo
