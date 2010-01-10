@@ -1,6 +1,7 @@
 [KMahjonggBackground]
 Name=Light Wood
 Name[ca]=Fusta lleugera
+Name[ca@valencia]=Fusta lleugera
 Name[cs]=Světlé dřevo
 Name[da]=Lyst træ
 Name[de]=Leichtes Holz
@@ -41,6 +42,7 @@ Name[zh_CN]=亮木色
 Name[zh_TW]=輕木頭
 Description=Resembles the surface of a wood table
 Description[ca]=Sembla la superfície de fusta d'una taula
+Description[ca@valencia]=Pareix la superfície de fusta d'una taula
 Description[da]=Minder om et træbords overflade
 Description[de]=Gleicht der Oberfläche eines Holztisches.
 Description[el]=Παρομοιάζει την επιφάνεια ενός ξύλινου τραπεζιού
