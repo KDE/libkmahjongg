@@ -1,6 +1,7 @@
 [KMahjonggTileset]
 Name=Bamboo
 Name[ca]=Bamboo
+Name[ca@valencia]=Bamboo
 Name[cs]=Bambus
 Name[da]=Bambus
 Name[de]=Bambus
@@ -32,6 +33,7 @@ Name[zh_CN]=Bovo
 Name[zh_TW]=竹子
 Description=Japanese tileset with brightly-colored kanji on a soft woodgrain
 Description[ca]=Conjunt de fitxes amb caràcters kanji de colors brillants sobre una fusta tova
+Description[ca@valencia]=Conjunt de fitxes amb caràcters kanji de colors brillants sobre una fusta tova
 Description[da]=Japanske brikker med klartfarvede kanji på en blød træåre
 Description[de]=Japanische Spielsteine mit hellfarbigen „Kanji“-Schriftzeichen auf einer weichen Holzmaserung.
 Description[en_GB]=Japanese tileset with brightly-coloured kanji on a soft woodgrain

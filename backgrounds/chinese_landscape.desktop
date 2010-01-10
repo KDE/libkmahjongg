@@ -2,6 +2,7 @@
 Name=Chinese Landscape
 Name[be]=Кітайскі пейзаж
 Name[ca]=Paisatge xinès
+Name[ca@valencia]=Paisatge xinés
 Name[cs]=Čínská krajina
 Name[da]=Kinesisk landskab
 Name[de]=Chinesische Landschaft
@@ -46,6 +47,7 @@ Name[zh_TW]=中國山水畫
 Description=Chinese landscape with mountains and a waterfall
 Description[be]=Кітайскі пейзаж з гарамі і вадападам
 Description[ca]=Paisatge xinès amb muntanyes i una cascada
+Description[ca@valencia]=Paisatge xinés amb muntanyes i una cascada
 Description[da]=Kinesisk landskab med bjerge og et vandfald
 Description[de]=Eine Chinesische Landschaft mit Bergen und einem Wasserfall.
 Description[el]=Κινέζικο τοπίο με βουνά και ένα καταρράκτη
