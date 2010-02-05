@@ -1,6 +1,7 @@
 [KMahjonggTileset]
 Name=Imperial Jade
 Name[ca]=Jade Imperial
+Name[ca@valencia]=Jade Imperial
 Name[da]=Kejserlig jade-farvet
 Name[de]=Kaiserliche Jade
 Name[el]=Αυτοκρατορικός νεφρίτης
@@ -13,6 +14,7 @@ Name[fr]=Jade impérial
 Name[ga]=Séad Impiriúil
 Name[gl]=Xade imperial
 Name[hne]=इंपीरियल जेड
+Name[hr]=Imperial Jade
 Name[hu]=Birodalmi jáde
 Name[it]=Giada imperiale
 Name[ja]=ヒスイ
@@ -25,8 +27,11 @@ Name[pl]=Imperial Jade
 Name[pt]=Jade Imperial
 Name[pt_BR]=jade Imperial
 Name[ru]=Имперский нефрит
+Name[sk]=Imperial Jade
 Name[sl]=Imperijski žad
 Name[sr]=Царски жад
+Name[sr@ijekavian]=Царски жад
+Name[sr@ijekavianlatin]=Carski žad
 Name[sr@latin]=Carski žad
 Name[sv]=Kejserlig jade
 Name[uk]=Імперський нефрит
