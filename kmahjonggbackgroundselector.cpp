@@ -93,10 +93,7 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     backgroundDescription->setText(selBG->authorProperty(descstr));
 
     //Make sure SVG is loaded when graphics is selected
-    if (!selBG->loadGraphics()) {
-        backgroundPreview->setPixmap(QPixmap());
-        return;
-    }
+    if (!selBG->loadGraphics()) return;
 
     //Draw the preview
     //TODO here: add code to load and keep proportions for non-tiled content?
