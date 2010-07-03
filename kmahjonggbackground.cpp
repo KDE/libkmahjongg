@@ -177,7 +177,7 @@ QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height) {
 }
 
 QBrush & KMahjonggBackground::getBackground() {
-    if (!QPixmapCache::find(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap)) {
+    if (!QPixmapCache::find(d->pixmapCacheNameFromElementId(d->filename), &d->backgroundPixmap)) {
         d->backgroundPixmap = d->renderBG(d->w, d->h);
         QPixmapCache::insert(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap);
  	}
