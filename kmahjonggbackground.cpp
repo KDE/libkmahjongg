@@ -23,7 +23,7 @@
 #include <klocale.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
-#include <ksvgrenderer.h>
+#include <qsvgrenderer.h>
 #include <QImage>
 #include <QFile>
 #include <QMap>
@@ -51,7 +51,7 @@ public:
     short w;
     short h;
 
-    KSvgRenderer svg;
+    QSvgRenderer svg;
 
     bool graphicsLoaded;
     bool isTiled;

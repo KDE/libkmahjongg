@@ -24,7 +24,7 @@
 #include <kconfiggroup.h>
 #include <qimage.h>
 #include <kstandarddirs.h>
-#include <ksvgrenderer.h>
+#include <qsvgrenderer.h>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QFile>
@@ -60,7 +60,7 @@ public:
     QString filename;  // cache the last file loaded to save reloading it
     QString graphicspath;
 
-    KSvgRenderer svg;
+    QSvgRenderer svg;
     bool isSVG;
     bool graphicsLoaded;
 };
