@@ -32,10 +32,7 @@ KMahjonggBackgroundSelector::KMahjonggBackgroundSelector( QWidget* parent, KConf
 
 KMahjonggBackgroundSelector::~KMahjonggBackgroundSelector()
 {
-    foreach(KMahjonggBackground* bg, backgroundMap) {
-          delete bg;
-    }
-    backgroundMap.clear();
+    qDeleteAll(backgroundMap);
 }
 
 void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
