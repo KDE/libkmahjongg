@@ -89,6 +89,11 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     backgroundContact->setText(selBG->authorProperty(contactstr));
     backgroundDescription->setText(selBG->authorProperty(descstr));
 
+    if (selBG->authorProperty("Plain") == QLatin1String("1")) {
+        backgroundPreview->setPixmap(QPixmap());
+        return;
+    }
+
     //Make sure SVG is loaded when graphics is selected
     if (!selBG->loadGraphics()) return;
 

@@ -54,6 +54,7 @@ public:
     QSvgRenderer svg;
 
     bool graphicsLoaded;
+    bool isPlain;
     bool isTiled;
     bool isSVG;
 };
@@ -81,7 +82,7 @@ bool KMahjonggBackground::loadDefault()
     QString bgPath = KStandardDirs::locate("kmahjonggbackground", idx);
 kDebug() << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
-		return false;
+        return false;
     }
     return load(bgPath, 0, 0);
 }
@@ -108,12 +109,22 @@ kDebug() << "Background loading";
     d->authorproperties.insert("Author", group.readEntry("Author"));
     d->authorproperties.insert("Description", group.readEntry("Description"));
     d->authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+    //The "Plain" key is set to 1 by the color_plain background.
+    d->isPlain = group.readEntry("Plain", 0) != 0;
+    d->authorproperties.insert("Plain", d->isPlain ? QLatin1String("1") : QLatin1String("0"));
 
     //Version control
     int bgversion = group.readEntry("VersionFormat",0);
     //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
     if (bgversion > kBGVersionFormat) {
         return false;
+    }
+
+    if (d->isPlain) {
+        kDebug() << "Using plain background";
+        d->graphicspath.clear();
+        d->filename = file;
+        return true;
     }
 
     QString graphName = group.readEntry("FileName");
@@ -139,7 +150,7 @@ kDebug() << "Background loading";
 }
 
 bool KMahjonggBackground::loadGraphics() {
-  if (d->graphicsLoaded == true) return (true) ;
+  if (d->graphicsLoaded || d->isPlain) return (true) ;
   
   d->svg.load(d->graphicspath);
   if (d->svg.isValid()) {
@@ -153,10 +164,10 @@ bool KMahjonggBackground::loadGraphics() {
 
 void KMahjonggBackground::sizeChanged(int newW, int newH) {
         //in tiled mode we do not care about the whole field size
-    if (d->isTiled) return;
+    if (d->isTiled || d->isPlain) return;
 
     if (newW == d->w && newH == d->h)
-		return;
+        return;
     d->w = newW;
     d->h = newH;
 }
@@ -170,18 +181,22 @@ QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height) {
     qiRend.fill(0);
 
     if (svg.isValid()) {
-            QPainter p(&qiRend);
-	    svg.render(&p);
+        QPainter p(&qiRend);
+        svg.render(&p);
     }
     return QPixmap::fromImage(qiRend);
 }
 
 QBrush & KMahjonggBackground::getBackground() {
-    if (!QPixmapCache::find(d->pixmapCacheNameFromElementId(d->filename), &d->backgroundPixmap)) {
-        d->backgroundPixmap = d->renderBG(d->w, d->h);
-        QPixmapCache::insert(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap);
- 	}
-    d->backgroundBrush = QBrush(d->backgroundPixmap);
+    if (d->isPlain) {
+        d->backgroundBrush = QBrush(QPixmap());
+    } else {
+        if (!QPixmapCache::find(d->pixmapCacheNameFromElementId(d->filename), &d->backgroundPixmap)) {
+            d->backgroundPixmap = d->renderBG(d->w, d->h);
+            QPixmapCache::insert(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap);
+        }
+        d->backgroundBrush = QBrush(d->backgroundPixmap);
+    }
     return d->backgroundBrush;
 }
 
