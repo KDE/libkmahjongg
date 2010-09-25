@@ -77,7 +77,7 @@ KMahjonggTileset::KMahjonggTileset()
         return;
     KGlobal::dirs()->addResourceType("kmahjonggtileset", "data", QString::fromLatin1("kmahjongglib/tilesets/"));
 
-    KGlobal::locale()->insertCatalog("libkmahjongglib");
+    KGlobal::locale()->insertCatalog( QLatin1String( "libkmahjongglib" ));
     _inited = true;
 }
 

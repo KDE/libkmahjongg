@@ -67,7 +67,7 @@ KMahjonggBackground::KMahjonggBackground()
         return;
     KGlobal::dirs()->addResourceType("kmahjonggbackground", "data", QString::fromLatin1("kmahjongglib/backgrounds/"));
 
-    KGlobal::locale()->insertCatalog("libkmahjongglib");
+    KGlobal::locale()->insertCatalog( QLatin1String( "libkmahjongglib" ));
     _inited = true;
 }
 
