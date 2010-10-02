@@ -48,11 +48,11 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
     KMahjonggBackground bg;
 
     //Now get our tilesets into a list
-    QStringList bgsAvailable = KGlobal::dirs()->findAllResources("kmahjonggbackground", QString("*.desktop"), KStandardDirs::Recursive);
-    QString namestr("Name");
+    QStringList bgsAvailable = KGlobal::dirs()->findAllResources("kmahjonggbackground", QLatin1String( "*.desktop"), KStandardDirs::Recursive);
+    QLatin1String namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < bgsAvailable.size(); ++i)
-    {   
+    {
         KMahjonggBackground * abg = new KMahjonggBackground();
         QString bgpath = bgsAvailable.at(i);
         if (abg->load(bgpath,backgroundPreview->width(),backgroundPreview->height())) {
@@ -69,7 +69,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
             delete abg;
         }
     }
-    
+
     connect(backgroundList, SIGNAL(currentItemChanged ( QListWidgetItem * , QListWidgetItem * )), this, SLOT(backgroundChanged()));
 }
 
@@ -81,15 +81,15 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     if (selBG->path()==kcfg_Background->text()) {
         return;
     }
-    QString authstr("Author");
-    QString contactstr("AuthorEmail");
-    QString descstr("Description");
+    QLatin1String authstr("Author");
+    QLatin1String contactstr("AuthorEmail");
+    QLatin1String descstr("Description");
     kcfg_Background->setText(selBG->path());
     backgroundAuthor->setText(selBG->authorProperty(authstr));
     backgroundContact->setText(selBG->authorProperty(contactstr));
     backgroundDescription->setText(selBG->authorProperty(descstr));
 
-    if (selBG->authorProperty("Plain") == QLatin1String("1")) {
+    if (selBG->authorProperty(QLatin1String( "Plain" )) == QLatin1String("1")) {
         backgroundPreview->setPixmap(QPixmap());
         return;
     }

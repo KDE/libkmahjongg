@@ -50,12 +50,12 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
     KMahjonggTileset tile;
 
     //Now get our tilesets into a list
-    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjonggtileset", QString("*.desktop"), KStandardDirs::Recursive);
+    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjonggtileset", QLatin1String( "*.desktop"), KStandardDirs::Recursive);
 
-    QString namestr("Name");
+    QLatin1String namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < tilesAvailable.size(); ++i)
-    {   
+    {
         KMahjonggTileset * aset = new KMahjonggTileset();
         QString atileset = tilesAvailable.at(i);
         if (aset->loadTileset(atileset)) {
@@ -72,7 +72,7 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
             delete aset;
         }
     }
-    
+
     connect(tilesetList, SIGNAL(currentItemChanged ( QListWidgetItem * , QListWidgetItem * )), this, SLOT(tilesetChanged()));
 }
 
@@ -84,9 +84,9 @@ void KMahjonggTilesetSelector::tilesetChanged()
     if (selTileset->path()==kcfg_TileSet->text()) {
         return;
     }
-    QString authstr("Author");
-    QString contactstr("AuthorEmail");
-    QString descstr("Description");
+    QLatin1String authstr("Author");
+    QLatin1String contactstr("AuthorEmail");
+    QLatin1String descstr("Description");
     kcfg_TileSet->setText(selTileset->path());
     tilesetAuthor->setText(selTileset->authorProperty(authstr));
     tilesetContact->setText(selTileset->authorProperty(contactstr));
