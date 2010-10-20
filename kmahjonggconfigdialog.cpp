@@ -52,16 +52,16 @@ KMahjonggConfigDialog::~KMahjonggConfigDialog()
 
 void KMahjonggConfigDialog::addTilesetPage()
 {
-  KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(this, d->m_config);
-  //TODO: Use the cards icon for our page for now, need to get one for tilesets made
-  addPage(ts, i18n("Tiles"), QLatin1String( "games-config-tiles" ));
+    KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(this, d->m_config);
+    //TODO: Use the cards icon for our page for now, need to get one for tilesets made
+    addPage(ts, i18n("Tiles"), QLatin1String( "games-config-tiles" ));
 }
 
 void KMahjonggConfigDialog::addBackgroundPage()
 {
-  KMahjonggBackgroundSelector * ts = new KMahjonggBackgroundSelector(this, d->m_config);
-  //TODO: need icon
-  addPage(ts, i18n("Background"), QLatin1String( "games-config-background" ));
+    KMahjonggBackgroundSelector * ts = new KMahjonggBackgroundSelector(this, d->m_config);
+    //TODO: need icon
+    addPage(ts, i18n("Background"), QLatin1String( "games-config-background" ));
 }
 
 void KMahjonggConfigDialog::updateWidgetsDefault()

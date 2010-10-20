@@ -29,8 +29,8 @@ class KMahjonggTilesetPrivate;
 
 class KMAHJONGGLIB_EXPORT KMahjonggTileset {
    public:
-     KMahjonggTileset();	     
-     ~KMahjonggTileset();	
+     KMahjonggTileset();
+     ~KMahjonggTileset();
 
      bool loadDefault();
      bool loadTileset(const QString & tilesetPath);
@@ -52,12 +52,11 @@ class KMAHJONGGLIB_EXPORT KMahjonggTileset {
      QPixmap tileface(int num);
 
   protected:
+     void updateScaleInfo(short tilew, short tileh);
+     void buildElementIdTable(void);
+     QString pixmapCacheNameFromElementId(const QString & elementid);
+     QPixmap renderElement(short width, short height, const QString & elementid);
 
-	void updateScaleInfo(short tilew, short tileh);
-	void buildElementIdTable(void);
-	QString pixmapCacheNameFromElementId(const QString & elementid);
-	QPixmap renderElement(short width, short height, const QString & elementid);
-  
 
   private:
     friend class KMahjonggTilesetPrivate;

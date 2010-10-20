@@ -34,7 +34,7 @@
 
 class KMahjonggBackgroundPrivate
 {
-public:
+  public:
     KMahjonggBackgroundPrivate()
         : w(1), h(1), graphicsLoaded(false), isTiled(true), isSVG(false)
     {
@@ -80,7 +80,7 @@ bool KMahjonggBackground::loadDefault()
     QLatin1String idx( "default.desktop" );
 
     QString bgPath = KStandardDirs::locate("kmahjonggbackground", idx);
-kDebug() << "Inside LoadDefault(), located background at" << bgPath;
+    kDebug() << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
         return false;
     }
@@ -90,7 +90,7 @@ kDebug() << "Inside LoadDefault(), located background at" << bgPath;
 #define kBGVersionFormat 1
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
-kDebug() << "Background loading";
+    kDebug() << "Background loading";
     d->isSVG = false;
 
     kDebug() << "Attempting to load .desktop at" << file;
@@ -98,7 +98,7 @@ kDebug() << "Background loading";
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
-      return (false);
+        return (false);
     }
     bgfile.close();
 
@@ -134,8 +134,7 @@ kDebug() << "Background loading";
 
     if (d->graphicspath.isEmpty()) return (false);
 
-    if (group.readEntry("Tiled",0))
-    {
+    if (group.readEntry("Tiled",0)) {
         d->w = group.readEntry("Width",0);
         d->h = group.readEntry("Height",0);
         d->isTiled = true;
@@ -150,20 +149,20 @@ kDebug() << "Background loading";
 }
 
 bool KMahjonggBackground::loadGraphics() {
-  if (d->graphicsLoaded || d->isPlain) return (true) ;
+    if (d->graphicsLoaded || d->isPlain) return (true) ;
 
-  d->svg.load(d->graphicspath);
-  if (d->svg.isValid()) {
-    d->isSVG = true;
-  } else {
-    kDebug() << "could not load svg";
-    return( false );
-  }
-  return (true);
+    d->svg.load(d->graphicspath);
+    if (d->svg.isValid()) {
+        d->isSVG = true;
+    } else {
+        kDebug() << "could not load svg";
+        return( false );
+    }
+    return (true);
 }
 
 void KMahjonggBackground::sizeChanged(int newW, int newH) {
-        //in tiled mode we do not care about the whole field size
+    //in tiled mode we do not care about the whole field size
     if (d->isTiled || d->isPlain) return;
 
     if (newW == d->w && newH == d->h)
@@ -173,7 +172,7 @@ void KMahjonggBackground::sizeChanged(int newW, int newH) {
 }
 
 QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid) {
-  return authorproperties[QLatin1String( "Name" )]+ elementid+QString::fromLatin1( "W%1H%2").arg(w).arg(h);
+    return authorproperties[QLatin1String( "Name" )]+ elementid+QString::fromLatin1( "W%1H%2").arg(w).arg(h);
 }
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height) {
@@ -207,3 +206,4 @@ QString KMahjonggBackground::path() const {
 QString KMahjonggBackground::authorProperty(const QString &key) const {
     return d->authorproperties[key];
 }
+

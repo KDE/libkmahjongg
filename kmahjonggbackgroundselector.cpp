@@ -76,7 +76,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
 void KMahjonggBackgroundSelector::backgroundChanged()
 {
     KMahjonggBackground * selBG = backgroundMap.value(backgroundList->currentItem()->text());
-        //Sanity checkings. Should not happen.
+    //Sanity checkings. Should not happen.
     if (!selBG) return;
     if (selBG->path()==kcfg_Background->text()) {
         return;

@@ -79,7 +79,7 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
 void KMahjonggTilesetSelector::tilesetChanged()
 {
     KMahjonggTileset * selTileset = tilesetMap.value(tilesetList->currentItem()->text());
-        //Sanity checkings. Should not happen.
+    //Sanity checkings. Should not happen.
     if (!selTileset) return;
     if (selTileset->path()==kcfg_TileSet->text()) {
         return;

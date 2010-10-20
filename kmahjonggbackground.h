@@ -26,7 +26,7 @@
 
 class KMahjonggBackgroundPrivate;
 
-class KMAHJONGGLIB_EXPORT KMahjonggBackground  
+class KMAHJONGGLIB_EXPORT KMahjonggBackground
 {
   public:
     KMahjonggBackground();

@@ -28,13 +28,13 @@ class KMahjonggTileset;
 class KMahjonggTilesetSelector : public QWidget, public Ui::KMahjonggTilesetSelector
 {
 Q_OBJECT
-public:
+  public:
     explicit KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * config );
     ~KMahjonggTilesetSelector();
     void setupData(KConfigSkeleton * config);
 
     QMap<QString, KMahjonggTileset *> tilesetMap;
-public slots:
+  public slots:
     void tilesetChanged();
 };
 
