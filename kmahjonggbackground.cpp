@@ -79,9 +79,9 @@ bool KMahjonggBackground::loadDefault()
     QString idx = "default.desktop";
 
     QString bgPath = KStandardDirs::locate("kmahjonggbackground", idx);
-kDebug() << "Inside LoadDefault(), located background at" << bgPath;
+    kDebug() << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
-		return false;
+        return false;
     }
     return load(bgPath, 0, 0);
 }
@@ -97,7 +97,7 @@ kDebug() << "Background loading";
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
-      return (false);
+        return (false);
     }
     bgfile.close();
 
@@ -139,30 +139,30 @@ kDebug() << "Background loading";
 }
 
 bool KMahjonggBackground::loadGraphics() {
-  if (d->graphicsLoaded == true) return (true) ;
-  
-  d->svg.load(d->graphicspath);
-  if (d->svg.isValid()) {
-    d->isSVG = true;
-  } else {
-    kDebug() << "could not load svg";
-    return( false );
-  }
-  return (true);
+    if (d->graphicsLoaded == true) return (true) ;
+
+    d->svg.load(d->graphicspath);
+    if (d->svg.isValid()) {
+        d->isSVG = true;
+    } else {
+        kDebug() << "could not load svg";
+        return( false );
+    }
+    return (true);
 }
 
 void KMahjonggBackground::sizeChanged(int newW, int newH) {
-        //in tiled mode we do not care about the whole field size
+    //in tiled mode we do not care about the whole field size
     if (d->isTiled) return;
 
     if (newW == d->w && newH == d->h)
-		return;
+        return;
     d->w = newW;
     d->h = newH;
 }
 
 QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid) {
-  return authorproperties["Name"]+ elementid+QString("W%1H%2").arg(w).arg(h);
+    return authorproperties["Name"]+ elementid+QString("W%1H%2").arg(w).arg(h);
 }
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height) {
@@ -170,8 +170,8 @@ QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height) {
     qiRend.fill(0);
 
     if (svg.isValid()) {
-            QPainter p(&qiRend);
-	    svg.render(&p);
+        QPainter p(&qiRend);
+        svg.render(&p);
     }
     return QPixmap::fromImage(qiRend);
 }
@@ -180,7 +180,7 @@ QBrush & KMahjonggBackground::getBackground() {
     if (!QPixmapCache::find(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap)) {
         d->backgroundPixmap = d->renderBG(d->w, d->h);
         QPixmapCache::insert(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap);
- 	}
+    }
     d->backgroundBrush = QBrush(d->backgroundPixmap);
     return d->backgroundBrush;
 }

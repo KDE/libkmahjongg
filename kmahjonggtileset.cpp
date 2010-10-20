@@ -113,9 +113,9 @@ QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizonta
 
     if ((fullw/fullh)>(bw/bh)) {
         //space will be left on height, use width as limit
-	aspectratio = bw/fullw;
+        aspectratio = bw/fullw;
     } else {
-	aspectratio = bh/fullh;
+        aspectratio = bh/fullh;
     }
     newtilew = aspectratio * floatw;
     newtileh = aspectratio * floath;
@@ -127,9 +127,9 @@ bool KMahjonggTileset::loadDefault()
     QString idx = "default.desktop";
 
     QString tilesetPath = KStandardDirs::locate("kmahjonggtileset", idx);
-kDebug() << "Inside LoadDefault(), located path at" << tilesetPath;
+    kDebug() << "Inside LoadDefault(), located path at" << tilesetPath;
     if (tilesetPath.isEmpty()) {
-		return false;
+        return false;
     }
     return loadTileset(tilesetPath);
 }
@@ -158,7 +158,6 @@ short KMahjonggTileset::levelOffsetY() const
 {
     return d->scaleddata.lvloffy;
 }
-
 
 short KMahjonggTileset::qWidth() const
 {
@@ -190,7 +189,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     // verify if it is a valid file first and if we can open it
     QFile tilesetfile(tilesetPath);
     if (!tilesetfile.open(QIODevice::ReadOnly)) {
-      return (false);
+        return (false);
     }
     tilesetfile.close();
 
@@ -225,27 +224,27 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     d->originaldata.fh = group.readEntry("TileFaceHeight", 50);
     d->originaldata.lvloffx = group.readEntry("LevelOffsetX", 10);
     d->originaldata.lvloffy = group.readEntry("LevelOffsetY", 10);
-    
+
     //client application needs to call loadGraphics()
     d->graphicsLoaded = false;
     d->filename = tilesetPath;
 
- /*   if (d->isSVG) {
-	//really?
-	d->svg.load(graphicsPath);
-	if (d->svg.isValid()) {
-		d->filename = tilesetPath;
-		//invalidate our global cache
-		QPixmapCache::clear();
+/*    if (d->isSVG) {
+        //really?
+        d->svg.load(graphicsPath);
+        if (d->svg.isValid()) {
+            d->filename = tilesetPath;
+            //invalidate our global cache
+            QPixmapCache::clear();
 
-		d->isSVG = true;
-		reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
-	    } else {
-	        return( false );
-	    }
+            d->isSVG = true;
+            reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
+        } else {
+            return( false );
+        }
     } else {
-    //TODO add support for png??
-	return false;
+        //TODO add support for png??
+        return false;
     }*/
 
     return( true );
@@ -254,24 +253,24 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 // ---------------------------------------------------------
 bool KMahjonggTileset::loadGraphics()
 {
-  if (d->graphicsLoaded == true) return (true) ;
-  if (d->isSVG) {
-	//really?
-    d->svg.load(d->graphicspath);
-    if (d->svg.isValid()) {
-      //invalidate our global cache
-      QPixmapCache::clear();
-      d->graphicsLoaded = true;
-      reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
+    if (d->graphicsLoaded == true) return (true) ;
+    if (d->isSVG) {
+        //really?
+        d->svg.load(d->graphicspath);
+        if (d->svg.isValid()) {
+            //invalidate our global cache
+            QPixmapCache::clear();
+            d->graphicsLoaded = true;
+            reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
+        } else {
+            return( false );
+        }
     } else {
-      return( false );
+        //TODO add support for png??
+        return false;
     }
-  } else {
-    //TODO add support for png??
-    return false;
-  }
 
-  return( true );
+    return( true );
 }
 
 // ---------------------------------------------------------
@@ -282,106 +281,106 @@ bool KMahjonggTileset::reloadTileset( const QSize & newTilesize)
     if (QSize(d->scaleddata.w, d->scaleddata.h) == newTilesize) return false;
 
     if (d->isSVG) {
-	if (d->svg.isValid()) {
-		updateScaleInfo(newTilesize.width(), newTilesize.height());
-		//rendering will be done when needed, automatically using the global cache
-	    } else {
-	        return( false );
-	}
+        if (d->svg.isValid()) {
+            updateScaleInfo(newTilesize.width(), newTilesize.height());
+            //rendering will be done when needed, automatically using the global cache
+        } else {
+            return( false );
+        }
     } else {
-    //TODO add support for png???
-	return false;
+        //TODO add support for png???
+        return false;
     }
 
     return( true );
 }
 
 void KMahjonggTileset::buildElementIdTable() {
-	//Build a list for faster lookup of element ids, mapped to the enumeration used by GameData and BoardWidget
-	//Unselected tiles
-	for (short idx=1; idx<=4; idx++) {
-		d->elementIdTable.append(QString("TILE_%1").arg(idx));
-	}
-	//Selected tiles
-	for (short idx=1; idx<=4; idx++) {
-		d->elementIdTable.append(QString("TILE_%1_SEL").arg(idx));
-	}
-	//now faces
-	for (short idx=1; idx<=9; idx++) {
-		d->elementIdTable.append(QString("CHARACTER_%1").arg(idx));
-	}
-	for (short idx=1; idx<=9; idx++) {
-		d->elementIdTable.append(QString("BAMBOO_%1").arg(idx));
-	}
-	for (short idx=1; idx<=9; idx++) {
-		d->elementIdTable.append(QString("ROD_%1").arg(idx));
-	}
-	for (short idx=1; idx<=4; idx++) {
-		d->elementIdTable.append(QString("SEASON_%1").arg(idx));
-	}
-	for (short idx=1; idx<=4; idx++) {
-		d->elementIdTable.append(QString("WIND_%1").arg(idx));
-	}
-	for (short idx=1; idx<=3; idx++) {
-		d->elementIdTable.append(QString("DRAGON_%1").arg(idx));
-	}
-	for (short idx=1; idx<=4; idx++) {
-		d->elementIdTable.append(QString("FLOWER_%1").arg(idx));
-	}
+    //Build a list for faster lookup of element ids, mapped to the enumeration used by GameData and BoardWidget
+    //Unselected tiles
+    for (short idx=1; idx<=4; idx++) {
+        d->elementIdTable.append(QString("TILE_%1").arg(idx));
+    }
+    //Selected tiles
+    for (short idx=1; idx<=4; idx++) {
+        d->elementIdTable.append(QString("TILE_%1_SEL").arg(idx));
+    }
+    //now faces
+    for (short idx=1; idx<=9; idx++) {
+        d->elementIdTable.append(QString("CHARACTER_%1").arg(idx));
+    }
+    for (short idx=1; idx<=9; idx++) {
+        d->elementIdTable.append(QString("BAMBOO_%1").arg(idx));
+    }
+    for (short idx=1; idx<=9; idx++) {
+        d->elementIdTable.append(QString("ROD_%1").arg(idx));
+    }
+    for (short idx=1; idx<=4; idx++) {
+        d->elementIdTable.append(QString("SEASON_%1").arg(idx));
+    }
+    for (short idx=1; idx<=4; idx++) {
+        d->elementIdTable.append(QString("WIND_%1").arg(idx));
+    }
+    for (short idx=1; idx<=3; idx++) {
+        d->elementIdTable.append(QString("DRAGON_%1").arg(idx));
+    }
+    for (short idx=1; idx<=4; idx++) {
+        d->elementIdTable.append(QString("FLOWER_%1").arg(idx));
+    }
 }
 
 QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid) {
-	return authorProperty("Name")+ elementid + QString("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
+    return authorProperty("Name")+ elementid + QString("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) {
-//kDebug() << "render element" << elementid << width << height;
+    //kDebug() << "render element" << elementid << width << height;
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
     if (d->svg.isValid()) {
-            QPainter p(&qiRend);
-	    d->svg.render(&p, elementid);
+        QPainter p(&qiRend);
+        d->svg.render(&p, elementid);
     }
     return QPixmap::fromImage(qiRend);
 }
 
 QPixmap KMahjonggTileset::selectedTile(int num) {
-	QPixmap pm;
-	QString elemId = d->elementIdTable.at(num+4);//selected offset in our idtable;
- 	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
-		//use tile size
-     		pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
-     		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
- 	}
-	return pm;
+    QPixmap pm;
+    QString elemId = d->elementIdTable.at(num+4);//selected offset in our idtable;
+    if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
+        //use tile size
+        pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
+        QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
+    }
+    return pm;
 }
 
 QPixmap KMahjonggTileset::unselectedTile(int num) {
-	QPixmap pm;
-	QString elemId = d->elementIdTable.at(num);
- 	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
-		//use tile size
-     		pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
-     		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
- 	}
-	return pm;
+    QPixmap pm;
+    QString elemId = d->elementIdTable.at(num);
+    if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
+        //use tile size
+        pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
+        QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
+    }
+    return pm;
 }
 
 QPixmap KMahjonggTileset::tileface(int num) {
-	QPixmap pm;
-	if ((num + 8) >= d->elementIdTable.count()) {
-	  kDebug() << "Client asked for invalid tileface id";
-	  return pm;
-	}
+    QPixmap pm;
+    if ((num + 8) >= d->elementIdTable.count()) {
+        kDebug() << "Client asked for invalid tileface id";
+        return pm;
+    }
 
-	QString elemId = d->elementIdTable.at(num + 8);//tileface offset in our idtable;
- 	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
-		//use face size
-     		pm = renderElement(d->scaleddata.fw, d->scaleddata.fh, elemId);
-     		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
- 	}
-	return pm;
+    QString elemId = d->elementIdTable.at(num + 8);//tileface offset in our idtable;
+    if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
+        //use face size
+        pm = renderElement(d->scaleddata.fw, d->scaleddata.fh, elemId);
+        QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
+    }
+    return pm;
 }
 
 

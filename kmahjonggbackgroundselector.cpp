@@ -33,7 +33,7 @@ KMahjonggBackgroundSelector::KMahjonggBackgroundSelector( QWidget* parent, KConf
 KMahjonggBackgroundSelector::~KMahjonggBackgroundSelector()
 {
     foreach(KMahjonggBackground* bg, backgroundMap) {
-          delete bg;
+        delete bg;
     }
     backgroundMap.clear();
 }
@@ -55,7 +55,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
     QString namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < bgsAvailable.size(); ++i)
-    {   
+    {
         KMahjonggBackground * abg = new KMahjonggBackground();
         QString bgpath = bgsAvailable.at(i);
         if (abg->load(bgpath,backgroundPreview->width(),backgroundPreview->height())) {
@@ -72,7 +72,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
             delete abg;
         }
     }
-    
+
     connect(backgroundList, SIGNAL(currentItemChanged ( QListWidgetItem * , QListWidgetItem * )), this, SLOT(backgroundChanged()));
 }
 

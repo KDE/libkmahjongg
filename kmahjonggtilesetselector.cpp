@@ -55,7 +55,7 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
     QString namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < tilesAvailable.size(); ++i)
-    {   
+    {
         KMahjonggTileset * aset = new KMahjonggTileset();
         QString atileset = tilesAvailable.at(i);
         if (aset->loadTileset(atileset)) {
@@ -72,7 +72,7 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
             delete aset;
         }
     }
-    
+
     connect(tilesetList, SIGNAL(currentItemChanged ( QListWidgetItem * , QListWidgetItem * )), this, SLOT(tilesetChanged()));
 }
 
@@ -108,7 +108,6 @@ void KMahjonggTilesetSelector::tilesetChanged()
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->tileface(0));
     p.end();
     tilesetPreview->setPixmap(QPixmap::fromImage(qiRend));
-
 }
 
 #include "kmahjonggtilesetselector.moc"

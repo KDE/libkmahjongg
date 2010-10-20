@@ -26,7 +26,7 @@
 
 class KMahjonggBackgroundPrivate;
 
-class KMAHJONGGLIB_EXPORT KMahjonggBackground  
+class KMAHJONGGLIB_EXPORT KMahjonggBackground
 {
   public:
     KMahjonggBackground();
@@ -40,7 +40,7 @@ class KMAHJONGGLIB_EXPORT KMahjonggBackground
     QString path() const;
     QString authorProperty(const QString &key) const;
 
- private:
+  private:
     friend class KMahjonggBackgroundPrivate;
     KMahjonggBackgroundPrivate *const d;
 
