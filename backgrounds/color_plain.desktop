@@ -49,6 +49,7 @@ Name[x-test]=xxPlain Colorxx
 Name[zh_CN]=纯色
 Name[zh_TW]=普通顏色
 Description=Use the default window background color.
+Description[ca]=Usa el color de fons de la finestra per omissió
 Description[de]=Die standardmäßige Hintergrundfarbe des Fensters verwenden.
 Description[en_GB]=Use the default window background colour.
 Description[es]=Utilizar el color predeterminado para el fondo de la ventana.
