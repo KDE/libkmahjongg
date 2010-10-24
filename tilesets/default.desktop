@@ -1,5 +1,6 @@
 [KMahjonggTileset]
 Name=Default
+Name[ast]=Predetermináu
 Name[be]=Прадвызначаны
 Name[br]=Dre ziouer
 Name[ca]=Predeterminat
@@ -54,6 +55,7 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 Name[zh_TW]=預設
 Description=Art inspired by real Japanese Mahjongg tiles
+Description[ast]=Arte inspiráu nes fiches del Mahjongg xaponés real
 Description[ca]=Art inspirat per fitxes reals del Mahjongg japonès
 Description[ca@valencia]=Art inspirat per fitxes reals del Mahjongg japonés
 Description[da]=Kunst inspireret af ægte japanske Mahjongg-fliser
