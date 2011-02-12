@@ -7,4 +7,6 @@ Contents:
   tilesets: Directory for svg files and .desktop data describing the metrics of tiles
   backgrounds: Art and .desktop description for backgrounds
 
+The tilesets and backgrounds are also used by Kajongg. Please remember that when you change their format.
+
 Questions? Contact Mauricio Piacentini <mauricio@tabuleiro.com>
