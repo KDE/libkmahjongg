@@ -73,7 +73,7 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
         }
     }
 
-    connect(tilesetList, SIGNAL(currentItemChanged ( QListWidgetItem * , QListWidgetItem * )), this, SLOT(tilesetChanged()));
+    connect(tilesetList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(tilesetChanged()));
 }
 
 void KMahjonggTilesetSelector::tilesetChanged()

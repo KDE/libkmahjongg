@@ -70,7 +70,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
         }
     }
 
-    connect(backgroundList, SIGNAL(currentItemChanged ( QListWidgetItem * , QListWidgetItem * )), this, SLOT(backgroundChanged()));
+    connect(backgroundList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(backgroundChanged()));
 }
 
 void KMahjonggBackgroundSelector::backgroundChanged()
