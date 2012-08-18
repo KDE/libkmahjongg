@@ -1,5 +1,16 @@
 project(libkmahjongg)
 
+if(NOT COMPILING_KDEGAMES)
+	find_package(KDE4 REQUIRED)
+	include(KDE4Defaults)
+	include(MacroLibrary)
+	find_package(KDEGames REQUIRED)
+
+	add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+	add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+	include_directories(${KDE4_INCLUDES} ${CMAKE_SOURCE_DIR}/includes)
+endif(NOT COMPILING_KDEGAMES)
+
 add_subdirectory( tilesets ) 
 add_subdirectory( backgrounds ) 
 
