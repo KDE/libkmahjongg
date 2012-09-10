@@ -1,6 +1,10 @@
 [KMahjonggTileset]
 Name=Classic
+Name[uk]=Класична
+Name[x-test]=xxClassicxx
 Description=Chinese tileset, inspired by the classic version shipped with KDE 3
+Description[uk]=Китайський набір, схожий на класичну версію, що постачалася з KDE 3
+Description[x-test]=xxChinese tileset, inspired by the classic version shipped with KDE 3xx
 VersionFormat=1
 Author=Robert Buchholz
 AuthorEmail=robertbuchholz@gmx.de

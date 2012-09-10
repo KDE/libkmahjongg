@@ -1,6 +1,10 @@
 [KMahjonggTileset]
 Name=Bamboo
+Name[uk]=Бамбук
+Name[x-test]=xxBambooxx
 Description=Japanese tileset with brightly-colored kanji on a soft woodgrain
+Description[uk]=Японський набір плиток з кандзі світлого кольору на м’якій деревині
+Description[x-test]=xxJapanese tileset with brightly-colored kanji on a soft woodgrainxx
 VersionFormat=1
 Author=Matthew Woehlke
 AuthorEmail=mw_triad@users.sourceforge.net

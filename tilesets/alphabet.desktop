@@ -1,6 +1,10 @@
 [KMahjonggTileset]
 Name=Alphabet
+Name[uk]=Абетка
+Name[x-test]=xxAlphabetxx
 Description=A colorful tileset designed for kids of all ages.
+Description[uk]=Кольоровий набір призначений для дітей будь-якого віку.
+Description[x-test]=xxA colorful tileset designed for kids of all ages.xx
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com

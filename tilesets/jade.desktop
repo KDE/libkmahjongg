@@ -1,5 +1,7 @@
 [KMahjonggTileset]
 Name=Imperial Jade
+Name[uk]=Імперський нефрит
+Name[x-test]=xxImperial Jadexx
 VersionFormat=1
 Author=it-s
 AuthorEmail=irs_me@hotmail.com

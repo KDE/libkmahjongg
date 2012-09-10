@@ -1,6 +1,10 @@
 [KMahjonggBackground]
 Name=Default
+Name[uk]=Типова
+Name[x-test]=xxDefaultxx
 Description=A green background with light geometric patterns
+Description[uk]=Зелене тло зі світлими геометричними візерунками
+Description[x-test]=xxA green background with light geometric patternsxx
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com

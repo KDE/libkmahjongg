@@ -1,6 +1,10 @@
 [KMahjonggBackground]
 Name=Plain Color
+Name[uk]=Звичайний колір
+Name[x-test]=xxPlain Colorxx
 Description=Use the default window background color.
+Description[uk]=Використовувати типовий колір тла вікна.
+Description[x-test]=xxUse the default window background color.xx
 VersionFormat=1
 Author=
 AuthorEmail=

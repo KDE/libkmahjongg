@@ -1,6 +1,10 @@
 [KMahjonggBackground]
 Name=Chinese Landscape
+Name[uk]=Китайський ландшафт
+Name[x-test]=xxChinese Landscapexx
 Description=Chinese landscape with mountains and a waterfall
+Description[uk]=Пейзаж з Китаю з горами та водоспадом
+Description[x-test]=xxChinese landscape with mountains and a waterfallxx
 VersionFormat=1
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com

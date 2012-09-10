@@ -1,6 +1,10 @@
 [KMahjonggBackground]
 Name=Summer Field
+Name[uk]=Літнє поле
+Name[x-test]=xxSummer Fieldxx
 Description=The Summertime Greens
+Description[uk]=Зелень літа
+Description[x-test]=xxThe Summertime Greensxx
 VersionFormat=1
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com

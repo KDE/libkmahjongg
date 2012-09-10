@@ -1,6 +1,10 @@
 [KMahjonggBackground]
 Name=Egyptian
+Name[uk]=Єгиптянин
+Name[x-test]=xxEgyptianxx
 Description=A Egyptian style background
+Description[uk]=Єгипетський стиль сорочок карт
+Description[x-test]=xxA Egyptian style backgroundxx
 VersionFormat=1
 Author=Sean Wilson
 AuthorEmail=suseux@gmail.com

@@ -1,5 +1,7 @@
 [KMahjonggTileset]
 Name=Ancient Egyptians
+Name[uk]=Давні єгиптяни
+Name[x-test]=xxAncient Egyptiansxx
 VersionFormat=1
 Author=Eugene Trounev [it-s] & Sean Wilson [Half-Left]
 AuthorEmail=eugene.trounev@gmail.com; suseux@googlemail.com

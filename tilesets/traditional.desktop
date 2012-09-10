@@ -1,6 +1,10 @@
 [KMahjonggTileset]
 Name=Traditional
+Name[uk]=Традиційний
+Name[x-test]=xxTraditionalxx
 Description=Americanized tiles inspired by Japanese Mahjongg tiles
+Description[uk]=Американські картки, схожі на японські плитки для маджонґ
+Description[x-test]=xxAmericanized tiles inspired by Japanese Mahjongg tilesxx
 VersionFormat=1
 Author=James L. Hammons
 AuthorEmail=jlhamm@acm.org

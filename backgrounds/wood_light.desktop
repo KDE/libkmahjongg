@@ -1,6 +1,10 @@
 [KMahjonggBackground]
 Name=Light Wood
+Name[uk]=Легке дерево
+Name[x-test]=xxLight Woodxx
 Description=Resembles the surface of a wood table
+Description[uk]=Нагадує поверхню дерев’яного стола
+Description[x-test]=xxResembles the surface of a wood tablexx
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com

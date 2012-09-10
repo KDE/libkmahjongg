@@ -1,6 +1,10 @@
 [KMahjonggTileset]
 Name=Default
+Name[uk]=Типова
+Name[x-test]=xxDefaultxx
 Description=Art inspired by real Japanese Mahjongg tiles
+Description[uk]=Малюнки, на які надихнули справжні японські плитки маджонґ
+Description[x-test]=xxArt inspired by real Japanese Mahjongg tilesxx
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com
