@@ -1,6 +1,7 @@
 [KMahjonggBackground]
 Name=Egyptian
 Name[ast]=Exipciu
+Name[bs]=Egipatski
 Name[ca]=Egipci
 Name[ca@valencia]=Egipci
 Name[cs]=Egyptské
@@ -45,6 +46,7 @@ Name[x-test]=xxEgyptianxx
 Name[zh_CN]=埃及
 Name[zh_TW]=埃及式
 Description=A Egyptian style background
+Description[bs]=Pozadina u Egipatskom stilu
 Description[ca]=Un fons d'estil egipci
 Description[ca@valencia]=Un fons d'estil egipci
 Description[da]=En baggrund i egyptisk stil
