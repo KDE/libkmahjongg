@@ -1,15 +1,12 @@
 project(libkmahjongg)
 
-if(NOT COMPILING_KDEGAMES)
-	find_package(KDE4 REQUIRED)
-	include(KDE4Defaults)
-	include(MacroLibrary)
-	find_package(KDEGames REQUIRED)
+find_package(KDE4 REQUIRED)
+include(KDE4Defaults)
+include(MacroLibrary)
 
-	add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-	add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-	include_directories(${KDE4_INCLUDES} ${CMAKE_SOURCE_DIR}/includes)
-endif(NOT COMPILING_KDEGAMES)
+add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+include_directories(${KDE4_INCLUDES} ${CMAKE_SOURCE_DIR}/includes)
 
 add_subdirectory( tilesets ) 
 add_subdirectory( backgrounds ) 
@@ -27,7 +24,7 @@ kde4_add_ui_files(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackgr
 
 kde4_add_library(kmahjongglib SHARED ${kmahjongg_LIB_SRCS})
 
-target_link_libraries(kmahjongglib kdegames ${KDE4_KDEUI_LIBS})
+target_link_libraries(kmahjongglib ${KDE4_KDEUI_LIBS})
 
 set_target_properties(kmahjongglib PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
