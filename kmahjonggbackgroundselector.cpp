@@ -22,6 +22,7 @@
 #include <kstandarddirs.h>
 #include <QPainter>
 #include "kmahjonggbackground.h"
+#include <QDir>
 
 KMahjonggBackgroundSelector::KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * aconfig )
         : QWidget( parent )
@@ -47,8 +48,16 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
 
     KMahjonggBackground bg;
 
-    //Now get our tilesets into a list
-    QStringList bgsAvailable = KGlobal::dirs()->findAllResources("kmahjonggbackground", QLatin1String( "*.desktop"), KStandardDirs::Recursive);
+    //Now get our backgrounds into a list
+    QStringList bgsAvailable;
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongglib/background/", QStandardPaths::LocateDirectory);
+    Q_FOREACH (const QString& dir, dirs) {
+        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+        Q_FOREACH (const QString& file, fileNames) {
+            bgsAvailable.append(dir + '/' + file);
+            }
+    }
+
     QLatin1String namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < bgsAvailable.size(); ++i)

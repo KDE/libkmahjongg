@@ -19,8 +19,9 @@
 #include "kmahjonggtilesetselector.h"
 
 #include <klocale.h>
-#include <kstandarddirs.h>
 #include <QPainter>
+#include <qstandardpaths.h>
+#include <QDir>
 
 #include "kmahjonggtileset.h"
 
@@ -50,7 +51,14 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
     KMahjonggTileset tile;
 
     //Now get our tilesets into a list
-    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjonggtileset", QLatin1String( "*.desktop"), KStandardDirs::Recursive);
+    QStringList tilesAvailable;
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets", QStandardPaths::LocateDirectory);
+    Q_FOREACH (const QString& dir, dirs) {
+        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+        Q_FOREACH (const QString& file, fileNames) {
+            tilesAvailable.append(dir + '/' + file);
+        }
+    }
 
     QLatin1String namestr("Name");
     int numvalidentries = 0;

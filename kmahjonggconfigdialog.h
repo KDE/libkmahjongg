@@ -22,6 +22,8 @@
 #include <kconfigdialog.h>
 #include <libkmahjongg_export.h>
 
+#include <KDE/KConfigSkeleton>
+
 class KMahjonggConfigDialogPrivate;
 
 class KMAHJONGGLIB_EXPORT KMahjonggConfigDialog : public KConfigDialog

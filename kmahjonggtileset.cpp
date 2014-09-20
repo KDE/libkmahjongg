@@ -23,13 +23,13 @@
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <qimage.h>
-#include <kstandarddirs.h>
 #include <qsvgrenderer.h>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QFile>
 #include <KDebug>
 #include <QMap>
+#include <QStandardPaths>
 
 #include <stdlib.h>
 
@@ -75,9 +75,8 @@ KMahjonggTileset::KMahjonggTileset()
     static bool _inited = false;
     if (_inited)
         return;
-    KGlobal::dirs()->addResourceType("kmahjonggtileset", "data", QString::fromLatin1("kmahjongglib/tilesets/"));
-
-    KGlobal::locale()->insertCatalog( QLatin1String( "libkmahjongglib" ));
+#pragma message("To be ported still")
+    // KGlobal::Local()->insertCatalog( QLatin1String( "libkmahjongglib" ));
     _inited = true;
 }
 
@@ -126,8 +125,8 @@ bool KMahjonggTileset::loadDefault()
 {
     QString idx = QLatin1String( "default.desktop" );
 
-    QString tilesetPath = KStandardDirs::locate("kmahjonggtileset", idx);
-    kDebug() << "Inside LoadDefault(), located path at" << tilesetPath;
+    QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + idx);
+    qDebug() << "Inside LoadDefault(), located path at" << tilesetPath;
     if (tilesetPath.isEmpty()) {
         return false;
     }
@@ -210,7 +209,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 
     QString graphName = group.readEntry("FileName");
 
-    d->graphicspath = KStandardDirs::locate("kmahjonggtileset", graphName);
+    d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + graphName);
     kDebug() << "Using tileset at" << d->graphicspath;
     //d->filename = graphicsPath;
 

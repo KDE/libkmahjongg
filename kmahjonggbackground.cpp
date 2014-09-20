@@ -19,7 +19,6 @@
 
 #include "kmahjonggbackground.h"
 
-#include <kstandarddirs.h>
 #include <klocale.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -65,9 +64,8 @@ KMahjonggBackground::KMahjonggBackground()
     static bool _inited = false;
     if (_inited)
         return;
-    KGlobal::dirs()->addResourceType("kmahjonggbackground", "data", QString::fromLatin1("kmahjongglib/backgrounds/"));
-
-    KGlobal::locale()->insertCatalog( QLatin1String( "libkmahjongglib" ));
+#pragma message("Needs to be ported")
+    //KGlobal::locale()->insertCatalog( QLatin1String( "libkmahjongglib" ));
     _inited = true;
 }
 
@@ -79,8 +77,8 @@ bool KMahjonggBackground::loadDefault()
 {
     QLatin1String idx( "default.desktop" );
 
-    QString bgPath = KStandardDirs::locate("kmahjonggbackground", idx);
-    kDebug() << "Inside LoadDefault(), located background at" << bgPath;
+    QString bgPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/backgrounds/" + idx);
+    qDebug() << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
         return false;
     }
@@ -129,8 +127,9 @@ bool KMahjonggBackground::load(const QString &file, short width, short height) {
 
     QString graphName = group.readEntry("FileName");
 
-    d->graphicspath = KStandardDirs::locate("kmahjonggbackground", graphName);
-    kDebug() << "Using background at" << d->graphicspath;
+    d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/backgrounds/" + graphName);
+
+    qDebug() << "Using background at" << d->graphicspath;
 
     if (d->graphicspath.isEmpty()) return (false);
 

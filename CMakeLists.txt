@@ -1,17 +1,37 @@
 project(libkmahjongg)
 
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
-include(MacroLibrary)
+cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 
-add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+set (QT_MIN_VERSION "5.2.0")
+
+find_package(ECM 1.0.0 REQUIRED NO_MODULE)
+
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Test Svg)
+find_package(KF5 REQUIRED COMPONENTS CoreAddons Config KDELibs4Support ConfigWidgets WidgetsAddons)
+
+include(FeatureSummary)
+include(GenerateExportHeader)
+include(ECMPackageConfigHelpers)
+include(ECMSetupVersion)
+include(ECMGenerateHeaders)
+include(ECMMarkNonGuiExecutable)
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+
+add_definitions(${QT_DEFINITIONS})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-include_directories(${KDE4_INCLUDES} ${CMAKE_SOURCE_DIR}/includes)
+include_directories(${CMAKE_SOURCE_DIR}/includes)
 
 add_subdirectory( tilesets ) 
 add_subdirectory( backgrounds ) 
 
 ########### next target ###############
+
+set(KMAHJONGGLIB_VERSION 5.0.0)
+set(KMAHJONGGLIB_SOVERSION 5)
 
 set(kmahjongg_LIB_SRCS
    kmahjonggtileset.cpp 
@@ -20,15 +40,29 @@ set(kmahjongg_LIB_SRCS
    kmahjonggbackgroundselector.cpp 
    kmahjonggconfigdialog.cpp )
 
-kde4_add_ui_files(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackgroundselector.ui )
+ki18n_wrap_ui(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackgroundselector.ui )
 
-kde4_add_library(kmahjongglib SHARED ${kmahjongg_LIB_SRCS})
+add_library(KF5KMahjongglib SHARED ${kmahjongg_LIB_SRCS})
 
-target_link_libraries(kmahjongglib ${KDE4_KDEUI_LIBS})
+target_link_libraries(KF5KMahjongglib PRIVATE Qt5::Core Qt5::Svg KF5::WidgetsAddons KF5::KDELibs4Support
+                                      PUBLIC Qt5::Gui KF5::ConfigWidgets)
 
-set_target_properties(kmahjongglib PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
+target_include_directories(KF5KMahjongglib INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg>" INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}>")
 
-install(TARGETS kmahjongglib ${INSTALL_TARGETS_DEFAULT_ARGS})
+set_target_properties(KF5KMahjongglib PROPERTIES VERSION ${KMAHJONGGLIB_VERSION} 
+                                                 SOVERSION ${KMAHJONGGLIB_SOVERSION} 
+                                                 EXPORT_NAME KF5KMahjongglib)
+
+ecm_setup_version(${KMAHJONGGLIB_VERSION} VARIABLE_PREFIX KF5KMAHJONGGLIB
+                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h"
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfigVersion.cmake"
+                        SOVERSION 6)
+
+	
+install(TARGETS KF5KMahjongglib EXPORT KF5KMahjonggLibraryDepends
+        ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+install(TARGETS KF5KMahjongglib ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
@@ -37,5 +71,37 @@ install(FILES
    kmahjonggtileset.h
    kmahjonggbackground.h 
    kmahjonggconfigdialog.h 
-DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg COMPONENT Devel)
 
+########### generate exports ###############
+
+# add libraries to the build-tree export set
+export(TARGETS KF5KMahjongglib
+    FILE "${PROJECT_BINARY_DIR}/KF5KMahjonggLibraryDepends.cmake")
+
+# define the installation directory for the CMake files
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5KMahjongglib")
+
+# create the Config.cmake and ConfigVersion.cmake files
+ecm_configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5KMahjongglibConfig.cmake.in"
+                              "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfig.cmake"
+                              INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+                              )
+
+install(FILES  "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfig.cmake"
+               "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfigVersion.cmake"
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        COMPONENT Devel )
+
+# install the export set for use with the install-tree
+install(EXPORT KF5KMahjonggLibraryDepends DESTINATION
+    ${CMAKECONFIG_INSTALL_DIR} COMPONENT Devel)
+	
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h  
+        DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg
+        COMPONENT Devel)
+
+########### Display Summary ###############
+feature_summary(WHAT ALL
+                INCLUDE_QUIET_PACKAGES
+                FATAL_ON_MISSING_REQUIRED_PACKAGES)

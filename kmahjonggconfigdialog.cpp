@@ -15,6 +15,9 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+#include <kconfigdialogmanager.h>
+#include <kstandardguiitem.h>
+#include <QDialog>
 
 #include "kmahjonggconfigdialog.h"
 
@@ -23,6 +26,10 @@
 #include <krandom.h>
 #include <kconfig.h>
 #include <kdebug.h>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggbackgroundselector.h"
@@ -39,8 +46,19 @@ KMahjonggConfigDialog::KMahjonggConfigDialog( QWidget *parent, const QString& na
       d(new KMahjonggConfigDialogPrivate)
 {
     setFaceType(List);
-    setButtons(Ok | Apply | Cancel | Help);
-    setDefaultButton(Ok);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Apply);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
     setModal(true);
     d->m_config = config;
 }
