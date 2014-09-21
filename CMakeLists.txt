@@ -23,6 +23,8 @@ include(KDECMakeSettings)
 
 add_definitions(${QT_DEFINITIONS})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg")
+
 include_directories(${CMAKE_SOURCE_DIR}/includes)
 
 add_subdirectory( tilesets ) 
