@@ -18,7 +18,7 @@
 
 #include "kmahjonggbackgroundselector.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kstandarddirs.h>
 #include <QPainter>
 #include "kmahjonggbackground.h"
@@ -117,4 +117,4 @@ void KMahjonggBackgroundSelector::backgroundChanged()
 
 }
 
-#include "kmahjonggbackgroundselector.moc"
+

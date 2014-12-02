@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 
 set (QT_MIN_VERSION "5.2.0")
 
-find_package(ECM 1.0.0 REQUIRED NO_MODULE)
+find_package(ECM 1.3.0 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
@@ -45,6 +45,7 @@ set(kmahjongg_LIB_SRCS
 ki18n_wrap_ui(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackgroundselector.ui )
 
 add_library(KF5KMahjongglib SHARED ${kmahjongg_LIB_SRCS})
+generate_export_header(KF5KMahjongglib BASE_NAME libkmahjongg)
 
 target_link_libraries(KF5KMahjongglib PRIVATE Qt5::Core Qt5::Svg KF5::WidgetsAddons KF5::KDELibs4Support
                                       PUBLIC Qt5::Gui KF5::ConfigWidgets)
@@ -69,7 +70,7 @@ install(TARGETS KF5KMahjongglib ${INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 
 install(FILES
-   libkmahjongg_export.h
+   ${CMAKE_CURRENT_BINARY_DIR}/libkmahjongg_export.h
    kmahjonggtileset.h
    kmahjonggbackground.h 
    kmahjonggconfigdialog.h 

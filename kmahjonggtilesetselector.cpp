@@ -18,7 +18,7 @@
 
 #include "kmahjonggtilesetselector.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <QPainter>
 #include <qstandardpaths.h>
 #include <QDir>
@@ -119,4 +119,4 @@ void KMahjonggTilesetSelector::tilesetChanged()
 
 }
 
-#include "kmahjonggtilesetselector.moc"
+

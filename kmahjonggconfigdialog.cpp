@@ -21,7 +21,7 @@
 
 #include "kmahjonggconfigdialog.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kstandarddirs.h>
 #include <krandom.h>
 #include <kconfig.h>
@@ -95,4 +95,4 @@ void KMahjonggConfigDialog::updateSettings()
     kDebug() << "updateSettings";
 }*/
 
-#include "kmahjonggconfigdialog.moc"
+

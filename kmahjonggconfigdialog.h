@@ -26,7 +26,7 @@
 
 class KMahjonggConfigDialogPrivate;
 
-class KMAHJONGGLIB_EXPORT KMahjonggConfigDialog : public KConfigDialog
+class LIBKMAHJONGG_EXPORT KMahjonggConfigDialog : public KConfigDialog
 {
 Q_OBJECT
   public:

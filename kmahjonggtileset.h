@@ -27,7 +27,7 @@
 
 class KMahjonggTilesetPrivate;
 
-class KMAHJONGGLIB_EXPORT KMahjonggTileset {
+class LIBKMAHJONGG_EXPORT KMahjonggTileset {
    public:
      KMahjonggTileset();
      ~KMahjonggTileset();
