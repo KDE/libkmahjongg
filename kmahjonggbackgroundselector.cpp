@@ -19,7 +19,6 @@
 #include "kmahjonggbackgroundselector.h"
 
 #include <KLocalizedString>
-#include <kstandarddirs.h>
 #include <QPainter>
 #include "kmahjonggbackground.h"
 #include <QDir>

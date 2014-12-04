@@ -22,7 +22,7 @@
 #include <kconfigdialog.h>
 #include <libkmahjongg_export.h>
 
-#include <KDE/KConfigSkeleton>
+#include <KConfigSkeleton>
 
 class KMahjonggConfigDialogPrivate;
 

@@ -29,7 +29,7 @@
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QPainter>
-#include <KDebug>
+#include <QDebug>
 
 class KMahjonggBackgroundPrivate
 {
@@ -64,8 +64,6 @@ KMahjonggBackground::KMahjonggBackground()
     static bool _inited = false;
     if (_inited)
         return;
-#pragma message("Needs to be ported")
-    //KGlobal::locale()->insertCatalog( QLatin1String( "libkmahjongglib" ));
     _inited = true;
 }
 
@@ -88,10 +86,10 @@ bool KMahjonggBackground::loadDefault()
 #define kBGVersionFormat 1
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
-    kDebug() << "Background loading";
+    //qDebug() << "Background loading";
     d->isSVG = false;
 
-    kDebug() << "Attempting to load .desktop at" << file;
+    //qDebug() << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
@@ -119,7 +117,7 @@ bool KMahjonggBackground::load(const QString &file, short width, short height) {
     }
 
     if (d->isPlain) {
-        kDebug() << "Using plain background";
+        //qDebug() << "Using plain background";
         d->graphicspath.clear();
         d->filename = file;
         return true;
@@ -154,7 +152,7 @@ bool KMahjonggBackground::loadGraphics() {
     if (d->svg.isValid()) {
         d->isSVG = true;
     } else {
-        kDebug() << "could not load svg";
+        //qDebug() << "could not load svg";
         return( false );
     }
     return (true);

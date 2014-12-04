@@ -9,7 +9,7 @@ find_package(ECM 1.3.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Test Svg)
-find_package(KF5 REQUIRED COMPONENTS CoreAddons Config KDELibs4Support ConfigWidgets WidgetsAddons)
+find_package(KF5 REQUIRED COMPONENTS CoreAddons Config ConfigWidgets WidgetsAddons Completion I18n)
 
 include(FeatureSummary)
 include(GenerateExportHeader)
@@ -21,7 +21,6 @@ include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
 
-add_definitions(${QT_DEFINITIONS})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg")
 
@@ -47,7 +46,7 @@ ki18n_wrap_ui(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackground
 add_library(KF5KMahjongglib SHARED ${kmahjongg_LIB_SRCS})
 generate_export_header(KF5KMahjongglib BASE_NAME libkmahjongg)
 
-target_link_libraries(KF5KMahjongglib PRIVATE Qt5::Core Qt5::Svg KF5::WidgetsAddons KF5::KDELibs4Support
+target_link_libraries(KF5KMahjongglib PRIVATE Qt5::Core Qt5::Svg KF5::WidgetsAddons KF5::I18n KF5::Completion KF5::ConfigGui
                                       PUBLIC Qt5::Gui KF5::ConfigWidgets)
 
 target_include_directories(KF5KMahjongglib INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg>" INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}>")

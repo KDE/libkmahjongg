@@ -22,10 +22,9 @@
 #include "kmahjonggconfigdialog.h"
 
 #include <KLocalizedString>
-#include <kstandarddirs.h>
 #include <krandom.h>
 #include <kconfig.h>
-#include <kdebug.h>
+#include <QDebug>
 #include <KConfigGroup>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -81,15 +80,15 @@ void KMahjonggConfigDialog::addBackgroundPage()
 
 void KMahjonggConfigDialog::updateWidgetsDefault()
 {
-    kDebug() << "updateWidgetsDefault";
+    //qDebug() << "updateWidgetsDefault";
 }
 /*void KMahjonggConfigDialog::updateWidgets()
 {
-    kDebug() << "updateWidgets";
+    //qDebug() << "updateWidgets";
 }
 void KMahjonggConfigDialog::updateSettings()
 {
-    kDebug() << "updateSettings";
+    //qDebug() << "updateSettings";
 }*/
 
 

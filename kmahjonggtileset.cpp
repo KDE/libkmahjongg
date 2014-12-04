@@ -27,7 +27,7 @@
 #include <QPainter>
 #include <QPixmapCache>
 #include <QFile>
-#include <KDebug>
+#include <QDebug>
 #include <QMap>
 #include <QStandardPaths>
 
@@ -75,8 +75,6 @@ KMahjonggTileset::KMahjonggTileset()
     static bool _inited = false;
     if (_inited)
         return;
-#pragma message("To be ported still")
-    // KGlobal::Local()->insertCatalog( QLatin1String( "libkmahjongglib" ));
     _inited = true;
 }
 
@@ -180,7 +178,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 {
 
     QImage qiTiles;
-    kDebug() << "Attempting to load .desktop at" << tilesetPath;
+    //qDebug() << "Attempting to load .desktop at" << tilesetPath;
 
     //clear our properties map
     d->authorproperties.clear();
@@ -210,7 +208,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     QString graphName = group.readEntry("FileName");
 
     d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + graphName);
-    kDebug() << "Using tileset at" << d->graphicspath;
+    //qDebug() << "Using tileset at" << d->graphicspath;
     //d->filename = graphicsPath;
 
     //only SVG for now
@@ -333,7 +331,7 @@ QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) {
-    //kDebug() << "render element" << elementid << width << height;
+    ////qDebug() << "render element" << elementid << width << height;
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
@@ -369,7 +367,7 @@ QPixmap KMahjonggTileset::unselectedTile(int num) {
 QPixmap KMahjonggTileset::tileface(int num) {
     QPixmap pm;
     if ((num + 8) >= d->elementIdTable.count()) {
-        kDebug() << "Client asked for invalid tileface id";
+        //qDebug() << "Client asked for invalid tileface id";
         return pm;
     }
 
