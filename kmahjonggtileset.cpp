@@ -27,7 +27,7 @@
 #include <QPainter>
 #include <QPixmapCache>
 #include <QFile>
-#include <QDebug>
+#include "libkmahjong_debug.h"
 #include <QMap>
 #include <QStandardPaths>
 
@@ -124,7 +124,7 @@ bool KMahjonggTileset::loadDefault()
     QString idx = QLatin1String( "default.desktop" );
 
     QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + idx);
-    qDebug() << "Inside LoadDefault(), located path at" << tilesetPath;
+    qCDebug(LIBKMAHJONG_LOG) << "Inside LoadDefault(), located path at" << tilesetPath;
     if (tilesetPath.isEmpty()) {
         return false;
     }
@@ -178,7 +178,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
 {
 
     QImage qiTiles;
-    //qDebug() << "Attempting to load .desktop at" << tilesetPath;
+    //qCDebug(LIBKMAHJONG_LOG) << "Attempting to load .desktop at" << tilesetPath;
 
     //clear our properties map
     d->authorproperties.clear();
@@ -208,7 +208,7 @@ bool KMahjonggTileset::loadTileset( const QString & tilesetPath)
     QString graphName = group.readEntry("FileName");
 
     d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + graphName);
-    //qDebug() << "Using tileset at" << d->graphicspath;
+    //qCDebug(LIBKMAHJONG_LOG) << "Using tileset at" << d->graphicspath;
     //d->filename = graphicsPath;
 
     //only SVG for now
@@ -331,7 +331,7 @@ QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) {
-    ////qDebug() << "render element" << elementid << width << height;
+    ////qCDebug(LIBKMAHJONG_LOG) << "render element" << elementid << width << height;
     QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
@@ -367,7 +367,7 @@ QPixmap KMahjonggTileset::unselectedTile(int num) {
 QPixmap KMahjonggTileset::tileface(int num) {
     QPixmap pm;
     if ((num + 8) >= d->elementIdTable.count()) {
-        //qDebug() << "Client asked for invalid tileface id";
+        //qCDebug(LIBKMAHJONG_LOG) << "Client asked for invalid tileface id";
         return pm;
     }
 

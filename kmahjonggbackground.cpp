@@ -29,7 +29,7 @@
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QPainter>
-#include <QDebug>
+#include "libkmahjong_debug.h"
 
 class KMahjonggBackgroundPrivate
 {
@@ -76,7 +76,7 @@ bool KMahjonggBackground::loadDefault()
     QLatin1String idx( "default.desktop" );
 
     QString bgPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/backgrounds/" + idx);
-    qDebug() << "Inside LoadDefault(), located background at" << bgPath;
+    qCDebug(LIBKMAHJONG_LOG) << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
         return false;
     }
@@ -86,10 +86,10 @@ bool KMahjonggBackground::loadDefault()
 #define kBGVersionFormat 1
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
-    //qDebug() << "Background loading";
+    //qCDebug(LIBKMAHJONG_LOG) << "Background loading";
     d->isSVG = false;
 
-    //qDebug() << "Attempting to load .desktop at" << file;
+    //qCDebug(LIBKMAHJONG_LOG) << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
@@ -117,7 +117,7 @@ bool KMahjonggBackground::load(const QString &file, short width, short height) {
     }
 
     if (d->isPlain) {
-        //qDebug() << "Using plain background";
+        //qCDebug(LIBKMAHJONG_LOG) << "Using plain background";
         d->graphicspath.clear();
         d->filename = file;
         return true;
@@ -127,7 +127,7 @@ bool KMahjonggBackground::load(const QString &file, short width, short height) {
 
     d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/backgrounds/" + graphName);
 
-    qDebug() << "Using background at" << d->graphicspath;
+    qCDebug(LIBKMAHJONG_LOG) << "Using background at" << d->graphicspath;
 
     if (d->graphicspath.isEmpty()) return (false);
 
@@ -152,7 +152,7 @@ bool KMahjonggBackground::loadGraphics() {
     if (d->svg.isValid()) {
         d->isSVG = true;
     } else {
-        //qDebug() << "could not load svg";
+        //qCDebug(LIBKMAHJONG_LOG) << "could not load svg";
         return( false );
     }
     return (true);

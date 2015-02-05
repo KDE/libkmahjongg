@@ -35,6 +35,7 @@ set(KMAHJONGGLIB_VERSION 5.0.0)
 set(KMAHJONGGLIB_SOVERSION 5)
 
 set(kmahjongg_LIB_SRCS
+   libkmahjong_debug.cpp
    kmahjonggtileset.cpp 
    kmahjonggbackground.cpp 
    kmahjonggtilesetselector.cpp 
