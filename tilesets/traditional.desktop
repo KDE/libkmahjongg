@@ -1,5 +1,6 @@
 [KMahjonggTileset]
 Name=Traditional
+Name[ast]=Tradicional
 Name[bs]=Tradicionalna
 Name[ca]=Tradicional
 Name[ca@valencia]=Tradicional
@@ -55,6 +56,7 @@ Name[x-test]=xxTraditionalxx
 Name[zh_CN]=传统
 Name[zh_TW]=傳統
 Description=Americanized tiles inspired by Japanese Mahjongg tiles
+Description[ast]=Fiches americanizaes inspiraes nes fiches del Mahjongg xaponés
 Description[bs]=Amerikanizirane pločice inspirisane Japanskim Mahjongg pločicama
 Description[ca]=Fitxes americanitzades inspirades per fitxes japoneses de Mahjongg
 Description[ca@valencia]=Fitxes americanitzades inspirades per fitxes japoneses de Mahjongg

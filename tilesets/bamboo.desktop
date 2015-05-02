@@ -1,5 +1,6 @@
 [KMahjonggTileset]
 Name=Bamboo
+Name[ast]=Bambú
 Name[bs]=Bambus
 Name[ca]=Bamboo
 Name[ca@valencia]=Bamboo
@@ -44,6 +45,7 @@ Name[x-test]=xxBambooxx
 Name[zh_CN]=Bovo
 Name[zh_TW]=竹子
 Description=Japanese tileset with brightly-colored kanji on a soft woodgrain
+Description[ast]=Conxuntu de fiches xapones con kanjis de rellumantes colores sobro madera clara
 Description[bs]=Japanske pločice svjetlih boja kanji na godovima drveta
 Description[ca]=Conjunt de fitxes amb caràcters kanji de colors brillants sobre una fusta tova
 Description[ca@valencia]=Conjunt de fitxes amb caràcters kanji de colors brillants sobre una fusta tova
