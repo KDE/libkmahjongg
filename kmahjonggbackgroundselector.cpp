@@ -37,7 +37,7 @@ KMahjonggBackgroundSelector::~KMahjonggBackgroundSelector()
 
 void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
 {
-    //Get our currently configured Tileset entry
+    //Get our currently configured background entry
     KConfig * config = aconfig->config();
     KConfigGroup group = config->group("General");
     QString initialGroup = group.readEntry("Background_file");
@@ -66,7 +66,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
         if (abg->load(bgpath,backgroundPreview->width(),backgroundPreview->height())) {
             backgroundMap.insert(abg->authorProperty(namestr), abg);
             backgroundList->addItem(abg->authorProperty(namestr));
-            //Find if this is our currently configured Tileset
+            //Find if this is our currently configured background
             if (bgpath==initialGroup) {
                 //Select current entry
                 backgroundList->setCurrentRow(numvalidentries);
