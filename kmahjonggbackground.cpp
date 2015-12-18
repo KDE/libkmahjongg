@@ -18,6 +18,7 @@
 */
 
 #include "kmahjonggbackground.h"
+#include "libkmahjongg_debug.h"
 
 #include <KLocalizedString>
 #include <kconfig.h>
@@ -29,7 +30,6 @@
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QPainter>
-#include "libkmahjong_debug.h"
 
 class KMahjonggBackgroundPrivate
 {

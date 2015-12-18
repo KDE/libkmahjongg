@@ -19,7 +19,7 @@
 
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggbackgroundselector.h"
-#include "libkmahjong_debug.h"
+#include "libkmahjongg_debug.h"
 
 #include <kconfigdialogmanager.h>
 #include <kstandardguiitem.h>

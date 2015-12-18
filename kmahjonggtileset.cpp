@@ -18,6 +18,7 @@
 */
 
 #include "kmahjonggtileset.h"
+#include "libkmahjongg_debug.h"
 
 #include <KLocalizedString>
 #include <kconfig.h>
@@ -27,7 +28,6 @@
 #include <QPainter>
 #include <QPixmapCache>
 #include <QFile>
-#include "libkmahjong_debug.h"
 #include <QMap>
 #include <QStandardPaths>
 
