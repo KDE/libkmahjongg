@@ -15,23 +15,23 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-#include <kconfigdialogmanager.h>
-#include <kstandardguiitem.h>
-#include <QDialog>
-
 #include "kmahjonggconfigdialog.h"
-
-#include <KLocalizedString>
-#include <krandom.h>
-#include <kconfig.h>
-#include "libkmahjong_debug.h"
-#include <KConfigGroup>
-#include <QDialogButtonBox>
-#include <QPushButton>
-#include <QVBoxLayout>
 
 #include "kmahjonggtilesetselector.h"
 #include "kmahjonggbackgroundselector.h"
+#include "libkmahjong_debug.h"
+
+#include <kconfigdialogmanager.h>
+#include <kstandardguiitem.h>
+#include <KLocalizedString>
+#include <krandom.h>
+#include <kconfig.h>
+#include <KConfigGroup>
+
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 class KMahjonggConfigDialogPrivate
 {
