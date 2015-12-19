@@ -80,15 +80,15 @@ void KMahjonggConfigDialog::addBackgroundPage()
 
 void KMahjonggConfigDialog::updateWidgetsDefault()
 {
-    //qCDebug(LIBKMAHJONG_LOG) << "updateWidgetsDefault";
+    //qCDebug(LIBKMAHJONGG_LOG) << "updateWidgetsDefault";
 }
 /*void KMahjonggConfigDialog::updateWidgets()
 {
-    //qCDebug(LIBKMAHJONG_LOG) << "updateWidgets";
+    //qCDebug(LIBKMAHJONGG_LOG) << "updateWidgets";
 }
 void KMahjonggConfigDialog::updateSettings()
 {
-    //qCDebug(LIBKMAHJONG_LOG) << "updateSettings";
+    //qCDebug(LIBKMAHJONGG_LOG) << "updateSettings";
 }*/
 
 

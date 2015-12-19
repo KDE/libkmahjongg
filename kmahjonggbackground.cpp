@@ -77,7 +77,7 @@ bool KMahjonggBackground::loadDefault()
     QLatin1String idx( "egyptian.desktop" );
 
     QString bgPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/backgrounds/" + idx);
-    qCDebug(LIBKMAHJONG_LOG) << "Inside LoadDefault(), located background at" << bgPath;
+    qCDebug(LIBKMAHJONGG_LOG) << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
         return false;
     }
@@ -87,10 +87,10 @@ bool KMahjonggBackground::loadDefault()
 #define kBGVersionFormat 1
 
 bool KMahjonggBackground::load(const QString &file, short width, short height) {
-    //qCDebug(LIBKMAHJONG_LOG) << "Background loading";
+    //qCDebug(LIBKMAHJONGG_LOG) << "Background loading";
     d->isSVG = false;
 
-    //qCDebug(LIBKMAHJONG_LOG) << "Attempting to load .desktop at" << file;
+    //qCDebug(LIBKMAHJONGG_LOG) << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
@@ -118,7 +118,7 @@ bool KMahjonggBackground::load(const QString &file, short width, short height) {
     }
 
     if (d->isPlain) {
-        //qCDebug(LIBKMAHJONG_LOG) << "Using plain background";
+        //qCDebug(LIBKMAHJONGG_LOG) << "Using plain background";
         d->graphicspath.clear();
         d->filename = file;
         return true;
@@ -128,7 +128,7 @@ bool KMahjonggBackground::load(const QString &file, short width, short height) {
 
     d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/backgrounds/" + graphName);
 
-    qCDebug(LIBKMAHJONG_LOG) << "Using background at" << d->graphicspath;
+    qCDebug(LIBKMAHJONGG_LOG) << "Using background at" << d->graphicspath;
 
     if (d->graphicspath.isEmpty()) return (false);
 
@@ -153,7 +153,7 @@ bool KMahjonggBackground::loadGraphics() {
     if (d->svg.isValid()) {
         d->isSVG = true;
     } else {
-        //qCDebug(LIBKMAHJONG_LOG) << "could not load svg";
+        //qCDebug(LIBKMAHJONGG_LOG) << "could not load svg";
         return( false );
     }
     return (true);

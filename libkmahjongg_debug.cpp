@@ -18,6 +18,6 @@
 */
 
 #include "libkmahjongg_debug.h"
-Q_LOGGING_CATEGORY(LIBKMAHJONG_LOG, "log_libkmahjongg")
+Q_LOGGING_CATEGORY(LIBKMAHJONGG_LOG, "log_libkmahjongg")
 
 
