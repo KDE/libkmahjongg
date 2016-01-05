@@ -65,8 +65,6 @@ ecm_setup_version(${KMAHJONGGLIB_VERSION} VARIABLE_PREFIX KF5KMAHJONGGLIB
 install(TARGETS KF5KMahjongglib EXPORT KF5KMahjonggLibraryDepends
         ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
-install(TARGETS KF5KMahjongglib ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
-
 ########### install files ###############
 
 install(FILES
