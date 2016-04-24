@@ -20,8 +20,8 @@
 #ifndef _KMAHJONGGTILESET_H_
 #define _KMAHJONGGTILESET_H_
 
-#include <QtCore/QString>
-#include <QtGui/QPixmap>
+#include <QString>
+#include <QPixmap>
 
 #include <libkmahjongg_export.h>
 
