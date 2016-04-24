@@ -195,7 +195,6 @@ QString KMahjonggTileset::path() const
 // ---------------------------------------------------------
 bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
 {
-    QImage qiTiles;
     //qCDebug(LIBKMAHJONGG_LOG) << "Attempting to load .desktop at" << tilesetPath;
 
     //clear our properties map
@@ -227,7 +226,6 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
 
     d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + graphName);
     //qCDebug(LIBKMAHJONGG_LOG) << "Using tileset at" << d->graphicspath;
-    //d->filename = graphicsPath;
 
     //only SVG for now
     d->isSVG = true;
@@ -245,24 +243,6 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
     //client application needs to call loadGraphics()
     d->graphicsLoaded = false;
     d->filename = tilesetPath;
-
-    /*   if (d->isSVG) {
-        //really?
-        d->svg.load(graphicsPath);
-        if (d->svg.isValid()) {
-            d->filename = tilesetPath;
-            //invalidate our global cache
-            QPixmapCache::clear();
-
-            d->isSVG = true;
-            reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
-        } else {
-            return( false );
-        }
-    } else {
-        //TODO add support for png??
-        return false;
-    }*/
 
     return (true);
 }
@@ -295,8 +275,6 @@ bool KMahjonggTileset::loadGraphics()
 // ---------------------------------------------------------
 bool KMahjonggTileset::reloadTileset(const QSize & newTilesize)
 {
-    QString tilesetPath = d->filename;
-
     if (QSize(d->scaleddata.w, d->scaleddata.h) == newTilesize) {
         return false;
     }
@@ -358,7 +336,7 @@ QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid)
 {
-    ////qCDebug(LIBKMAHJONGG_LOG) << "render element" << elementid << width << height;
+    //qCDebug(LIBKMAHJONGG_LOG) << "render element" << elementid << width << height;
     QImage qiRend(QSize(width, height), QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
