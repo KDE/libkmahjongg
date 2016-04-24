@@ -24,13 +24,13 @@
 #include <cstdlib>
 
 // Qt
-#include <QImage>
-#include <QSvgRenderer>
 #include <QFile>
+#include <QImage>
 #include <QMap>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QStandardPaths>
+#include <QSvgRenderer>
 
 // KDE
 #include <KConfig>

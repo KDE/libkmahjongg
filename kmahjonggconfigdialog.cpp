@@ -26,10 +26,10 @@
 #include <QVBoxLayout>
 
 // KDE
-#include <KConfigGroup>
-#include <KLocalizedString>
 #include <KConfig>
 #include <KConfigDialogManager>
+#include <KConfigGroup>
+#include <KLocalizedString>
 #include <KRandom>
 #include <KStandardGuiItem>
 
