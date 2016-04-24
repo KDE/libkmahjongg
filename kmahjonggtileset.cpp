@@ -250,7 +250,7 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
 // ---------------------------------------------------------
 bool KMahjonggTileset::loadGraphics()
 {
-    if (d->graphicsLoaded == true) {
+    if (d->graphicsLoaded) {
         return (true);
     }
     if (d->isSVG) {

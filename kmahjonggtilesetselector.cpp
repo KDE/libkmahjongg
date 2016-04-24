@@ -92,7 +92,7 @@ void KMahjonggTilesetSelector::tilesetChanged()
 {
     KMahjonggTileset * selTileset = tilesetMap.value(tilesetList->currentItem()->text());
     //Sanity checkings. Should not happen.
-    if (!selTileset) {
+    if (selTileset == nullptr) {
         return;
     }
     if (selTileset->path() == kcfg_TileSet->text()) {

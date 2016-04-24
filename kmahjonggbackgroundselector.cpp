@@ -90,7 +90,7 @@ void KMahjonggBackgroundSelector::backgroundChanged()
 {
     KMahjonggBackground * selBG = backgroundMap.value(backgroundList->currentItem()->text());
     //Sanity checkings. Should not happen.
-    if (!selBG) {
+    if (selBG == nullptr) {
         return;
     }
     if (selBG->path() == kcfg_Background->text()) {

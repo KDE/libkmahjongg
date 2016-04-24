@@ -147,7 +147,7 @@ bool KMahjonggBackground::load(const QString & file, short width, short height)
         return (false);
     }
 
-    if (group.readEntry("Tiled", 0)) {
+    if (group.readEntry("Tiled", 0) != 0) {
         d->w = group.readEntry("Width", 0);
         d->h = group.readEntry("Height", 0);
         d->isTiled = true;
