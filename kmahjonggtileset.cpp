@@ -107,11 +107,11 @@ void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
 {
     d->scaleddata.w = tilew;
     d->scaleddata.h = tileh;
-    double ratio = ((qreal)d->scaleddata.w) / ((qreal)d->originaldata.w);
-    d->scaleddata.lvloffx = (short)(d->originaldata.lvloffx * ratio);
-    d->scaleddata.lvloffy = (short)(d->originaldata.lvloffy * ratio);
-    d->scaleddata.fw = (short)(d->originaldata.fw * ratio);
-    d->scaleddata.fh = (short)(d->originaldata.fh * ratio);
+    double ratio = (static_cast<qreal>(d->scaleddata.w)) / (static_cast<qreal>(d->originaldata.w));
+    d->scaleddata.lvloffx = static_cast<short>(d->originaldata.lvloffx * ratio);
+    d->scaleddata.lvloffy = static_cast<short>(d->originaldata.lvloffy * ratio);
+    d->scaleddata.fw = static_cast<short>(d->originaldata.fw * ratio);
+    d->scaleddata.fh = static_cast<short>(d->originaldata.fh * ratio);
 }
 
 QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells)
@@ -135,7 +135,7 @@ QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizonta
     }
     newtilew = aspectratio * floatw;
     newtileh = aspectratio * floath;
-    return QSize((short)newtilew, (short)newtileh);
+    return QSize(static_cast<short>(newtilew), static_cast<short>(newtileh));
 }
 
 bool KMahjonggTileset::loadDefault()
@@ -177,12 +177,12 @@ short KMahjonggTileset::levelOffsetY() const
 
 short KMahjonggTileset::qWidth() const
 {
-    return (short)(d->scaleddata.fw / 2.0);
+    return static_cast<short>(d->scaleddata.fw / 2.0);
 }
 
 short KMahjonggTileset::qHeight() const
 {
-    return (short)(d->scaleddata.fh / 2.0);
+    return static_cast<short>(d->scaleddata.fh / 2.0);
 }
 
 QString KMahjonggTileset::path() const
