@@ -34,9 +34,9 @@ class KMahjonggTilesetSelector : public QWidget, public Ui::KMahjonggTilesetSele
 {
 Q_OBJECT
   public:
-    explicit KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * config );
+    explicit KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * aconfig );
     ~KMahjonggTilesetSelector();
-    void setupData(KConfigSkeleton * config);
+    void setupData(KConfigSkeleton * aconfig);
 
     QMap<QString, KMahjonggTileset *> tilesetMap;
   public slots:

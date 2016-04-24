@@ -34,9 +34,9 @@ class KMahjonggBackgroundSelector : public QWidget, public Ui::KMahjonggBackgrou
 {
 Q_OBJECT
   public:
-    explicit KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * config );
+    explicit KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * aconfig );
     ~KMahjonggBackgroundSelector();
-    void setupData(KConfigSkeleton * config);
+    void setupData(KConfigSkeleton * aconfig);
 
     QMap<QString, KMahjonggBackground *> backgroundMap;
   public slots:
