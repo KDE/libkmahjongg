@@ -16,8 +16,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __LIBKMAHJONGGCONFIGDIALOG_H_
-#define __LIBKMAHJONGGCONFIGDIALOG_H_
+#ifndef KMAHJONGGCONFIGDIALOG_H
+#define KMAHJONGGCONFIGDIALOG_H
 
 #include <kconfigdialog.h>
 #include <libkmahjongg_export.h>
@@ -48,4 +48,4 @@ Q_OBJECT
     Q_DISABLE_COPY(KMahjonggConfigDialog)
 };
 
-#endif
+#endif // KMAHJONGGCONFIGDIALOG_H

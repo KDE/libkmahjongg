@@ -17,8 +17,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef _KMAHJONGGTILESET_H_
-#define _KMAHJONGGTILESET_H_
+#ifndef KMAHJONGGTILESET_H
+#define KMAHJONGGTILESET_H
 
 #include <QString>
 #include <QPixmap>
@@ -65,4 +65,4 @@ class LIBKMAHJONGG_EXPORT KMahjonggTileset {
     Q_DISABLE_COPY(KMahjonggTileset)
 };
 
-#endif
+#endif // KMAHJONGGTILESET_H
