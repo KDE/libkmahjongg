@@ -108,7 +108,7 @@ bool KMahjonggBackground::load(const QString & file, short width, short height)
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
-        return (false);
+        return false;
     }
     bgfile.close();
 
@@ -144,7 +144,7 @@ bool KMahjonggBackground::load(const QString & file, short width, short height)
     qCDebug(LIBKMAHJONGG_LOG) << "Using background at" << d->graphicspath;
 
     if (d->graphicspath.isEmpty()) {
-        return (false);
+        return false;
     }
 
     if (group.readEntry("Tiled", 0) != 0) {
@@ -164,7 +164,7 @@ bool KMahjonggBackground::load(const QString & file, short width, short height)
 bool KMahjonggBackground::loadGraphics()
 {
     if (d->graphicsLoaded || d->isPlain) {
-        return (true);
+        return true;
     }
 
     d->svg.load(d->graphicspath);
@@ -172,9 +172,9 @@ bool KMahjonggBackground::loadGraphics()
         d->isSVG = true;
     } else {
         //qCDebug(LIBKMAHJONGG_LOG) << "could not load svg";
-        return (false);
+        return false;
     }
-    return (true);
+    return true;
 }
 
 void KMahjonggBackground::sizeChanged(int newW, int newH)

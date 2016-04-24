@@ -203,7 +203,7 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
     // verify if it is a valid file first and if we can open it
     QFile tilesetfile(tilesetPath);
     if (!tilesetfile.open(QIODevice::ReadOnly)) {
-        return (false);
+        return false;
     }
     tilesetfile.close();
 
@@ -230,7 +230,7 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
     //only SVG for now
     d->isSVG = true;
     if (d->graphicspath.isEmpty()) {
-        return (false);
+        return false;
     }
 
     d->originaldata.w = group.readEntry("TileWidth", 30);
@@ -244,14 +244,14 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
     d->graphicsLoaded = false;
     d->filename = tilesetPath;
 
-    return (true);
+    return true;
 }
 
 // ---------------------------------------------------------
 bool KMahjonggTileset::loadGraphics()
 {
     if (d->graphicsLoaded) {
-        return (true);
+        return true;
     }
     if (d->isSVG) {
         //really?
@@ -262,14 +262,14 @@ bool KMahjonggTileset::loadGraphics()
             d->graphicsLoaded = true;
             reloadTileset(QSize(d->originaldata.w, d->originaldata.h));
         } else {
-            return (false);
+            return false;
         }
     } else {
         //TODO add support for png??
         return false;
     }
 
-    return (true);
+    return true;
 }
 
 // ---------------------------------------------------------
@@ -284,14 +284,14 @@ bool KMahjonggTileset::reloadTileset(const QSize & newTilesize)
             updateScaleInfo(newTilesize.width(), newTilesize.height());
             //rendering will be done when needed, automatically using the global cache
         } else {
-            return (false);
+            return false;
         }
     } else {
         //TODO add support for png???
         return false;
     }
 
-    return (true);
+    return true;
 }
 
 void KMahjonggTileset::buildElementIdTable()
