@@ -16,15 +16,21 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+// own
 #include "kmahjonggbackgroundselector.h"
 
-#include <KLocalizedString>
-#include <QPainter>
-#include "kmahjonggbackground.h"
+// Qt
 #include <QDir>
+#include <QPainter>
 
-KMahjonggBackgroundSelector::KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * aconfig )
-        : QWidget( parent )
+// KDE
+#include <KLocalizedString>
+
+// LibKMahjongg
+#include "kmahjonggbackground.h"
+
+KMahjonggBackgroundSelector::KMahjonggBackgroundSelector(QWidget * parent, KConfigSkeleton * aconfig)
+    : QWidget(parent)
 {
     setupUi(this);
     setupData(aconfig);
@@ -50,24 +56,23 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
     //Now get our backgrounds into a list
     QStringList bgsAvailable;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongglib/backgrounds", QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString& dir, dirs) {
+    Q_FOREACH (const QString & dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        Q_FOREACH (const QString& file, fileNames) {
+        Q_FOREACH (const QString & file, fileNames) {
             bgsAvailable.append(dir + '/' + file);
-            }
+        }
     }
 
     QLatin1String namestr("Name");
     int numvalidentries = 0;
-    for (int i = 0; i < bgsAvailable.size(); ++i)
-    {
+    for (int i = 0; i < bgsAvailable.size(); ++i) {
         KMahjonggBackground * abg = new KMahjonggBackground();
         QString bgpath = bgsAvailable.at(i);
-        if (abg->load(bgpath,backgroundPreview->width(),backgroundPreview->height())) {
+        if (abg->load(bgpath, backgroundPreview->width(), backgroundPreview->height())) {
             backgroundMap.insert(abg->authorProperty(namestr), abg);
             backgroundList->addItem(abg->authorProperty(namestr));
             //Find if this is our currently configured background
-            if (bgpath==initialGroup) {
+            if (bgpath == initialGroup) {
                 //Select current entry
                 backgroundList->setCurrentRow(numvalidentries);
                 backgroundChanged();
@@ -85,8 +90,10 @@ void KMahjonggBackgroundSelector::backgroundChanged()
 {
     KMahjonggBackground * selBG = backgroundMap.value(backgroundList->currentItem()->text());
     //Sanity checkings. Should not happen.
-    if (!selBG) return;
-    if (selBG->path()==kcfg_Background->text()) {
+    if (!selBG) {
+        return;
+    }
+    if (selBG->path() == kcfg_Background->text()) {
         return;
     }
     QLatin1String authstr("Author");
@@ -97,23 +104,22 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     backgroundContact->setText(selBG->authorProperty(contactstr));
     backgroundDescription->setText(selBG->authorProperty(descstr));
 
-    if (selBG->authorProperty(QLatin1String( "Plain" )) == QLatin1String("1")) {
+    if (selBG->authorProperty(QLatin1String("Plain")) == QLatin1String("1")) {
         backgroundPreview->setPixmap(QPixmap());
         return;
     }
 
     //Make sure SVG is loaded when graphics is selected
-    if (!selBG->loadGraphics()) return;
+    if (!selBG->loadGraphics()) {
+        return;
+    }
 
     //Draw the preview
     //TODO here: add code to load and keep proportions for non-tiled content?
-    QImage qiRend(backgroundPreview->size(),QImage::Format_ARGB32_Premultiplied);
+    QImage qiRend(backgroundPreview->size(), QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
     QPainter p(&qiRend);
-    p.fillRect(p.viewport(), selBG->getBackground() );
+    p.fillRect(p.viewport(), selBG->getBackground());
     p.end();
     backgroundPreview->setPixmap(QPixmap::fromImage(qiRend));
-
 }
-
-

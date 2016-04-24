@@ -19,10 +19,12 @@
 #ifndef KMAHJONGGCONFIGDIALOG_H
 #define KMAHJONGGCONFIGDIALOG_H
 
-#include <kconfigdialog.h>
-#include <libkmahjongg_export.h>
-
+// KDE
+#include <KConfigDialog>
 #include <KConfigSkeleton>
+
+// LibKMahjongg
+#include <libkmahjongg_export.h>
 
 class KMahjonggConfigDialogPrivate;
 

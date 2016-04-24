@@ -20,9 +20,11 @@
 #ifndef KMAHJONGGTILESET_H
 #define KMAHJONGGTILESET_H
 
+// Qt
 #include <QString>
 #include <QPixmap>
 
+// LibKMahjongg
 #include <libkmahjongg_export.h>
 
 class KMahjonggTilesetPrivate;

@@ -20,8 +20,10 @@
 #ifndef KMAHJONGGBACKGROUND_H
 #define KMAHJONGGBACKGROUND_H
 
+// Qt
 #include <QBrush>
 
+// LibKMahjongg
 #include "libkmahjongg_export.h"
 
 class KMahjonggBackgroundPrivate;

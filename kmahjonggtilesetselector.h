@@ -19,8 +19,13 @@
 #ifndef KMAHJONGGTILESETSELECTOR_H
 #define KMAHJONGGTILESETSELECTOR_H
 
+// Qt
 #include <QMap>
+
+// KDE
 #include <KConfigSkeleton>
+
+// LibKMahjongg
 #include "ui_kmahjonggtilesetselector.h"
 
 class KMahjonggTileset;

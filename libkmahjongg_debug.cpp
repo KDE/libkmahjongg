@@ -17,7 +17,7 @@
     Boston, MA 02110-1301, USA.
 */
 
+// own
 #include "libkmahjongg_debug.h"
+
 Q_LOGGING_CATEGORY(LIBKMAHJONGG_LOG, "log_libkmahjongg")
-
-

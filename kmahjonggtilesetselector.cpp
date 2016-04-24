@@ -16,17 +16,22 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+// own
 #include "kmahjonggtilesetselector.h"
 
-#include <KLocalizedString>
-#include <QPainter>
-#include <qstandardpaths.h>
+// Qt
 #include <QDir>
+#include <QPainter>
+#include <QStandardPaths>
 
+// KDE
+#include <KLocalizedString>
+
+// LibKMahjongg
 #include "kmahjonggtileset.h"
 
-KMahjonggTilesetSelector::KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * aconfig )
-        : QWidget( parent )
+KMahjonggTilesetSelector::KMahjonggTilesetSelector(QWidget * parent, KConfigSkeleton * aconfig)
+    : QWidget(parent)
 {
     setupUi(this);
     setupData(aconfig);
@@ -34,7 +39,7 @@ KMahjonggTilesetSelector::KMahjonggTilesetSelector( QWidget* parent, KConfigSkel
 
 KMahjonggTilesetSelector::~KMahjonggTilesetSelector()
 {
-     tilesetMap.clear();
+    tilesetMap.clear();
 }
 
 void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
@@ -53,24 +58,23 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
     //Now get our tilesets into a list
     QStringList tilesAvailable;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets", QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString& dir, dirs) {
+    Q_FOREACH (const QString & dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        Q_FOREACH (const QString& file, fileNames) {
+        Q_FOREACH (const QString & file, fileNames) {
             tilesAvailable.append(dir + '/' + file);
         }
     }
 
     QLatin1String namestr("Name");
     int numvalidentries = 0;
-    for (int i = 0; i < tilesAvailable.size(); ++i)
-    {
+    for (int i = 0; i < tilesAvailable.size(); ++i) {
         KMahjonggTileset * aset = new KMahjonggTileset();
         QString atileset = tilesAvailable.at(i);
         if (aset->loadTileset(atileset)) {
             tilesetMap.insert(aset->authorProperty(namestr), aset);
             tilesetList->addItem(aset->authorProperty(namestr));
             //Find if this is our currently configured Tileset
-            if (atileset==initialGroup) {
+            if (atileset == initialGroup) {
                 //Select current entry
                 tilesetList->setCurrentRow(numvalidentries);
                 tilesetChanged();
@@ -88,8 +92,10 @@ void KMahjonggTilesetSelector::tilesetChanged()
 {
     KMahjonggTileset * selTileset = tilesetMap.value(tilesetList->currentItem()->text());
     //Sanity checkings. Should not happen.
-    if (!selTileset) return;
-    if (selTileset->path()==kcfg_TileSet->text()) {
+    if (!selTileset) {
+        return;
+    }
+    if (selTileset->path() == kcfg_TileSet->text()) {
         return;
     }
     QLatin1String authstr("Author");
@@ -101,22 +107,21 @@ void KMahjonggTilesetSelector::tilesetChanged()
     tilesetDescription->setText(selTileset->authorProperty(descstr));
 
     //Make sure SVG is loaded when graphics is selected
-    if (!selTileset->loadGraphics()) return;
+    if (!selTileset->loadGraphics()) {
+        return;
+    }
     //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
-    QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);
+    QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size() * 1.3, 1, 1);
     selTileset->reloadTileset(tilesize);
     //Draw the preview
-    QImage qiRend(tilesetPreview->size(),QImage::Format_ARGB32_Premultiplied);
+    QImage qiRend(tilesetPreview->size(), QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
     QPainter p(&qiRend);
     //Calculate the margins to center the tile
     QSize margin = tilesetPreview->size() - tilesize;
     //Draw unselected tile and first tileface
-    p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->unselectedTile(1));
-    p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->tileface(0));
+    p.drawPixmap(margin.width() / 2, margin.height() / 2, selTileset->unselectedTile(1));
+    p.drawPixmap(margin.width() / 2, margin.height() / 2, selTileset->tileface(0));
     p.end();
     tilesetPreview->setPixmap(QPixmap::fromImage(qiRend));
-
 }
-
-

@@ -19,8 +19,13 @@
 #ifndef KMAHJONGGBACKGROUNDSELECTOR_H
 #define KMAHJONGGBACKGROUNDSELECTOR_H
 
+// Qt
 #include <QMap>
+
+// KDE
 #include <KConfigSkeleton>
+
+// LibKMahjongg
 #include "ui_kmahjonggbackgroundselector.h"
 
 class KMahjonggBackground;

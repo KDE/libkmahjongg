@@ -15,23 +15,28 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+
+// own
 #include "kmahjonggconfigdialog.h"
 
-#include "kmahjonggtilesetselector.h"
-#include "kmahjonggbackgroundselector.h"
-#include "libkmahjongg_debug.h"
-
-#include <kconfigdialogmanager.h>
-#include <kstandardguiitem.h>
-#include <KLocalizedString>
-#include <krandom.h>
-#include <kconfig.h>
-#include <KConfigGroup>
-
+// Qt
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+// KDE
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KConfig>
+#include <KConfigDialogManager>
+#include <KRandom>
+#include <KStandardGuiItem>
+
+// LibKMahjongg
+#include "kmahjonggbackgroundselector.h"
+#include "kmahjonggtilesetselector.h"
+#include "libkmahjongg_debug.h"
 
 class KMahjonggConfigDialogPrivate
 {
@@ -39,16 +44,16 @@ public:
     KConfigSkeleton * m_config;
 };
 
-KMahjonggConfigDialog::KMahjonggConfigDialog( QWidget *parent, const QString& name,
-                 KConfigSkeleton *config)
-    : KConfigDialog(parent, name, config),
-      d(new KMahjonggConfigDialogPrivate)
+KMahjonggConfigDialog::KMahjonggConfigDialog(QWidget * parent, const QString & name,
+                                             KConfigSkeleton * config)
+    : KConfigDialog(parent, name, config)
+    , d(new KMahjonggConfigDialogPrivate)
 {
     setFaceType(List);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Apply);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QDialogButtonBox * buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Apply);
+    QVBoxLayout * mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    QPushButton * okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &KMahjonggConfigDialog::accept);
@@ -68,14 +73,14 @@ void KMahjonggConfigDialog::addTilesetPage()
 {
     KMahjonggTilesetSelector * ts = new KMahjonggTilesetSelector(this, d->m_config);
     //TODO: Use the cards icon for our page for now, need to get one for tilesets made
-    addPage(ts, i18n("Tiles"), QLatin1String( "games-config-tiles" ));
+    addPage(ts, i18n("Tiles"), QLatin1String("games-config-tiles"));
 }
 
 void KMahjonggConfigDialog::addBackgroundPage()
 {
     KMahjonggBackgroundSelector * ts = new KMahjonggBackgroundSelector(this, d->m_config);
     //TODO: need icon
-    addPage(ts, i18n("Background"), QLatin1String( "games-config-background" ));
+    addPage(ts, i18n("Background"), QLatin1String("games-config-background"));
 }
 
 void KMahjonggConfigDialog::updateWidgetsDefault()
@@ -90,5 +95,3 @@ void KMahjonggConfigDialog::updateSettings()
 {
     //qCDebug(LIBKMAHJONGG_LOG) << "updateSettings";
 }*/
-
-
