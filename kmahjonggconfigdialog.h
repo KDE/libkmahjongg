@@ -40,8 +40,6 @@ Q_OBJECT
 
   protected Q_SLOTS:
     void updateWidgetsDefault();
-    //void updateWidgets();
-    //void updateSettings();
 
   private:
     friend class KMahjonggConfigDialogPrivate;

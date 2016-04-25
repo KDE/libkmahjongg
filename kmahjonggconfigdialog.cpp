@@ -87,11 +87,3 @@ void KMahjonggConfigDialog::updateWidgetsDefault()
 {
     //qCDebug(LIBKMAHJONGG_LOG) << "updateWidgetsDefault";
 }
-/*void KMahjonggConfigDialog::updateWidgets()
-{
-    //qCDebug(LIBKMAHJONGG_LOG) << "updateWidgets";
-}
-void KMahjonggConfigDialog::updateSettings()
-{
-    //qCDebug(LIBKMAHJONGG_LOG) << "updateSettings";
-}*/
