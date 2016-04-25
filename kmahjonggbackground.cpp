@@ -44,6 +44,7 @@ public:
         : w(1)
         , h(1)
         , graphicsLoaded(false)
+        , isPlain(false)
         , isTiled(true)
         , isSVG(false)
     {
