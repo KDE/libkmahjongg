@@ -1,6 +1,5 @@
 [KMahjonggBackground]
 Name=Light Wood
-Name[ast]=Madera clara
 Name[bs]=Svjetlo drvo
 Name[ca]=Fusta lleugera
 Name[ca@valencia]=Fusta lleugera
@@ -54,7 +53,6 @@ Name[x-test]=xxLight Woodxx
 Name[zh_CN]=亮木色
 Name[zh_TW]=輕木頭
 Description=Resembles the surface of a wood table
-Description[ast]=Paezse a la superficie d'una mesa de madera
 Description[bs]=Nalikuje površini drvenog stola
 Description[ca]=Sembla la superfície de fusta d'una taula
 Description[ca@valencia]=Pareix la superfície de fusta d'una taula

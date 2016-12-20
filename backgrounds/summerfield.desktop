@@ -1,6 +1,5 @@
 [KMahjonggBackground]
 Name=Summer Field
-Name[ast]=Campu de branu
 Name[bs]=Ljetno polje
 Name[ca]=Camp d'estiu
 Name[ca@valencia]=Camp d'estiu
@@ -50,7 +49,6 @@ Name[x-test]=xxSummer Fieldxx
 Name[zh_CN]=夏日原野
 Name[zh_TW]=夏日原野
 Description=The Summertime Greens
-Description[ast]=El prau de branu
 Description[bs]=Ljetno zelenilo
 Description[ca]=Els verds del temps estival
 Description[ca@valencia]=Els verds del temps estival
