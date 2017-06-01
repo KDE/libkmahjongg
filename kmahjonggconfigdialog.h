@@ -39,7 +39,7 @@ Q_OBJECT
     void addBackgroundPage();
 
   protected Q_SLOTS:
-    void updateWidgetsDefault();
+    void updateWidgetsDefault() Q_DECL_OVERRIDE;
 
   private:
     friend class KMahjonggConfigDialogPrivate;
