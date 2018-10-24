@@ -2,9 +2,10 @@ project(libkmahjongg)
 
 cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 
-set (QT_MIN_VERSION "5.2.0")
+set(QT_MIN_VERSION "5.7.0")
+set (KF5_MIN_VERSION "5.30.0")
 
-find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
 #if(ENABLE_CLAZY)
 #    set(CMAKE_CXX_COMPILER clazy)
@@ -13,7 +14,7 @@ find_package(ECM 1.3.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg)
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     Config
     ConfigWidgets
@@ -31,6 +32,7 @@ include(ECMMarkNonGuiExecutable)
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+include(ECMQtDeclareLoggingCategory)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
@@ -46,13 +48,14 @@ set(KMAHJONGGLIB_VERSION 5.0.0)
 set(KMAHJONGGLIB_SOVERSION 5)
 
 set(kmahjongg_LIB_SRCS
-   libkmahjongg_debug.cpp
    kmahjonggtileset.cpp
    kmahjonggbackground.cpp
    kmahjonggtilesetselector.cpp
    kmahjonggbackgroundselector.cpp
    kmahjonggconfigdialog.cpp
 )
+
+ecm_qt_declare_logging_category(kmahjongg_LIB_SRCS HEADER libkmahjongg_debug.h IDENTIFIER LIBKMAHJONGG_LOG CATEGORY_NAME log_libkmahjongg)
 
 ki18n_wrap_ui(kmahjongg_LIB_SRCS kmahjonggtilesetselector.ui kmahjonggbackgroundselector.ui )
 
