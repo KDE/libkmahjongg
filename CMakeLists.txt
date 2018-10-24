@@ -132,6 +132,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h
     DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg
     COMPONENT Devel
 )
+install( FILES libkmahjongg.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 ########### Display Summary ###############
 feature_summary(WHAT ALL
