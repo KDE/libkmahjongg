@@ -39,7 +39,7 @@ Q_OBJECT
     void setupData(KConfigSkeleton * aconfig);
 
     QMap<QString, KMahjonggBackground *> backgroundMap;
-  public slots:
+  public Q_SLOTS:
     void backgroundChanged();
 };
 

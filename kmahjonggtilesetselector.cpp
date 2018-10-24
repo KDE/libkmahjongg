@@ -57,11 +57,11 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
 
     //Now get our tilesets into a list
     QStringList tilesAvailable;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/tilesets"), QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString & dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         Q_FOREACH (const QString & file, fileNames) {
-            tilesAvailable.append(dir + '/' + file);
+            tilesAvailable.append(dir + QLatin1Char('/') + file);
         }
     }
 

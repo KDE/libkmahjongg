@@ -142,7 +142,7 @@ bool KMahjonggTileset::loadDefault()
 {
     QString idx = QLatin1String("default.desktop");
 
-    QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + idx);
+    QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/tilesets/") + idx);
     qCDebug(LIBKMAHJONGG_LOG) << "Inside LoadDefault(), located path at" << tilesetPath;
     if (tilesetPath.isEmpty()) {
         return false;
@@ -224,7 +224,7 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
 
     QString graphName = group.readEntry("FileName");
 
-    d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongglib/tilesets/" + graphName);
+    d->graphicspath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/tilesets/") + graphName);
     //qCDebug(LIBKMAHJONGG_LOG) << "Using tileset at" << d->graphicspath;
 
     //only SVG for now
