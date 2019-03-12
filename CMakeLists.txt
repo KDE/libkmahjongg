@@ -36,8 +36,6 @@ include(ECMQtDeclareLoggingCategory)
 
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
 
-include_directories(${CMAKE_SOURCE_DIR}/includes)
-
 add_subdirectory(tilesets)
 add_subdirectory(backgrounds)
 
