@@ -140,7 +140,7 @@ QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizonta
 
 bool KMahjonggTileset::loadDefault()
 {
-    QString idx = QLatin1String("default.desktop");
+    QString idx = QStringLiteral("default.desktop");
 
     QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/tilesets/") + idx);
     qCDebug(LIBKMAHJONGG_LOG) << "Inside LoadDefault(), located path at" << tilesetPath;
@@ -210,10 +210,10 @@ bool KMahjonggTileset::loadTileset(const QString & tilesetPath)
     KConfig tileconfig(tilesetPath, KConfig::SimpleConfig);
     KConfigGroup group = tileconfig.group("KMahjonggTileset");
 
-    d->authorproperties.insert(QLatin1String("Name"), group.readEntry("Name")); // Returns translated data
-    d->authorproperties.insert(QLatin1String("Author"), group.readEntry("Author"));
-    d->authorproperties.insert(QLatin1String("Description"), group.readEntry("Description"));
-    d->authorproperties.insert(QLatin1String("AuthorEmail"), group.readEntry("AuthorEmail"));
+    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name")); // Returns translated data
+    d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
+    d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
+    d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
 
     //Version control
     int tileversion = group.readEntry("VersionFormat", 0);
@@ -299,39 +299,39 @@ void KMahjonggTileset::buildElementIdTable()
     //Build a list for faster lookup of element ids, mapped to the enumeration used by GameData and BoardWidget
     //Unselected tiles
     for (short idx = 1; idx <= 4; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("TILE_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("TILE_%1").arg(idx));
     }
     //Selected tiles
     for (short idx = 1; idx <= 4; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("TILE_%1_SEL").arg(idx));
+        d->elementIdTable.append(QStringLiteral("TILE_%1_SEL").arg(idx));
     }
     //now faces
     for (short idx = 1; idx <= 9; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("CHARACTER_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("CHARACTER_%1").arg(idx));
     }
     for (short idx = 1; idx <= 9; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("BAMBOO_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("BAMBOO_%1").arg(idx));
     }
     for (short idx = 1; idx <= 9; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("ROD_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("ROD_%1").arg(idx));
     }
     for (short idx = 1; idx <= 4; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("SEASON_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("SEASON_%1").arg(idx));
     }
     for (short idx = 1; idx <= 4; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("WIND_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("WIND_%1").arg(idx));
     }
     for (short idx = 1; idx <= 3; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("DRAGON_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("DRAGON_%1").arg(idx));
     }
     for (short idx = 1; idx <= 4; idx++) {
-        d->elementIdTable.append(QString::fromLatin1("FLOWER_%1").arg(idx));
+        d->elementIdTable.append(QStringLiteral("FLOWER_%1").arg(idx));
     }
 }
 
 QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid)
 {
-    return authorProperty(QLatin1String("Name")) + elementid + QString::fromLatin1("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
+    return authorProperty(QStringLiteral("Name")) + elementid + QStringLiteral("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid)

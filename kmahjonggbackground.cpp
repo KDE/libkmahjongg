@@ -116,13 +116,13 @@ bool KMahjonggBackground::load(const QString & file, short width, short height)
     KConfig bgconfig(file, KConfig::SimpleConfig);
     KConfigGroup group = bgconfig.group("KMahjonggBackground");
 
-    d->authorproperties.insert(QLatin1String("Name"), group.readEntry("Name")); // Returns translated data
-    d->authorproperties.insert(QLatin1String("Author"), group.readEntry("Author"));
-    d->authorproperties.insert(QLatin1String("Description"), group.readEntry("Description"));
-    d->authorproperties.insert(QLatin1String("AuthorEmail"), group.readEntry("AuthorEmail"));
+    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name")); // Returns translated data
+    d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
+    d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
+    d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
     //The "Plain" key is set to 1 by the color_plain background.
     d->isPlain = group.readEntry("Plain", 0) != 0;
-    d->authorproperties.insert(QLatin1String("Plain"), d->isPlain ? QLatin1String("1") : QLatin1String("0"));
+    d->authorproperties.insert(QStringLiteral("Plain"), d->isPlain ? QStringLiteral("1") : QStringLiteral("0"));
 
     //Version control
     int bgversion = group.readEntry("VersionFormat", 0);
@@ -194,7 +194,7 @@ void KMahjonggBackground::sizeChanged(int newW, int newH)
 
 QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString & elementid)
 {
-    return authorproperties[QLatin1String("Name")] + elementid + QString::fromLatin1("W%1H%2").arg(w).arg(h);
+    return authorproperties[QStringLiteral("Name")] + elementid + QStringLiteral("W%1H%2").arg(w).arg(h);
 }
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height)

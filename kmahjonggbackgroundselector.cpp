@@ -104,7 +104,7 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     backgroundContact->setText(selBG->authorProperty(contactstr));
     backgroundDescription->setText(selBG->authorProperty(descstr));
 
-    if (selBG->authorProperty(QLatin1String("Plain")) == QLatin1String("1")) {
+    if (selBG->authorProperty(QStringLiteral("Plain")) == QLatin1String("1")) {
         backgroundPreview->setPixmap(QPixmap());
         return;
     }
