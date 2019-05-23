@@ -56,9 +56,9 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
     //Now get our backgrounds into a list
     QStringList bgsAvailable;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/backgrounds"), QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString & dir, dirs) {
+    for (const QString & dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        Q_FOREACH (const QString & file, fileNames) {
+        for (const QString & file : fileNames) {
             bgsAvailable.append(dir + QLatin1Char('/') + file);
         }
     }

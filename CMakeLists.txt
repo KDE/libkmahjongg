@@ -35,6 +35,11 @@ include(KDECMakeSettings)
 include(ECMQtDeclareLoggingCategory)
 
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+if (${KF5Config_VERSION} STRGREATER "5.56.0")
+        add_definitions(-DQT_NO_FOREACH)
+        MESSAGE(STATUS "compile without foreach")
+endif()
 
 add_subdirectory(tilesets)
 add_subdirectory(backgrounds)
