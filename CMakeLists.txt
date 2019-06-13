@@ -134,7 +134,12 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h
     DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg
     COMPONENT Devel
 )
-install( FILES libkmahjongg.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+
+if (${ECM_VERSION} STRGREATER "5.58.0")
+    install( FILES libkmahjongg.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
+else()
+    install( FILES libkmahjongg.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+endif()
 
 ########### Display Summary ###############
 feature_summary(WHAT ALL
