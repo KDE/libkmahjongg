@@ -19,19 +19,11 @@
 // own
 #include "kmahjonggconfigdialog.h"
 
-// Qt
-#include <QDialog>
-#include <QDialogButtonBox>
-#include <QPushButton>
-#include <QVBoxLayout>
-
 // KDE
 #include <KConfig>
 #include <KConfigDialogManager>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <KRandom>
-#include <KStandardGuiItem>
 
 // LibKMahjongg
 #include "kmahjonggbackgroundselector.h"
@@ -50,16 +42,6 @@ KMahjonggConfigDialog::KMahjonggConfigDialog(QWidget * parent, const QString & n
     , d(new KMahjonggConfigDialogPrivate)
 {
     setFaceType(List);
-    QDialogButtonBox * buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Apply);
-    QVBoxLayout * mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-    QPushButton * okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &KMahjonggConfigDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &KMahjonggConfigDialog::reject);
-    mainLayout->addWidget(buttonBox);
-    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
     setModal(true);
     d->m_config = config;
 }
