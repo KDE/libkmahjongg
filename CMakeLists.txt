@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
-project(libkmahjongg)
+project(libkmahjongg VERSION "5.0.0")
 
 set(QT_MIN_VERSION "5.9.0")
 set (KF5_MIN_VERSION "5.46.0")
@@ -33,6 +33,13 @@ include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 
+ecm_setup_version(${libkmahjongg_VERSION}
+    VARIABLE_PREFIX KMAHJONGGLIB
+    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h"
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfigVersion.cmake"
+    SOVERSION 5
+)
+
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
 
 if (${KF5Config_VERSION} STRGREATER "5.56.0")
@@ -44,9 +51,6 @@ add_subdirectory(tilesets)
 add_subdirectory(backgrounds)
 
 ########### next target ###############
-
-set(KMAHJONGGLIB_VERSION 5.0.0)
-set(KMAHJONGGLIB_SOVERSION 5)
 
 set(kmahjongg_LIB_SRCS
    kmahjonggtileset.cpp
@@ -81,11 +85,6 @@ target_include_directories(KF5KMahjongglib INTERFACE "$<INSTALL_INTERFACE:${KF5_
 set_target_properties(KF5KMahjongglib PROPERTIES VERSION ${KMAHJONGGLIB_VERSION}
                                                  SOVERSION ${KMAHJONGGLIB_SOVERSION}
                                                  EXPORT_NAME KF5KMahjongglib)
-
-ecm_setup_version(${KMAHJONGGLIB_VERSION} VARIABLE_PREFIX KF5KMAHJONGGLIB
-                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfigVersion.cmake"
-                        SOVERSION 6)
 
 
 install(TARGETS KF5KMahjongglib EXPORT KF5KMahjonggLibraryDepends
