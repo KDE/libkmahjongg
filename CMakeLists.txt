@@ -29,7 +29,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
 include(FeatureSummary)
 include(GenerateExportHeader)
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 
@@ -111,7 +111,7 @@ export(TARGETS KF5KMahjongglib
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5KMahjongglib")
 
 # create the Config.cmake and ConfigVersion.cmake files
-ecm_configure_package_config_file(
+configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/KF5KMahjongglibConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfig.cmake"
     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
