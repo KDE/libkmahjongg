@@ -1,0 +1,16 @@
+fancyname: LibKmahjongg
+description: For loading and rendering of Mahjongg tilesets and associated backgrounds
+type: functional
+public_lib: true
+platforms:
+    - name: Linux
+    - name: FreeBSD
+    - name: Windows
+    - name: macOS
+    #- name: Android
+release: true
+public_source_dirs:
+    - src
+libraries:
+    - cmake: "KF5KMahjongglib"
+cmakename: KF5KMahjongglib

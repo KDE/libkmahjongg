@@ -17,6 +17,9 @@
 
 class KMahjonggTilesetPrivate;
 
+/**
+ * A tile set
+ */
 class LIBKMAHJONGG_EXPORT KMahjonggTileset {
    public:
     KMahjonggTileset();

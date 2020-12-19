@@ -16,6 +16,9 @@
 
 class KMahjonggBackgroundPrivate;
 
+/**
+ * A background
+ */
 class LIBKMAHJONGG_EXPORT KMahjonggBackground
 {
   public:

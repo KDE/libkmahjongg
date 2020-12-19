@@ -16,6 +16,9 @@
 
 class KMahjonggConfigDialogPrivate;
 
+/**
+ * An extended config dialog with convenience methods to add pages for managing tilesets & backgrounds
+ */
 class LIBKMAHJONGG_EXPORT KMahjonggConfigDialog : public KConfigDialog
 {
 Q_OBJECT
