@@ -19,6 +19,8 @@ ecm_qt_declare_logging_category(kmahjongg_LIB_SRCS
     HEADER libkmahjongg_debug.h
     IDENTIFIER LIBKMAHJONGG_LOG
     CATEGORY_NAME log_libkmahjongg
+    DESCRIPTION "libkmahjongg"
+    EXPORT KMAHJONGG
 )
 
 ki18n_wrap_ui(kmahjongg_LIB_SRCS
@@ -71,6 +73,12 @@ install(FILES
 )
 
 export(TARGETS KF5KMahjongglib FILE "${PROJECT_BINARY_DIR}/KF5KMahjonggLibraryDepends.cmake")
+
+ecm_qt_install_logging_categories(
+    EXPORT KMAHJONGG
+    FILE libkmahjongg.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5KMahjongglib")
 

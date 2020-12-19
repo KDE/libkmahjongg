@@ -2,8 +2,8 @@ cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
 project(libkmahjongg VERSION "5.0.0")
 
-set(QT_MIN_VERSION "5.9.0")
-set (KF5_MIN_VERSION "5.46.0")
+set(QT_MIN_VERSION "5.12.0")
+set(KF5_MIN_VERSION "5.68.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -35,24 +35,15 @@ include(ECMQtDeclareLoggingCategory)
 
 add_definitions(
     -DQT_NO_KEYWORDS
+    -DQT_NO_FOREACH
     -DQT_STRICT_ITERATORS
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050900
     -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x052E00
 )
-if (${KF5Config_VERSION} STRGREATER "5.56.0")
-        add_definitions(-DQT_NO_FOREACH)
-        MESSAGE(STATUS "compile without foreach")
-endif()
 
 add_subdirectory(src)
 add_subdirectory(tilesets)
 add_subdirectory(backgrounds)
-
-if (${ECM_VERSION} STRGREATER "5.58.0")
-    install( FILES libkmahjongg.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
-else()
-    install( FILES libkmahjongg.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
-endif()
 
 ki18n_install(po)
 
