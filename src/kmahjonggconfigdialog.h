@@ -19,7 +19,7 @@
 #ifndef KMAHJONGGCONFIGDIALOG_H
 #define KMAHJONGGCONFIGDIALOG_H
 
-// KDE
+// KF
 #include <KConfigDialog>
 #include <KConfigSkeleton>
 

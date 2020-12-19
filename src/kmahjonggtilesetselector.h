@@ -22,7 +22,7 @@
 // Qt
 #include <QMap>
 
-// KDE
+// KF
 #include <KConfigSkeleton>
 
 // LibKMahjongg

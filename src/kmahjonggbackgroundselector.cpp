@@ -23,7 +23,7 @@
 #include <QDir>
 #include <QPainter>
 
-// KDE
+// KF
 #include <KLocalizedString>
 
 // LibKMahjongg

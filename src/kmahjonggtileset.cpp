@@ -32,7 +32,7 @@
 #include <QStandardPaths>
 #include <QSvgRenderer>
 
-// KDE
+// KF
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>

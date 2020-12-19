@@ -19,7 +19,7 @@
 // own
 #include "kmahjonggconfigdialog.h"
 
-// KDE
+// KF
 #include <KConfig>
 #include <KConfigDialogManager>
 #include <KConfigGroup>

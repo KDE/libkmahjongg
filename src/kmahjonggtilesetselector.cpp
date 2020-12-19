@@ -24,7 +24,7 @@
 #include <QPainter>
 #include <QStandardPaths>
 
-// KDE
+// KF
 #include <KLocalizedString>
 
 // LibKMahjongg
