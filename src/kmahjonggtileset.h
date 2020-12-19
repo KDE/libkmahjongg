@@ -18,6 +18,8 @@
 class KMahjonggTilesetPrivate;
 
 /**
+ * @class KMahjonggTileset kmahjonggtileset.h <KMahjonggTileset>
+ *
  * A tile set
  */
 class LIBKMAHJONGG_EXPORT KMahjonggTileset {

@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
-project(libkmahjongg VERSION "5.0.0")
+project(libkmahjongg VERSION "5.1.0")
 
 set(QT_MIN_VERSION "5.12.0")
 set(KF_MIN_VERSION "5.68.0")
@@ -31,6 +31,7 @@ include(FeatureSummary)
 include(GenerateExportHeader)
 include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
+include(ECMGenerateHeaders)
 include(ECMQtDeclareLoggingCategory)
 
 add_definitions(

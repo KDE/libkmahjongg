@@ -15,6 +15,14 @@ set(kmahjongg_LIB_SRCS
    kmahjonggconfigdialog.cpp
 )
 
+ecm_generate_headers(kmahjongg_LIB_CamelCase_HEADERS
+    HEADER_NAMES
+        KMahjonggTileset
+        KMahjonggBackground
+        KMahjonggConfigDialog
+    REQUIRED_HEADERS kmahjongg_LIB_HEADERS
+)
+
 ecm_qt_declare_logging_category(kmahjongg_LIB_SRCS
     HEADER libkmahjongg_debug.h
     IDENTIFIER LIBKMAHJONGG_LOG
@@ -65,9 +73,8 @@ install(TARGETS KF5KMahjongglib
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h
     ${CMAKE_CURRENT_BINARY_DIR}/libkmahjongg_export.h
-    kmahjonggtileset.h
-    kmahjonggbackground.h
-    kmahjonggconfigdialog.h
+    ${kmahjongg_LIB_HEADERS}
+    ${kmahjongg_LIB_CamelCase_HEADERS}
     DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg
     COMPONENT Devel
 )

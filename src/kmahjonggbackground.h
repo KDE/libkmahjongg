@@ -17,6 +17,8 @@
 class KMahjonggBackgroundPrivate;
 
 /**
+ * @class KMahjonggBackground kmahjonggbackground.h <KMahjonggBackground>
+ *
  * A background
  */
 class LIBKMAHJONGG_EXPORT KMahjonggBackground
