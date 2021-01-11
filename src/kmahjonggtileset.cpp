@@ -86,10 +86,7 @@ KMahjonggTileset::KMahjonggTileset()
 
 // ---------------------------------------------------------
 
-KMahjonggTileset::~KMahjonggTileset()
-{
-    delete d;
-}
+KMahjonggTileset::~KMahjonggTileset() = default;
 
 void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
 {

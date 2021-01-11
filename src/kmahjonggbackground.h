@@ -10,6 +10,8 @@
 
 // Qt
 #include <QBrush>
+// Std
+#include <memory>
 
 // LibKMahjongg
 #include "libkmahjongg_export.h"
@@ -36,8 +38,7 @@ class LIBKMAHJONGG_EXPORT KMahjonggBackground
     QString authorProperty(const QString &key) const;
 
  private:
-    friend class KMahjonggBackgroundPrivate;
-    KMahjonggBackgroundPrivate *const d;
+    std::unique_ptr<KMahjonggBackgroundPrivate> const d;
 
     Q_DISABLE_COPY(KMahjonggBackground)
 };

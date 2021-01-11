@@ -34,10 +34,7 @@ KMahjonggConfigDialog::KMahjonggConfigDialog(QWidget * parent, const QString & n
     d->m_config = config;
 }
 
-KMahjonggConfigDialog::~KMahjonggConfigDialog()
-{
-    delete d;
-}
+KMahjonggConfigDialog::~KMahjonggConfigDialog() = default;
 
 void KMahjonggConfigDialog::addTilesetPage()
 {

@@ -36,7 +36,7 @@ Q_OBJECT
 
   private:
     friend class KMahjonggConfigDialogPrivate;
-    KMahjonggConfigDialogPrivate *const d;
+    std::unique_ptr<KMahjonggConfigDialogPrivate> const d;
 
     Q_DISABLE_COPY(KMahjonggConfigDialog)
 };

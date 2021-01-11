@@ -55,7 +55,7 @@ protected:
 
   private:
     friend class KMahjonggTilesetPrivate;
-    KMahjonggTilesetPrivate *const d;
+    std::unique_ptr<KMahjonggTilesetPrivate> const d;
 
     Q_DISABLE_COPY(KMahjonggTileset)
 };

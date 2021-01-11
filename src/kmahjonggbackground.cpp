@@ -67,10 +67,7 @@ KMahjonggBackground::KMahjonggBackground()
     _inited = true;
 }
 
-KMahjonggBackground::~KMahjonggBackground()
-{
-    delete d;
-}
+KMahjonggBackground::~KMahjonggBackground() = default;
 
 bool KMahjonggBackground::loadDefault()
 {
