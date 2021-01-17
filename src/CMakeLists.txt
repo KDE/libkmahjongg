@@ -87,7 +87,7 @@ ecm_qt_install_logging_categories(
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
 
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5KMahjongglib")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5KMahjongglib")
 
 configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/KF5KMahjongglibConfig.cmake.in"
