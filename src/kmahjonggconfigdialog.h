@@ -7,6 +7,9 @@
 #ifndef KMAHJONGGCONFIGDIALOG_H
 #define KMAHJONGGCONFIGDIALOG_H
 
+// Std
+#include <memory>
+
 // KF
 #include <KConfigDialog>
 #include <KConfigSkeleton>

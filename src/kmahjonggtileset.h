@@ -11,6 +11,8 @@
 // Qt
 #include <QString>
 #include <QPixmap>
+// Std
+#include <memory>
 
 // LibKMahjongg
 #include <libkmahjongg_export.h>
