@@ -66,7 +66,7 @@ set_target_properties(KF5KMahjongglib PROPERTIES
 
 
 install(TARGETS KF5KMahjongglib
-    EXPORT KF5KMahjonggLibraryDepends
+    EXPORT KF5KMahjonggTargets
     ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
@@ -79,7 +79,7 @@ install(FILES
     COMPONENT Devel
 )
 
-export(TARGETS KF5KMahjongglib FILE "${PROJECT_BINARY_DIR}/KF5KMahjonggLibraryDepends.cmake")
+export(TARGETS KF5KMahjongglib FILE "${PROJECT_BINARY_DIR}/KF5KMahjonggTargets.cmake")
 
 ecm_qt_install_logging_categories(
     EXPORT KMAHJONGG
@@ -102,7 +102,7 @@ install(FILES
     COMPONENT Devel
 )
 
-install(EXPORT KF5KMahjonggLibraryDepends
+install(EXPORT KF5KMahjonggTargets
     DESTINATION ${CMAKECONFIG_INSTALL_DIR}
     COMPONENT Devel
 )
