@@ -79,8 +79,6 @@ install(FILES
     COMPONENT Devel
 )
 
-export(TARGETS KF5KMahjongglib FILE "${PROJECT_BINARY_DIR}/KF5KMahjonggTargets.cmake")
-
 ecm_qt_install_logging_categories(
     EXPORT KMAHJONGG
     FILE libkmahjongg.categories
@@ -104,5 +102,6 @@ install(FILES
 
 install(EXPORT KF5KMahjonggTargets
     DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+    FILE KF5KMahjonggTargets.cmake
     COMPONENT Devel
 )
