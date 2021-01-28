@@ -54,8 +54,8 @@ target_link_libraries(KF5KMahjongglib
 
 target_include_directories(KF5KMahjongglib
     INTERFACE
-        "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg>"
-        "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}>"
+        "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KF5KMahjongg>"
+        "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}>"
 )
 
 set_target_properties(KF5KMahjongglib PROPERTIES
@@ -75,7 +75,7 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/libkmahjongg_export.h
     ${kmahjongg_LIB_HEADERS}
     ${kmahjongg_LIB_CamelCase_HEADERS}
-    DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KF5KMahjongg
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KF5KMahjongg
     COMPONENT Devel
 )
 
