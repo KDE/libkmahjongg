@@ -1,3 +1,5 @@
+set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KMahjongg)
+
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
 
 ecm_setup_version(${libkmahjongg_VERSION}
@@ -55,8 +57,7 @@ target_link_libraries(KMahjongglib
 
 target_include_directories(KMahjongglib
     INTERFACE
-        "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KF5KMahjongg>"
-        "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}>"
+        "$<INSTALL_INTERFACE:${kmahjongg_INCLUDE_INSTALL_DIR}>"
 )
 
 set_target_properties(KMahjongglib PROPERTIES
@@ -77,7 +78,7 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/libkmahjongg_export.h
     ${kmahjongg_LIB_HEADERS}
     ${kmahjongg_LIB_CamelCase_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KF5KMahjongg
+    DESTINATION ${kmahjongg_INCLUDE_INSTALL_DIR}
     COMPONENT Devel
 )
 
