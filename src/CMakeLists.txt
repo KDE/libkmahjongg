@@ -7,12 +7,14 @@ ecm_setup_version(${libkmahjongg_VERSION}
     SOVERSION 5
 )
 
-set(kmahjongg_LIB_SRCS
-   kmahjonggtileset.cpp
-   kmahjonggbackground.cpp
-   kmahjonggtilesetselector.cpp
-   kmahjonggbackgroundselector.cpp
-   kmahjonggconfigdialog.cpp
+add_library(KMahjongglib SHARED)
+
+target_sources(KMahjongglib PRIVATE
+    kmahjonggtileset.cpp
+    kmahjonggbackground.cpp
+    kmahjonggtilesetselector.cpp
+    kmahjonggbackgroundselector.cpp
+    kmahjonggconfigdialog.cpp
 )
 
 ecm_generate_headers(kmahjongg_LIB_CamelCase_HEADERS
@@ -23,7 +25,7 @@ ecm_generate_headers(kmahjongg_LIB_CamelCase_HEADERS
     REQUIRED_HEADERS kmahjongg_LIB_HEADERS
 )
 
-ecm_qt_declare_logging_category(kmahjongg_LIB_SRCS
+ecm_qt_declare_logging_category(KMahjongglib
     HEADER libkmahjongg_debug.h
     IDENTIFIER LIBKMAHJONGG_LOG
     CATEGORY_NAME log_libkmahjongg
@@ -31,15 +33,14 @@ ecm_qt_declare_logging_category(kmahjongg_LIB_SRCS
     EXPORT KMAHJONGG
 )
 
-ki18n_wrap_ui(kmahjongg_LIB_SRCS
+ki18n_wrap_ui(KMahjongglib
     kmahjonggtilesetselector.ui
     kmahjonggbackgroundselector.ui
 )
 
-add_library(KF5KMahjongglib SHARED ${kmahjongg_LIB_SRCS})
-generate_export_header(KF5KMahjongglib BASE_NAME libkmahjongg)
+generate_export_header(KMahjongglib BASE_NAME libkmahjongg)
 
-target_link_libraries(KF5KMahjongglib
+target_link_libraries(KMahjongglib
     PUBLIC
         KF5::ConfigWidgets
         Qt5::Gui
@@ -52,21 +53,22 @@ target_link_libraries(KF5KMahjongglib
         Qt5::Svg
 )
 
-target_include_directories(KF5KMahjongglib
+target_include_directories(KMahjongglib
     INTERFACE
         "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KF5KMahjongg>"
         "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}>"
 )
 
-set_target_properties(KF5KMahjongglib PROPERTIES
+set_target_properties(KMahjongglib PROPERTIES
     VERSION ${KMAHJONGGLIB_VERSION}
     SOVERSION ${KMAHJONGGLIB_SOVERSION}
+    OUTPUT_NAME KF5KMahjongglib
     EXPORT_NAME KF5KMahjongglib
 )
 
 
-install(TARGETS KF5KMahjongglib
-    EXPORT KF5KMahjonggTargets
+install(TARGETS KMahjongglib
+    EXPORT KMahjonggTargets
     ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
@@ -100,7 +102,7 @@ install(FILES
     COMPONENT Devel
 )
 
-install(EXPORT KF5KMahjonggTargets
+install(EXPORT KMahjonggTargets
     DESTINATION ${CMAKECONFIG_INSTALL_DIR}
     FILE KF5KMahjonggTargets.cmake
     COMPONENT Devel
