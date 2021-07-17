@@ -1,8 +1,10 @@
 function(install_tileset id)
+    set(svgz "${CMAKE_CURRENT_BINARY_DIR}/${id}.svgz")
+    generate_svgz(${id}.svg ${svgz} "tileset-")
     install(
         FILES
             ${id}.desktop
-            ${id}.svg
+            ${svgz}
             ${id}.copyright
         DESTINATION ${KDE_INSTALL_DATADIR}/kmahjongglib/tilesets
     )

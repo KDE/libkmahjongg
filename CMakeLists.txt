@@ -7,7 +7,7 @@ set(KF_MIN_VERSION "5.85.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
@@ -27,12 +27,15 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-include(FeatureSummary)
-include(GenerateExportHeader)
-include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMQtDeclareLoggingCategory)
+
+include(GenerateExportHeader)
+include(CMakePackageConfigHelpers)
+include(FeatureSummary)
+
+include(InternalMacros)
 
 add_definitions(
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050F00
