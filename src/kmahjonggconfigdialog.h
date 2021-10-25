@@ -30,7 +30,7 @@ Q_OBJECT
   public:
     KMahjonggConfigDialog( QWidget *parent, const QString& name,
                  KConfigSkeleton *config);
-    ~KMahjonggConfigDialog();
+    ~KMahjonggConfigDialog() override;
     void addTilesetPage();
     void addBackgroundPage();
 

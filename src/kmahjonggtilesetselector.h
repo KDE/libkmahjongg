@@ -23,7 +23,7 @@ class KMahjonggTilesetSelector : public QWidget, public Ui::KMahjonggTilesetSele
 Q_OBJECT
   public:
     explicit KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * aconfig );
-    ~KMahjonggTilesetSelector();
+    ~KMahjonggTilesetSelector() override;
     void setupData(KConfigSkeleton * aconfig);
 
     QMap<QString, KMahjonggTileset *> tilesetMap;
