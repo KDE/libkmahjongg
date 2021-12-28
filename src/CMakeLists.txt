@@ -1,4 +1,4 @@
-set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KMahjongg)
+set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KMahjongg)
 
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
 
@@ -45,14 +45,14 @@ generate_export_header(KMahjongglib BASE_NAME libkmahjongg)
 target_link_libraries(KMahjongglib
     PUBLIC
         KF5::ConfigWidgets
-        Qt5::Gui
+        Qt${QT_MAJOR_VERSION}::Gui
     PRIVATE
         KF5::WidgetsAddons
         KF5::I18n
         KF5::Completion
         KF5::ConfigGui
-        Qt5::Core
-        Qt5::Svg
+        Qt${QT_MAJOR_VERSION}::Core
+        Qt${QT_MAJOR_VERSION}::Svg
 )
 
 target_include_directories(KMahjongglib
