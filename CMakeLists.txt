@@ -10,6 +10,17 @@ find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+
+include(ECMSetupVersion)
+include(ECMGenerateHeaders)
+include(ECMQtDeclareLoggingCategory)
+
+include(GenerateExportHeader)
+include(CMakePackageConfigHelpers)
+include(FeatureSummary)
+
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Gui
@@ -23,17 +34,6 @@ find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Completion
     I18n
 )
-
-include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-
-include(ECMSetupVersion)
-include(ECMGenerateHeaders)
-include(ECMQtDeclareLoggingCategory)
-
-include(GenerateExportHeader)
-include(CMakePackageConfigHelpers)
-include(FeatureSummary)
 
 include(InternalMacros)
 
