@@ -13,6 +13,7 @@
 
 // Qt
 #include <QFile>
+#include <QGuiApplication>
 #include <QImage>
 #include <QMap>
 #include <QPainter>
@@ -322,6 +323,9 @@ QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid)
 {
     //qCDebug(LIBKMAHJONGG_LOG) << "render element" << elementid << width << height;
+    const qreal dpr = qApp->devicePixelRatio();
+    width = width * dpr;
+    height = height * dpr;
     QImage qiRend(QSize(width, height), QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
 
@@ -329,6 +333,7 @@ QPixmap KMahjonggTileset::renderElement(short width, short height, const QString
         QPainter p(&qiRend);
         d->svg.render(&p, elementid);
     }
+    qiRend.setDevicePixelRatio(dpr);
     return QPixmap::fromImage(qiRend);
 }
 
