@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.16 FATAL_ERROR)
 
 project(libkmahjongg VERSION "5.1.0")
 
-set(QT_MIN_VERSION "5.15.0")
+set(QT_MIN_VERSION "5.15.2")
 set(KF_MIN_VERSION "5.90.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
