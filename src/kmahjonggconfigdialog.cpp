@@ -9,7 +9,6 @@
 
 // KF
 #include <KConfig>
-#include <KConfigDialogManager>
 #include <KConfigGroup>
 #include <KLocalizedString>
 
