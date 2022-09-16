@@ -70,7 +70,7 @@ set_target_properties(KMahjongglib PROPERTIES
 
 install(TARGETS KMahjongglib
     EXPORT KMahjonggTargets
-    ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
+    ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 install(FILES
