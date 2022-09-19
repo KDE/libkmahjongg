@@ -6,6 +6,7 @@ ecm_setup_version(${libkmahjongg_VERSION}
     VARIABLE_PREFIX KMAHJONGGLIB
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h"
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfigVersion.cmake"
+    COMPATIBILITY SameMajorVersion
     SOVERSION 5
 )
 
