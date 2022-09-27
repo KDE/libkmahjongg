@@ -9,7 +9,6 @@
 
 // KF
 #include <KConfig>
-#include <KConfigGroup>
 #include <KLocalizedString>
 
 // LibKMahjongg
