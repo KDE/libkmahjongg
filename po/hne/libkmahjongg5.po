@@ -1,0 +1,59 @@
+# translation of libkmahjongg.po to Hindi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ravishankar Shrivastava <raviratlami@yahoo.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:44+0000\n"
+"PO-Revision-Date: 2007-12-24 17:12+0530\n"
+"Last-Translator: Ravishankar Shrivastava <aviratlami@aol.in>\n"
+"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
+"Language: hne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: kmahjonggbackgroundselector.ui:46 kmahjonggtilesetselector.ui:46
+#, kde-format
+msgid "Preview"
+msgstr "प्रिव्यू"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kmahjonggbackgroundselector.ui:81 kmahjonggtilesetselector.ui:81
+#, kde-format
+msgid "Properties"
+msgstr "गुन"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: kmahjonggbackgroundselector.ui:101 kmahjonggtilesetselector.ui:101
+#, kde-format
+msgid "Author:"
+msgstr "लेखकः"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: kmahjonggbackgroundselector.ui:111 kmahjonggtilesetselector.ui:111
+#, kde-format
+msgid "Contact:"
+msgstr "सम्पर्क:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: kmahjonggbackgroundselector.ui:121 kmahjonggtilesetselector.ui:121
+#, kde-format
+msgid "Description:"
+msgstr "वर्ननः"
+
+#: kmahjonggconfigdialog.cpp:41
+#, kde-format
+msgid "Tiles"
+msgstr "टाइलें"
+
+#: kmahjonggconfigdialog.cpp:48
+#, kde-format
+msgid "Background"
+msgstr "पिछोत अंगना"

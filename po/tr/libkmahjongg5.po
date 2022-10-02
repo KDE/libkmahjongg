@@ -1,0 +1,60 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# obsoleteman <tulliana@gmail.com>, 2008.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegames-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:44+0000\n"
+"PO-Revision-Date: 2022-04-26 11:11+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: kmahjonggbackgroundselector.ui:46 kmahjonggtilesetselector.ui:46
+#, kde-format
+msgid "Preview"
+msgstr "Önizleme"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kmahjonggbackgroundselector.ui:81 kmahjonggtilesetselector.ui:81
+#, kde-format
+msgid "Properties"
+msgstr "Özellikler"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: kmahjonggbackgroundselector.ui:101 kmahjonggtilesetselector.ui:101
+#, kde-format
+msgid "Author:"
+msgstr "Yazar:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: kmahjonggbackgroundselector.ui:111 kmahjonggtilesetselector.ui:111
+#, kde-format
+msgid "Contact:"
+msgstr "İletişim:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: kmahjonggbackgroundselector.ui:121 kmahjonggtilesetselector.ui:121
+#, kde-format
+msgid "Description:"
+msgstr "Açıklama:"
+
+#: kmahjonggconfigdialog.cpp:41
+#, kde-format
+msgid "Tiles"
+msgstr "Döşemeler"
+
+#: kmahjonggconfigdialog.cpp:48
+#, kde-format
+msgid "Background"
+msgstr "Arka Plan"

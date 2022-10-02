@@ -1,0 +1,61 @@
+# translation of libkmahjongg.po to icelandic
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sveinn í Felli <sveinki@nett.is>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:44+0000\n"
+"PO-Revision-Date: 2009-06-13 16:24+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"Language-Team: icelandic <kde-isl@molar.is>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+"\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: kmahjonggbackgroundselector.ui:46 kmahjonggtilesetselector.ui:46
+#, fuzzy, kde-format
+msgid "Preview"
+msgstr "Forsýn"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kmahjonggbackgroundselector.ui:81 kmahjonggtilesetselector.ui:81
+#, fuzzy, kde-format
+msgid "Properties"
+msgstr "Eiginleikar"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: kmahjonggbackgroundselector.ui:101 kmahjonggtilesetselector.ui:101
+#, fuzzy, kde-format
+msgid "Author:"
+msgstr "Höfundur:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: kmahjonggbackgroundselector.ui:111 kmahjonggtilesetselector.ui:111
+#, fuzzy, kde-format
+msgid "Contact:"
+msgstr "Tengiliður:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: kmahjonggbackgroundselector.ui:121 kmahjonggtilesetselector.ui:121
+#, fuzzy, kde-format
+msgid "Description:"
+msgstr "Lýsing:"
+
+#: kmahjonggconfigdialog.cpp:41
+#, fuzzy, kde-format
+msgid "Tiles"
+msgstr "Flísar"
+
+#: kmahjonggconfigdialog.cpp:48
+#, fuzzy, kde-format
+msgid "Background"
+msgstr "Bakgrunnur"

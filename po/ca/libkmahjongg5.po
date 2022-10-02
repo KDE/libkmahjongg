@@ -1,0 +1,62 @@
+# Translation of libkmahjongg5.po to Catalan
+# Copyright (C) 2007-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Aleix Pol <aleixpol@gmail.com>, 2007.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:44+0000\n"
+"PO-Revision-Date: 2020-07-28 13:41+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: kmahjonggbackgroundselector.ui:46 kmahjonggtilesetselector.ui:46
+#, kde-format
+msgid "Preview"
+msgstr "Vista prèvia"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kmahjonggbackgroundselector.ui:81 kmahjonggtilesetselector.ui:81
+#, kde-format
+msgid "Properties"
+msgstr "Propietats"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: kmahjonggbackgroundselector.ui:101 kmahjonggtilesetselector.ui:101
+#, kde-format
+msgid "Author:"
+msgstr "Autor:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: kmahjonggbackgroundselector.ui:111 kmahjonggtilesetselector.ui:111
+#, kde-format
+msgid "Contact:"
+msgstr "Contacte:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: kmahjonggbackgroundselector.ui:121 kmahjonggtilesetselector.ui:121
+#, kde-format
+msgid "Description:"
+msgstr "Descripció:"
+
+#: kmahjonggconfigdialog.cpp:41
+#, kde-format
+msgid "Tiles"
+msgstr "Fitxes"
+
+#: kmahjonggconfigdialog.cpp:48
+#, kde-format
+msgid "Background"
+msgstr "Fons"

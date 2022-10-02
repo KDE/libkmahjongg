@@ -1,0 +1,60 @@
+# translation of libkmahjongg.po to Low Saxon
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sönke Dibbern <s_dibbern@web.de>, 2007.
+# Manfred Wiese <m.j.wiese@web.de>, 2008, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libkmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:44+0000\n"
+"PO-Revision-Date: 2008-01-20 22:34+0100\n"
+"Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: kmahjonggbackgroundselector.ui:46 kmahjonggtilesetselector.ui:46
+#, kde-format
+msgid "Preview"
+msgstr "Vöransicht"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kmahjonggbackgroundselector.ui:81 kmahjonggtilesetselector.ui:81
+#, kde-format
+msgid "Properties"
+msgstr "Egenschappen"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: kmahjonggbackgroundselector.ui:101 kmahjonggtilesetselector.ui:101
+#, kde-format
+msgid "Author:"
+msgstr "Autor:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: kmahjonggbackgroundselector.ui:111 kmahjonggtilesetselector.ui:111
+#, kde-format
+msgid "Contact:"
+msgstr "Kontakt:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: kmahjonggbackgroundselector.ui:121 kmahjonggtilesetselector.ui:121
+#, kde-format
+msgid "Description:"
+msgstr "Beschrieven:"
+
+#: kmahjonggconfigdialog.cpp:41
+#, kde-format
+msgid "Tiles"
+msgstr "Steen"
+
+#: kmahjonggconfigdialog.cpp:48
+#, kde-format
+msgid "Background"
+msgstr "Achtergrund"
