@@ -40,7 +40,7 @@ include(InternalMacros)
 
 ecm_set_disabled_deprecation_versions(
     QT 5.15.2
-    KF 5.91
+    KF 5.101
 )
 
 add_subdirectory(src)
