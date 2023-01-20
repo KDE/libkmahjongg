@@ -13,11 +13,11 @@ ecm_setup_version(${libkmahjongg_VERSION}
 add_library(KMahjongglib SHARED)
 
 target_sources(KMahjongglib PRIVATE
-    kmahjonggtileset.cpp
-    kmahjonggbackground.cpp
-    kmahjonggtilesetselector.cpp
-    kmahjonggbackgroundselector.cpp
-    kmahjonggconfigdialog.cpp
+    kmahjonggtileset.cpp kmahjonggtileset.h
+    kmahjonggbackground.cpp kmahjonggbackground.h
+    kmahjonggtilesetselector.cpp kmahjonggtilesetselector.h
+    kmahjonggbackgroundselector.cpp kmahjonggbackgroundselector.h
+    kmahjonggconfigdialog.cpp kmahjonggconfigdialog.h
 )
 
 ecm_generate_headers(kmahjongg_LIB_CamelCase_HEADERS
