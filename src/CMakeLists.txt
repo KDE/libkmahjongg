@@ -45,13 +45,13 @@ generate_export_header(KMahjongglib BASE_NAME libkmahjongg)
 
 target_link_libraries(KMahjongglib
     PUBLIC
-        KF5::ConfigWidgets
+        KF${KF_MAJOR_VERSION}::ConfigWidgets
         Qt${QT_MAJOR_VERSION}::Gui
     PRIVATE
-        KF5::WidgetsAddons
-        KF5::I18n
-        KF5::Completion
-        KF5::ConfigGui
+        KF${KF_MAJOR_VERSION}::WidgetsAddons
+        KF${KF_MAJOR_VERSION}::I18n
+        KF${KF_MAJOR_VERSION}::Completion
+        KF${KF_MAJOR_VERSION}::ConfigGui
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Svg
 )
