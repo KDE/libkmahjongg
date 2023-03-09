@@ -1,16 +1,34 @@
-set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KMahjongg)
+if (QT_MAJOR_VERSION STREQUAL "5")
+    set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KMahjongg)
+    set(CMAKECONFIG_NAME "KF5KMahjongglib")
+    set(CMAKECONFIGTARGET_NAME "KF5KMahjongg") # for history reasons different from CMAKECONFIG_NAME
+    set(LIBRARYFILE_NAME "KF5KMahjongglib")
+    set(TARGET_EXPORT_NAME "KF5KMahjongglib")
+else()
+    set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KMahjongg6)
+    set(CMAKECONFIG_NAME "KMahjongglib6")
+    set(CMAKECONFIGTARGET_NAME "KMahjongglib6")
+    set(LIBRARYFILE_NAME "KMahjongg6") # no need to repeat "lib" with the actualy library file name
+    set(TARGET_EXPORT_NAME "KMahjongglib6")
+endif()
 
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
 
 ecm_setup_version(${libkmahjongg_VERSION}
     VARIABLE_PREFIX KMAHJONGGLIB
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h"
-    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfigVersion.cmake"
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/${CMAKECONFIG_NAME}ConfigVersion.cmake"
     COMPATIBILITY SameMajorVersion
     SOVERSION 5
 )
 
 add_library(KMahjongglib SHARED)
+set_target_properties(KMahjongglib PROPERTIES
+    VERSION     ${KMAHJONGGLIB_VERSION}
+    SOVERSION   ${KMAHJONGGLIB_SOVERSION}
+    OUTPUT_NAME ${LIBRARYFILE_NAME}
+    EXPORT_NAME ${TARGET_EXPORT_NAME}
+)
 
 target_sources(KMahjongglib PRIVATE
     kmahjonggtileset.cpp kmahjonggtileset.h
@@ -61,13 +79,6 @@ target_include_directories(KMahjongglib
         "$<INSTALL_INTERFACE:${kmahjongg_INCLUDE_INSTALL_DIR}>"
 )
 
-set_target_properties(KMahjongglib PROPERTIES
-    VERSION ${KMAHJONGGLIB_VERSION}
-    SOVERSION ${KMAHJONGGLIB_SOVERSION}
-    OUTPUT_NAME KF5KMahjongglib
-    EXPORT_NAME KF5KMahjongglib
-)
-
 
 install(TARGETS KMahjongglib
     EXPORT KMahjonggTargets
@@ -89,23 +100,23 @@ ecm_qt_install_logging_categories(
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
 
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5KMahjongglib")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/${CMAKECONFIG_NAME}")
 
 configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/KF5KMahjongglibConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfig.cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/KMahjongglibConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/${CMAKECONFIG_NAME}Config.cmake"
     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5KMahjongglibConfigVersion.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/${CMAKECONFIG_NAME}Config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/${CMAKECONFIG_NAME}ConfigVersion.cmake"
     DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
     COMPONENT Devel
 )
 
 install(EXPORT KMahjonggTargets
     DESTINATION ${CMAKECONFIG_INSTALL_DIR}
-    FILE KF5KMahjonggTargets.cmake
+    FILE ${CMAKECONFIGTARGET_NAME}Targets.cmake
     COMPONENT Devel
 )
