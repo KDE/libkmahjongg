@@ -24,8 +24,8 @@ endif()
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMQtDeclareLoggingCategory)
+include(ECMGenerateExportHeader)
 
-include(GenerateExportHeader)
 include(CMakePackageConfigHelpers)
 include(FeatureSummary)
 

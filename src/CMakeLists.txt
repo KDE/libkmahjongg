@@ -59,7 +59,23 @@ ki18n_wrap_ui(KMahjongglib
     kmahjonggbackgroundselector.ui
 )
 
-generate_export_header(KMahjongglib BASE_NAME libkmahjongg)
+if (QT_MAJOR_VERSION STREQUAL "5")
+    set(_generate_export_header_version_args)
+else()
+    # For Qt6/KF6 world transitively include the version header
+    if(ECM_VERSION VERSION_LESS "5.106")
+        set(include_version_header_code "#include <kmahjongglib_version.h>\n")
+        set(_generate_export_header_version_args CUSTOM_CONTENT_FROM_VARIABLE include_version_header_code)
+    else()
+        set(_generate_export_header_version_args USE_VERSION_HEADER VERSION_BASE_NAME KMAHJONGGLIB)
+    endif()
+endif()
+ecm_generate_export_header(KMahjongglib
+    BASE_NAME libkmahjongg
+    VERSION ${libkmahjongg_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    ${_generate_export_header_version_args}
+)
 
 target_link_libraries(KMahjongglib
     PUBLIC
