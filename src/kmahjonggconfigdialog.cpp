@@ -52,3 +52,5 @@ void KMahjonggConfigDialog::updateWidgetsDefault()
 {
     //qCDebug(LIBKMAHJONGG_LOG) << "updateWidgetsDefault";
 }
+
+#include "moc_kmahjonggconfigdialog.cpp"

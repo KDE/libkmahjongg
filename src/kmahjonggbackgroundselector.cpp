@@ -111,3 +111,5 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     p.end();
     backgroundPreview->setPixmap(QPixmap::fromImage(qiRend));
 }
+
+#include "moc_kmahjonggbackgroundselector.cpp"

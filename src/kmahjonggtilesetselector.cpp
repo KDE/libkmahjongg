@@ -113,3 +113,5 @@ void KMahjonggTilesetSelector::tilesetChanged()
     p.end();
     tilesetPreview->setPixmap(QPixmap::fromImage(qiRend));
 }
+
+#include "moc_kmahjonggtilesetselector.cpp"
