@@ -12,15 +12,5 @@ Dependencies:
     'frameworks/ki18n': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5', 'Android/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kcompletion': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/kconfigwidgets': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kwidgetsaddons': '@stable'
-
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      

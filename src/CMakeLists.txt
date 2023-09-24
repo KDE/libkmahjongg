@@ -1,16 +1,7 @@
-if (QT_MAJOR_VERSION STREQUAL "5")
-    set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KMahjongg)
-    set(CMAKECONFIG_NAME "KF5KMahjongglib")
-    set(CMAKECONFIGTARGET_NAME "KF5KMahjongg") # for history reasons different from CMAKECONFIG_NAME
-    set(LIBRARYFILE_NAME "KF5KMahjongglib")
-    set(TARGET_EXPORT_NAME "KF5KMahjongglib")
-else()
-    set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KMahjongg6)
-    set(CMAKECONFIG_NAME "KMahjongglib6")
-    set(CMAKECONFIGTARGET_NAME "KMahjongglib6")
-    set(LIBRARYFILE_NAME "KMahjongg6") # no need to repeat "lib" with the actualy library file name
-    set(TARGET_EXPORT_NAME "KMahjongglib6")
-endif()
+set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KMahjongg6)
+set(CMAKECONFIG_NAME "KMahjongglib6")
+set(LIBRARYFILE_NAME "KMahjongg6") # no need to repeat "lib" with the actualy library file name
+set(TARGET_EXPORT_NAME "KMahjongglib6")
 
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg5")
 
@@ -59,35 +50,25 @@ ki18n_wrap_ui(KMahjongglib
     kmahjonggbackgroundselector.ui
 )
 
-if (QT_MAJOR_VERSION STREQUAL "5")
-    set(_generate_export_header_version_args)
-else()
-    # For Qt6/KF6 world transitively include the version header
-    if(ECM_VERSION VERSION_LESS "5.106")
-        set(include_version_header_code "#include <kmahjongglib_version.h>\n")
-        set(_generate_export_header_version_args CUSTOM_CONTENT_FROM_VARIABLE include_version_header_code)
-    else()
-        set(_generate_export_header_version_args USE_VERSION_HEADER VERSION_BASE_NAME KMAHJONGGLIB)
-    endif()
-endif()
 ecm_generate_export_header(KMahjongglib
     BASE_NAME libkmahjongg
     VERSION ${libkmahjongg_VERSION}
     DEPRECATED_BASE_VERSION 0
-    ${_generate_export_header_version_args}
+    USE_VERSION_HEADER
+    VERSION_BASE_NAME KMAHJONGGLIB
 )
 
 target_link_libraries(KMahjongglib
     PUBLIC
-        KF${KF_MAJOR_VERSION}::ConfigWidgets
-        Qt${QT_MAJOR_VERSION}::Gui
+        KF6::ConfigWidgets
+        Qt6::Gui
     PRIVATE
-        KF${KF_MAJOR_VERSION}::WidgetsAddons
-        KF${KF_MAJOR_VERSION}::I18n
-        KF${KF_MAJOR_VERSION}::Completion
-        KF${KF_MAJOR_VERSION}::ConfigGui
-        Qt${QT_MAJOR_VERSION}::Core
-        Qt${QT_MAJOR_VERSION}::Svg
+        KF6::WidgetsAddons
+        KF6::I18n
+        KF6::Completion
+        KF6::ConfigGui
+        Qt6::Core
+        Qt6::Svg
 )
 
 target_include_directories(KMahjongglib
@@ -133,6 +114,6 @@ install(FILES
 
 install(EXPORT KMahjonggTargets
     DESTINATION ${CMAKECONFIG_INSTALL_DIR}
-    FILE ${CMAKECONFIGTARGET_NAME}Targets.cmake
+    FILE ${CMAKECONFIG_NAME}Targets.cmake
     COMPONENT Devel
 )
