@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-05-20 03:06+0200\n"
+"POT-Creation-Date: 2022-09-28 00:44+0000\n"
 "PO-Revision-Date: 2007-10-16 11:30+0200\n"
 "Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
-"Language: sr@ijekavianlatin\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,38 +23,38 @@ msgstr ""
 #: kmahjonggbackgroundselector.ui:46 kmahjonggtilesetselector.ui:46
 #, kde-format
 msgid "Preview"
-msgstr "Pregled"
+msgstr "Преглед"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: kmahjonggbackgroundselector.ui:81 kmahjonggtilesetselector.ui:81
 #, kde-format
 msgid "Properties"
-msgstr "Svojstva"
+msgstr "Својства"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
 #: kmahjonggbackgroundselector.ui:101 kmahjonggtilesetselector.ui:101
 #, kde-format
 msgid "Author:"
-msgstr "Autor:"
+msgstr "Аутор:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
 #: kmahjonggbackgroundselector.ui:111 kmahjonggtilesetselector.ui:111
 #, kde-format
 msgid "Contact:"
-msgstr "Kontakt:"
+msgstr "Контакт:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
 #: kmahjonggbackgroundselector.ui:121 kmahjonggtilesetselector.ui:121
 #, kde-format
 msgid "Description:"
-msgstr "Opis:"
+msgstr "Опис:"
 
-#: kmahjonggconfigdialog.cpp:76
+#: kmahjonggconfigdialog.cpp:41
 #, kde-format
 msgid "Tiles"
-msgstr "Pločice"
+msgstr "Плочице"
 
-#: kmahjonggconfigdialog.cpp:83
+#: kmahjonggconfigdialog.cpp:48
 #, kde-format
 msgid "Background"
-msgstr "Pozadina"
+msgstr "Позадина"
