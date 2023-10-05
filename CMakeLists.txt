@@ -27,7 +27,6 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Svg
 )
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-    CoreAddons
     Config
     ConfigWidgets
     WidgetsAddons
