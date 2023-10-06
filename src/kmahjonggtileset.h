@@ -32,8 +32,8 @@ class LIBKMAHJONGG_EXPORT KMahjonggTileset {
     bool loadDefault();
     bool loadTileset(const QString & tilesetPath);
     bool loadGraphics();
-    bool reloadTileset(const QSize & newTilesize);
-    QSize preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells);
+    bool reloadTileset(QSize newTilesize);
+    QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);
     QString authorProperty(const QString &key) const;
 
     short width() const;

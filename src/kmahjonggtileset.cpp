@@ -100,7 +100,7 @@ void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
     d->scaleddata.fh = static_cast<short>(d->originaldata.fh * ratio);
 }
 
-QSize KMahjonggTileset::preferredTileSize(const QSize & boardsize, int horizontalCells, int verticalCells)
+QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
 {
     //calculate our best tile size to fit the boardsize passed to us
     qreal newtilew, newtileh, aspectratio;
@@ -259,7 +259,7 @@ bool KMahjonggTileset::loadGraphics()
 }
 
 // ---------------------------------------------------------
-bool KMahjonggTileset::reloadTileset(const QSize & newTilesize)
+bool KMahjonggTileset::reloadTileset(QSize newTilesize)
 {
     if (QSize(d->scaleddata.w, d->scaleddata.h) == newTilesize) {
         return false;
