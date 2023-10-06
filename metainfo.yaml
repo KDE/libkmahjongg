@@ -12,5 +12,5 @@ release: true
 public_source_dirs:
     - src
 libraries:
-    - cmake: "KF5KMahjongglib"
-cmakename: KF5KMahjongglib
+    - cmake: "KMahjongglib6"
+cmakename: KMahjongglib6
