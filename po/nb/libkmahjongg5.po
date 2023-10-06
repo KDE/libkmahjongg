@@ -1,4 +1,4 @@
-# Translation of libkmahjongg5 to Norwegian Bokmål
+# Translation of libkmahjongg6 to Norwegian Bokmål
 #
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2009.
 msgid ""
