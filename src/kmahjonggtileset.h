@@ -33,7 +33,7 @@ class LIBKMAHJONGG_EXPORT KMahjonggTileset {
     bool loadTileset(const QString & tilesetPath);
     bool loadGraphics();
     bool reloadTileset(QSize newTilesize);
-    QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);
+    QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells) const;
     QString authorProperty(const QString &key) const;
 
     short width() const;
@@ -44,18 +44,17 @@ class LIBKMAHJONGG_EXPORT KMahjonggTileset {
     short qHeight() const;
     QString path() const;
 
-    QPixmap selectedTile(int num);
-    QPixmap unselectedTile(int num);
-    QPixmap tileface(int num);
+    QPixmap selectedTile(int num) const;
+    QPixmap unselectedTile(int num) const;
+    QPixmap tileface(int num) const;
 
 protected:
     void updateScaleInfo(short tilew, short tileh);
     void buildElementIdTable(void);
-    QString pixmapCacheNameFromElementId(const QString & elementid);
-    QPixmap renderElement(short width, short height, const QString & elementid);
+    QString pixmapCacheNameFromElementId(const QString & elementid) const;
+    QPixmap renderElement(short width, short height, const QString & elementid) const;
 
-
-  private:
+private:
     friend class KMahjonggTilesetPrivate;
     std::unique_ptr<KMahjonggTilesetPrivate> const d;
 

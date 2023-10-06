@@ -100,7 +100,7 @@ void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
     d->scaleddata.fh = static_cast<short>(d->originaldata.fh * ratio);
 }
 
-QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
+QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells) const
 {
     //calculate our best tile size to fit the boardsize passed to us
     qreal newtilew, newtileh, aspectratio;
@@ -315,12 +315,12 @@ void KMahjonggTileset::buildElementIdTable()
     }
 }
 
-QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid)
+QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString & elementid) const
 {
     return authorProperty(QStringLiteral("Name")) + elementid + QStringLiteral("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
 }
 
-QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid)
+QPixmap KMahjonggTileset::renderElement(short width, short height, const QString & elementid) const
 {
     //qCDebug(LIBKMAHJONGG_LOG) << "render element" << elementid << width << height;
     const qreal dpr = qApp->devicePixelRatio();
@@ -337,7 +337,7 @@ QPixmap KMahjonggTileset::renderElement(short width, short height, const QString
     return QPixmap::fromImage(qiRend);
 }
 
-QPixmap KMahjonggTileset::selectedTile(int num)
+QPixmap KMahjonggTileset::selectedTile(int num) const
 {
     QPixmap pm;
     QString elemId = d->elementIdTable.at(num + 4); //selected offset in our idtable;
@@ -349,7 +349,7 @@ QPixmap KMahjonggTileset::selectedTile(int num)
     return pm;
 }
 
-QPixmap KMahjonggTileset::unselectedTile(int num)
+QPixmap KMahjonggTileset::unselectedTile(int num) const
 {
     QPixmap pm;
     QString elemId = d->elementIdTable.at(num);
@@ -361,7 +361,7 @@ QPixmap KMahjonggTileset::unselectedTile(int num)
     return pm;
 }
 
-QPixmap KMahjonggTileset::tileface(int num)
+QPixmap KMahjonggTileset::tileface(int num) const
 {
     QPixmap pm;
     if ((num + 8) >= d->elementIdTable.count()) {
