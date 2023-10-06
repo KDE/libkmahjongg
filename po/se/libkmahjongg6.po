@@ -1,4 +1,4 @@
-# Translation of libkmahjongg5 to Northern Sami
+# Translation of libkmahjongg6 to Northern Sami
 #
 msgid ""
 msgstr ""
