@@ -25,7 +25,7 @@ class KMahjonggBackgroundPrivate;
  */
 class LIBKMAHJONGG_EXPORT KMahjonggBackground
 {
-  public:
+public:
     KMahjonggBackground();
     ~KMahjonggBackground();
 
@@ -33,11 +33,11 @@ class LIBKMAHJONGG_EXPORT KMahjonggBackground
     bool load(const QString &file, short width, short height);
     bool loadGraphics();
     void sizeChanged(int newW, int newH);
-    QBrush & getBackground();
+    QBrush &getBackground();
     QString path() const;
     QString authorProperty(const QString &key) const;
 
- private:
+private:
     std::unique_ptr<KMahjonggBackgroundPrivate> const d;
 
     Q_DISABLE_COPY(KMahjonggBackground)

@@ -20,15 +20,19 @@ class KMahjonggTileset;
 
 class KMahjonggTilesetSelector : public QWidget, public Ui::KMahjonggTilesetSelector
 {
-Q_OBJECT
-  public:
-    explicit KMahjonggTilesetSelector( QWidget* parent, KConfigSkeleton * aconfig );
-    ~KMahjonggTilesetSelector() override;
-    void setupData(KConfigSkeleton * aconfig);
+    Q_OBJECT
 
-    QMap<QString, KMahjonggTileset *> tilesetMap;
-  public Q_SLOTS:
+public:
+    explicit KMahjonggTilesetSelector(QWidget *parent, KConfigSkeleton *aconfig);
+    ~KMahjonggTilesetSelector() override;
+
+    void setupData(KConfigSkeleton *aconfig);
+
+public Q_SLOTS:
     void tilesetChanged();
+
+public:
+    QMap<QString, KMahjonggTileset *> tilesetMap;
 };
 
 #endif // KMAHJONGGTILESETSELECTOR_H

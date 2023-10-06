@@ -9,8 +9,8 @@
 #define KMAHJONGGTILESET_H
 
 // Qt
-#include <QString>
 #include <QPixmap>
+#include <QString>
 // Std
 #include <memory>
 
@@ -24,13 +24,14 @@ class KMahjonggTilesetPrivate;
  *
  * A tile set
  */
-class LIBKMAHJONGG_EXPORT KMahjonggTileset {
-   public:
+class LIBKMAHJONGG_EXPORT KMahjonggTileset
+{
+public:
     KMahjonggTileset();
     ~KMahjonggTileset();
 
     bool loadDefault();
-    bool loadTileset(const QString & tilesetPath);
+    bool loadTileset(const QString &tilesetPath);
     bool loadGraphics();
     bool reloadTileset(QSize newTilesize);
     QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells) const;
@@ -51,8 +52,8 @@ class LIBKMAHJONGG_EXPORT KMahjonggTileset {
 protected:
     void updateScaleInfo(short tilew, short tileh);
     void buildElementIdTable(void);
-    QString pixmapCacheNameFromElementId(const QString & elementid) const;
-    QPixmap renderElement(short width, short height, const QString & elementid) const;
+    QString pixmapCacheNameFromElementId(const QString &elementid) const;
+    QPixmap renderElement(short width, short height, const QString &elementid) const;
 
 private:
     friend class KMahjonggTilesetPrivate;

@@ -39,7 +39,7 @@ public:
     }
 
     QMap<QString, QString> authorproperties;
-    QString pixmapCacheNameFromElementId(const QString & elementid);
+    QString pixmapCacheNameFromElementId(const QString &elementid);
     QPixmap renderBG(short width, short height);
 
     QPixmap backgroundPixmap;
@@ -84,12 +84,12 @@ bool KMahjonggBackground::loadDefault()
 
 #define kBGVersionFormat 1
 
-bool KMahjonggBackground::load(const QString & file, short width, short height)
+bool KMahjonggBackground::load(const QString &file, short width, short height)
 {
-    //qCDebug(LIBKMAHJONGG_LOG) << "Background loading";
+    // qCDebug(LIBKMAHJONGG_LOG) << "Background loading";
     d->isSVG = false;
 
-    //qCDebug(LIBKMAHJONGG_LOG) << "Attempting to load .desktop at" << file;
+    // qCDebug(LIBKMAHJONGG_LOG) << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
@@ -105,19 +105,19 @@ bool KMahjonggBackground::load(const QString & file, short width, short height)
     d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
     d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
     d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
-    //The "Plain" key is set to 1 by the color_plain background.
+    // The "Plain" key is set to 1 by the color_plain background.
     d->isPlain = group.readEntry("Plain", 0) != 0;
     d->authorproperties.insert(QStringLiteral("Plain"), d->isPlain ? QStringLiteral("1") : QStringLiteral("0"));
 
-    //Version control
+    // Version control
     int bgversion = group.readEntry("VersionFormat", 0);
-    //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
+    // Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
     if (bgversion > kBGVersionFormat) {
         return false;
     }
 
     if (d->isPlain) {
-        //qCDebug(LIBKMAHJONGG_LOG) << "Using plain background";
+        // qCDebug(LIBKMAHJONGG_LOG) << "Using plain background";
         d->graphicspath.clear();
         d->filename = file;
         return true;
@@ -157,7 +157,7 @@ bool KMahjonggBackground::loadGraphics()
     if (d->svg.isValid()) {
         d->isSVG = true;
     } else {
-        //qCDebug(LIBKMAHJONGG_LOG) << "could not load svg";
+        // qCDebug(LIBKMAHJONGG_LOG) << "could not load svg";
         return false;
     }
     return true;
@@ -165,7 +165,7 @@ bool KMahjonggBackground::loadGraphics()
 
 void KMahjonggBackground::sizeChanged(int newW, int newH)
 {
-    //in tiled mode we do not care about the whole field size
+    // in tiled mode we do not care about the whole field size
     if (d->isTiled || d->isPlain) {
         return;
     }
@@ -177,7 +177,7 @@ void KMahjonggBackground::sizeChanged(int newW, int newH)
     d->h = newH;
 }
 
-QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString & elementid)
+QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid)
 {
     return authorproperties[QStringLiteral("Name")] + elementid + QStringLiteral("W%1H%2").arg(w).arg(h);
 }
@@ -194,7 +194,7 @@ QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height)
     return QPixmap::fromImage(qiRend);
 }
 
-QBrush & KMahjonggBackground::getBackground()
+QBrush &KMahjonggBackground::getBackground()
 {
     if (d->isPlain) {
         d->backgroundBrush = QBrush(QPixmap());
@@ -213,7 +213,7 @@ QString KMahjonggBackground::path() const
     return d->filename;
 }
 
-QString KMahjonggBackground::authorProperty(const QString & key) const
+QString KMahjonggBackground::authorProperty(const QString &key) const
 {
     return d->authorproperties[key];
 }

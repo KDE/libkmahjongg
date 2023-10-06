@@ -26,18 +26,19 @@ class KMahjonggConfigDialogPrivate;
  */
 class LIBKMAHJONGG_EXPORT KMahjonggConfigDialog : public KConfigDialog
 {
-Q_OBJECT
-  public:
-    KMahjonggConfigDialog( QWidget *parent, const QString& name,
-                 KConfigSkeleton *config);
+    Q_OBJECT
+
+public:
+    KMahjonggConfigDialog(QWidget *parent, const QString &name, KConfigSkeleton *config);
     ~KMahjonggConfigDialog() override;
+
     void addTilesetPage();
     void addBackgroundPage();
 
-  protected Q_SLOTS:
+protected Q_SLOTS:
     void updateWidgetsDefault() override;
 
-  private:
+private:
     friend class KMahjonggConfigDialogPrivate;
     std::unique_ptr<KMahjonggConfigDialogPrivate> const d;
 

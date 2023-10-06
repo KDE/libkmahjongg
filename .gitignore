@@ -6,6 +6,7 @@
 CMakeLists.txt.user*
 .vscode
 .cmake/
+/.clang-format
 /compile_commands.json
 .clangd
 .cache

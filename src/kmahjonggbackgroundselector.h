@@ -20,15 +20,19 @@ class KMahjonggBackground;
 
 class KMahjonggBackgroundSelector : public QWidget, public Ui::KMahjonggBackgroundSelector
 {
-Q_OBJECT
-  public:
-    explicit KMahjonggBackgroundSelector( QWidget* parent, KConfigSkeleton * aconfig );
-    ~KMahjonggBackgroundSelector() override;
-    void setupData(KConfigSkeleton * aconfig);
+    Q_OBJECT
 
-    QMap<QString, KMahjonggBackground *> backgroundMap;
-  public Q_SLOTS:
+public:
+    explicit KMahjonggBackgroundSelector(QWidget *parent, KConfigSkeleton *aconfig);
+    ~KMahjonggBackgroundSelector() override;
+
+    void setupData(KConfigSkeleton *aconfig);
+
+public Q_SLOTS:
     void backgroundChanged();
+
+public:
+    QMap<QString, KMahjonggBackground *> backgroundMap;
 };
 
 #endif // KMAHJONGGBACKGROUNDSELECTOR_H

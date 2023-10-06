@@ -17,7 +17,7 @@
 // LibKMahjongg
 #include "kmahjonggbackground.h"
 
-KMahjonggBackgroundSelector::KMahjonggBackgroundSelector(QWidget * parent, KConfigSkeleton * aconfig)
+KMahjonggBackgroundSelector::KMahjonggBackgroundSelector(QWidget *parent, KConfigSkeleton *aconfig)
     : QWidget(parent)
 {
     setupUi(this);
@@ -29,24 +29,25 @@ KMahjonggBackgroundSelector::~KMahjonggBackgroundSelector()
     qDeleteAll(backgroundMap);
 }
 
-void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
+void KMahjonggBackgroundSelector::setupData(KConfigSkeleton *aconfig)
 {
-    //Get our currently configured background entry
-    KConfig * config = aconfig->config();
+    // Get our currently configured background entry
+    KConfig *config = aconfig->config();
     KConfigGroup group = config->group("General");
     QString initialGroup = group.readEntry("Background_file");
 
-    //The lineEdit widget holds our bg path, but the user does not manipulate it directly
+    // The lineEdit widget holds our bg path, but the user does not manipulate it directly
     kcfg_Background->hide();
 
     KMahjonggBackground bg;
 
-    //Now get our backgrounds into a list
+    // Now get our backgrounds into a list
     QStringList bgsAvailable;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/backgrounds"), QStandardPaths::LocateDirectory);
-    for (const QString & dir : dirs) {
+    const QStringList dirs =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/backgrounds"), QStandardPaths::LocateDirectory);
+    for (const QString &dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        for (const QString & file : fileNames) {
+        for (const QString &file : fileNames) {
             bgsAvailable.append(dir + QLatin1Char('/') + file);
         }
     }
@@ -54,14 +55,14 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
     QLatin1String namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < bgsAvailable.size(); ++i) {
-        KMahjonggBackground * abg = new KMahjonggBackground();
+        auto *abg = new KMahjonggBackground();
         QString bgpath = bgsAvailable.at(i);
         if (abg->load(bgpath, backgroundPreview->width(), backgroundPreview->height())) {
             backgroundMap.insert(abg->authorProperty(namestr), abg);
             backgroundList->addItem(abg->authorProperty(namestr));
-            //Find if this is our currently configured background
+            // Find if this is our currently configured background
             if (bgpath == initialGroup) {
-                //Select current entry
+                // Select current entry
                 backgroundList->setCurrentRow(numvalidentries);
                 backgroundChanged();
             }
@@ -76,8 +77,8 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
 
 void KMahjonggBackgroundSelector::backgroundChanged()
 {
-    KMahjonggBackground * selBG = backgroundMap.value(backgroundList->currentItem()->text());
-    //Sanity checkings. Should not happen.
+    KMahjonggBackground *selBG = backgroundMap.value(backgroundList->currentItem()->text());
+    // Sanity checkings. Should not happen.
     if (selBG == nullptr) {
         return;
     }
@@ -97,13 +98,13 @@ void KMahjonggBackgroundSelector::backgroundChanged()
         return;
     }
 
-    //Make sure SVG is loaded when graphics is selected
+    // Make sure SVG is loaded when graphics is selected
     if (!selBG->loadGraphics()) {
         return;
     }
 
-    //Draw the preview
-    //TODO here: add code to load and keep proportions for non-tiled content?
+    // Draw the preview
+    // TODO here: add code to load and keep proportions for non-tiled content?
     QImage qiRend(backgroundPreview->size(), QImage::Format_ARGB32_Premultiplied);
     qiRend.fill(0);
     QPainter p(&qiRend);
