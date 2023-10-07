@@ -16,20 +16,8 @@
    </size>
   </property>
   <layout class="QVBoxLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
-   <property name="spacing" >
-    <number>6</number>
-   </property>
    <item>
     <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
      <item>
       <widget class="QListWidget" name="backgroundList" >
        <property name="minimumSize" >
@@ -46,12 +34,6 @@
         <string>Preview</string>
        </property>
        <layout class="QVBoxLayout" >
-        <property name="margin" >
-         <number>9</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
         <item>
          <widget class="QLabel" name="backgroundPreview" >
           <property name="sizePolicy" >
@@ -81,19 +63,10 @@
       <string>Properties</string>
      </property>
      <layout class="QHBoxLayout" >
-      <property name="margin" >
-       <number>9</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
       <item>
        <layout class="QVBoxLayout" >
         <property name="margin" >
          <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
         </property>
         <item>
          <widget class="QLabel" name="labelAuthor" >
@@ -131,9 +104,6 @@
        <layout class="QVBoxLayout" >
         <property name="margin" >
          <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
         </property>
         <item>
          <widget class="QLabel" name="backgroundAuthor" >
