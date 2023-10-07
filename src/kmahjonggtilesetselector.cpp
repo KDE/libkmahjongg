@@ -54,13 +54,13 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton *aconfig)
         }
     }
 
-    QLatin1String namestr("Name");
     int numvalidentries = 0;
     for (const QString &atileset : std::as_const(tilesAvailable)) {
         auto *aset = new KMahjonggTileset();
         if (aset->loadTileset(atileset)) {
-            tilesetMap.insert(aset->authorProperty(namestr), aset);
-            tilesetList->addItem(aset->authorProperty(namestr));
+            const QString name = aset->authorProperty(QStringLiteral("Name"));
+            tilesetMap.insert(name, aset);
+            tilesetList->addItem(name);
             // Find if this is our currently configured Tileset
             if (atileset == initialGroup) {
                 // Select current entry
@@ -86,13 +86,11 @@ void KMahjonggTilesetSelector::tilesetChanged()
     if (selTileset->path() == kcfg_TileSet->text()) {
         return;
     }
-    QLatin1String authstr("Author");
-    QLatin1String contactstr("AuthorEmail");
-    QLatin1String descstr("Description");
+
     kcfg_TileSet->setText(selTileset->path());
-    tilesetAuthor->setText(selTileset->authorProperty(authstr));
-    tilesetContact->setText(selTileset->authorProperty(contactstr));
-    tilesetDescription->setText(selTileset->authorProperty(descstr));
+    tilesetAuthor->setText(selTileset->authorProperty(QStringLiteral("Author")));
+    tilesetContact->setText(selTileset->authorProperty(QStringLiteral("AuthorEmail")));
+    tilesetDescription->setText(selTileset->authorProperty(QStringLiteral("Description")));
 
     // Make sure SVG is loaded when graphics is selected
     if (!selTileset->loadGraphics()) {

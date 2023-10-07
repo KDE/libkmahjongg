@@ -52,13 +52,13 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton *aconfig)
         }
     }
 
-    QLatin1String namestr("Name");
     int numvalidentries = 0;
     for (const QString &bgpath : std::as_const(bgsAvailable)) {
         auto *abg = new KMahjonggBackground();
         if (abg->load(bgpath, backgroundPreview->width(), backgroundPreview->height())) {
-            backgroundMap.insert(abg->authorProperty(namestr), abg);
-            backgroundList->addItem(abg->authorProperty(namestr));
+            const QString name = abg->authorProperty(QStringLiteral("Name"));
+            backgroundMap.insert(name, abg);
+            backgroundList->addItem(name);
             // Find if this is our currently configured background
             if (bgpath == initialGroup) {
                 // Select current entry
@@ -84,13 +84,11 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     if (selBG->path() == kcfg_Background->text()) {
         return;
     }
-    QLatin1String authstr("Author");
-    QLatin1String contactstr("AuthorEmail");
-    QLatin1String descstr("Description");
+
     kcfg_Background->setText(selBG->path());
-    backgroundAuthor->setText(selBG->authorProperty(authstr));
-    backgroundContact->setText(selBG->authorProperty(contactstr));
-    backgroundDescription->setText(selBG->authorProperty(descstr));
+    backgroundAuthor->setText(selBG->authorProperty(QStringLiteral("Author")));
+    backgroundContact->setText(selBG->authorProperty(QStringLiteral("AuthorEmail")));
+    backgroundDescription->setText(selBG->authorProperty(QStringLiteral("Description")));
 
     if (selBG->authorProperty(QStringLiteral("Plain")) == QLatin1String("1")) {
         backgroundPreview->setPixmap(QPixmap());
