@@ -77,12 +77,6 @@ KMahjonggTileset::KMahjonggTileset()
     : d_ptr(new KMahjonggTilesetPrivate)
 {
     buildElementIdTable();
-
-    static bool _inited = false;
-    if (_inited) {
-        return;
-    }
-    _inited = true;
 }
 
 // ---------------------------------------------------------

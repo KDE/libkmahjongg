@@ -60,11 +60,6 @@ public:
 KMahjonggBackground::KMahjonggBackground()
     : d_ptr(new KMahjonggBackgroundPrivate)
 {
-    static bool _inited = false;
-    if (_inited) {
-        return;
-    }
-    _inited = true;
 }
 
 KMahjonggBackground::~KMahjonggBackground() = default;
