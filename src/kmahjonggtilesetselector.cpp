@@ -56,9 +56,8 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton *aconfig)
 
     QLatin1String namestr("Name");
     int numvalidentries = 0;
-    for (int i = 0; i < tilesAvailable.size(); ++i) {
+    for (const QString &atileset : std::as_const(tilesAvailable)) {
         auto *aset = new KMahjonggTileset();
-        QString atileset = tilesAvailable.at(i);
         if (aset->loadTileset(atileset)) {
             tilesetMap.insert(aset->authorProperty(namestr), aset);
             tilesetList->addItem(aset->authorProperty(namestr));

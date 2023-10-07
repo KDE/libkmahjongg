@@ -54,9 +54,8 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton *aconfig)
 
     QLatin1String namestr("Name");
     int numvalidentries = 0;
-    for (int i = 0; i < bgsAvailable.size(); ++i) {
+    for (const QString &bgpath : std::as_const(bgsAvailable)) {
         auto *abg = new KMahjonggBackground();
-        QString bgpath = bgsAvailable.at(i);
         if (abg->load(bgpath, backgroundPreview->width(), backgroundPreview->height())) {
             backgroundMap.insert(abg->authorProperty(namestr), abg);
             backgroundList->addItem(abg->authorProperty(namestr));
