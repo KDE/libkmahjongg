@@ -53,11 +53,9 @@ public:
 class KMahjonggTilesetPrivate
 {
 public:
-    KMahjonggTilesetPrivate()
-        : isSVG(false)
-        , graphicsLoaded(false)
-    {
-    }
+    KMahjonggTilesetPrivate() = default;
+
+public:
     QList<QString> elementIdTable;
     QMap<QString, QString> authorproperties;
 
@@ -67,8 +65,8 @@ public:
     QString graphicspath;
 
     mutable QSvgRenderer svg; // render() is non-const
-    bool isSVG;
-    bool graphicsLoaded;
+    bool isSVG = false;
+    bool graphicsLoaded = false;
 };
 
 // ---------------------------------------------------------

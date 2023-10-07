@@ -28,16 +28,9 @@
 class KMahjonggBackgroundPrivate
 {
 public:
-    KMahjonggBackgroundPrivate()
-        : w(1)
-        , h(1)
-        , graphicsLoaded(false)
-        , isPlain(false)
-        , isTiled(true)
-        , isSVG(false)
-    {
-    }
+    KMahjonggBackgroundPrivate() = default;
 
+public:
     QMap<QString, QString> authorproperties;
     QString pixmapCacheNameFromElementId(const QString &elementid);
     QPixmap renderBG(short width, short height);
@@ -46,15 +39,15 @@ public:
     QBrush backgroundBrush;
     QString filename;
     QString graphicspath;
-    short w;
-    short h;
+    short w = 1;
+    short h = 1;
 
     QSvgRenderer svg;
 
-    bool graphicsLoaded;
-    bool isPlain;
-    bool isTiled;
-    bool isSVG;
+    bool graphicsLoaded = false;
+    bool isPlain = false;
+    bool isTiled = true;
+    bool isSVG = false;
 };
 
 KMahjonggBackground::KMahjonggBackground()

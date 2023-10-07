@@ -19,18 +19,20 @@
 class KMahjonggConfigDialogPrivate
 {
 public:
+    explicit KMahjonggConfigDialogPrivate(KConfigSkeleton *config)
+        : m_config(config)
+    {}
+
+public:
     KConfigSkeleton *m_config;
 };
 
 KMahjonggConfigDialog::KMahjonggConfigDialog(QWidget *parent, const QString &name, KConfigSkeleton *config)
     : KConfigDialog(parent, name, config)
-    , d_ptr(new KMahjonggConfigDialogPrivate)
+    , d_ptr(new KMahjonggConfigDialogPrivate(config))
 {
-    Q_D(KMahjonggConfigDialog);
-
     setFaceType(List);
     setModal(true);
-    d->m_config = config;
 }
 
 KMahjonggConfigDialog::~KMahjonggConfigDialog() = default;
