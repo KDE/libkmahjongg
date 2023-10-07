@@ -18,7 +18,7 @@
 
 class KMahjonggBackground;
 
-class KMahjonggBackgroundSelector : public QWidget, public Ui::KMahjonggBackgroundSelector
+class KMahjonggBackgroundSelector : public QWidget, private Ui::KMahjonggBackgroundSelector
 {
     Q_OBJECT
 
@@ -31,7 +31,7 @@ public:
 public Q_SLOTS:
     void backgroundChanged();
 
-public:
+private:
     QMap<QString, KMahjonggBackground *> backgroundMap;
 };
 

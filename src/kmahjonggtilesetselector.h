@@ -18,7 +18,7 @@
 
 class KMahjonggTileset;
 
-class KMahjonggTilesetSelector : public QWidget, public Ui::KMahjonggTilesetSelector
+class KMahjonggTilesetSelector : public QWidget, private Ui::KMahjonggTilesetSelector
 {
     Q_OBJECT
 
@@ -31,7 +31,7 @@ public:
 public Q_SLOTS:
     void tilesetChanged();
 
-public:
+private:
     QMap<QString, KMahjonggTileset *> tilesetMap;
 };
 
