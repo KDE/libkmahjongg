@@ -9,6 +9,7 @@
 #define KMAHJONGGBACKGROUND_H
 
 // Qt
+#include <QtClassHelperMacros> // Q_DECLARE_PRIVATE
 #include <QBrush>
 // Std
 #include <memory>
@@ -38,8 +39,8 @@ public:
     QString authorProperty(const QString &key) const;
 
 private:
-    std::unique_ptr<KMahjonggBackgroundPrivate> const d;
-
+    std::unique_ptr<KMahjonggBackgroundPrivate> const d_ptr;
+    Q_DECLARE_PRIVATE(KMahjonggBackground)
     Q_DISABLE_COPY(KMahjonggBackground)
 };
 

@@ -66,7 +66,7 @@ public:
     QString filename; // cache the last file loaded to save reloading it
     QString graphicspath;
 
-    QSvgRenderer svg;
+    mutable QSvgRenderer svg; // render() is non-const
     bool isSVG;
     bool graphicsLoaded;
 };
@@ -74,7 +74,7 @@ public:
 // ---------------------------------------------------------
 
 KMahjonggTileset::KMahjonggTileset()
-    : d(new KMahjonggTilesetPrivate)
+    : d_ptr(new KMahjonggTilesetPrivate)
 {
     buildElementIdTable();
 
@@ -91,6 +91,8 @@ KMahjonggTileset::~KMahjonggTileset() = default;
 
 void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
 {
+    Q_D(KMahjonggTileset);
+
     d->scaleddata.w = tilew;
     d->scaleddata.h = tileh;
     double ratio = (static_cast<qreal>(d->scaleddata.w)) / (static_cast<qreal>(d->originaldata.w));
@@ -102,6 +104,8 @@ void KMahjonggTileset::updateScaleInfo(short tilew, short tileh)
 
 QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells) const
 {
+    Q_D(const KMahjonggTileset);
+
     // calculate our best tile size to fit the boardsize passed to us
     qreal newtilew, newtileh, aspectratio;
     qreal bw = boardsize.width();
@@ -126,6 +130,8 @@ QSize KMahjonggTileset::preferredTileSize(QSize boardsize, int horizontalCells, 
 
 bool KMahjonggTileset::loadDefault()
 {
+    Q_D(KMahjonggTileset);
+
     QString idx = QStringLiteral("default.desktop");
 
     QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/tilesets/") + idx);
@@ -138,41 +144,57 @@ bool KMahjonggTileset::loadDefault()
 
 QString KMahjonggTileset::authorProperty(const QString &key) const
 {
+    Q_D(const KMahjonggTileset);
+
     return d->authorproperties[key];
 }
 
 short KMahjonggTileset::width() const
 {
+    Q_D(const KMahjonggTileset);
+
     return d->scaleddata.w;
 }
 
 short KMahjonggTileset::height() const
 {
+    Q_D(const KMahjonggTileset);
+
     return d->scaleddata.h;
 }
 
 short KMahjonggTileset::levelOffsetX() const
 {
+    Q_D(const KMahjonggTileset);
+
     return d->scaleddata.lvloffx;
 }
 
 short KMahjonggTileset::levelOffsetY() const
 {
+    Q_D(const KMahjonggTileset);
+
     return d->scaleddata.lvloffy;
 }
 
 short KMahjonggTileset::qWidth() const
 {
+    Q_D(const KMahjonggTileset);
+
     return static_cast<short>(d->scaleddata.fw / 2.0);
 }
 
 short KMahjonggTileset::qHeight() const
 {
+    Q_D(const KMahjonggTileset);
+
     return static_cast<short>(d->scaleddata.fh / 2.0);
 }
 
 QString KMahjonggTileset::path() const
 {
+    Q_D(const KMahjonggTileset);
+
     return d->filename;
 }
 
@@ -181,6 +203,8 @@ QString KMahjonggTileset::path() const
 // ---------------------------------------------------------
 bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
 {
+    Q_D(KMahjonggTileset);
+
     // qCDebug(LIBKMAHJONGG_LOG) << "Attempting to load .desktop at" << tilesetPath;
 
     // clear our properties map
@@ -236,6 +260,8 @@ bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
 // ---------------------------------------------------------
 bool KMahjonggTileset::loadGraphics()
 {
+    Q_D(KMahjonggTileset);
+
     if (d->graphicsLoaded) {
         return true;
     }
@@ -261,6 +287,8 @@ bool KMahjonggTileset::loadGraphics()
 // ---------------------------------------------------------
 bool KMahjonggTileset::reloadTileset(QSize newTilesize)
 {
+    Q_D(KMahjonggTileset);
+
     if (QSize(d->scaleddata.w, d->scaleddata.h) == newTilesize) {
         return false;
     }
@@ -282,6 +310,8 @@ bool KMahjonggTileset::reloadTileset(QSize newTilesize)
 
 void KMahjonggTileset::buildElementIdTable()
 {
+    Q_D(KMahjonggTileset);
+
     // Build a list for faster lookup of element ids, mapped to the enumeration used by GameData and BoardWidget
     // Unselected tiles
     for (short idx = 1; idx <= 4; idx++) {
@@ -317,11 +347,15 @@ void KMahjonggTileset::buildElementIdTable()
 
 QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString &elementid) const
 {
+    Q_D(const KMahjonggTileset);
+
     return authorProperty(QStringLiteral("Name")) + elementid + QStringLiteral("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString &elementid) const
 {
+    Q_D(const KMahjonggTileset);
+
     // qCDebug(LIBKMAHJONGG_LOG) << "render element" << elementid << width << height;
     const qreal dpr = qApp->devicePixelRatio();
     width = width * dpr;
@@ -339,6 +373,8 @@ QPixmap KMahjonggTileset::renderElement(short width, short height, const QString
 
 QPixmap KMahjonggTileset::selectedTile(int num) const
 {
+    Q_D(const KMahjonggTileset);
+
     QPixmap pm;
     QString elemId = d->elementIdTable.at(num + 4); // selected offset in our idtable;
     if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), &pm)) {
@@ -351,6 +387,8 @@ QPixmap KMahjonggTileset::selectedTile(int num) const
 
 QPixmap KMahjonggTileset::unselectedTile(int num) const
 {
+    Q_D(const KMahjonggTileset);
+
     QPixmap pm;
     QString elemId = d->elementIdTable.at(num);
     if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), &pm)) {
@@ -363,6 +401,8 @@ QPixmap KMahjonggTileset::unselectedTile(int num) const
 
 QPixmap KMahjonggTileset::tileface(int num) const
 {
+    Q_D(const KMahjonggTileset);
+
     QPixmap pm;
     if ((num + 8) >= d->elementIdTable.count()) {
         // qCDebug(LIBKMAHJONGG_LOG) << "Client asked for invalid tileface id";

@@ -58,7 +58,7 @@ public:
 };
 
 KMahjonggBackground::KMahjonggBackground()
-    : d(new KMahjonggBackgroundPrivate)
+    : d_ptr(new KMahjonggBackgroundPrivate)
 {
     static bool _inited = false;
     if (_inited) {
@@ -86,6 +86,8 @@ bool KMahjonggBackground::loadDefault()
 
 bool KMahjonggBackground::load(const QString &file, short width, short height)
 {
+    Q_D(KMahjonggBackground);
+
     // qCDebug(LIBKMAHJONGG_LOG) << "Background loading";
     d->isSVG = false;
 
@@ -149,6 +151,8 @@ bool KMahjonggBackground::load(const QString &file, short width, short height)
 
 bool KMahjonggBackground::loadGraphics()
 {
+    Q_D(KMahjonggBackground);
+
     if (d->graphicsLoaded || d->isPlain) {
         return true;
     }
@@ -165,6 +169,8 @@ bool KMahjonggBackground::loadGraphics()
 
 void KMahjonggBackground::sizeChanged(int newW, int newH)
 {
+    Q_D(KMahjonggBackground);
+
     // in tiled mode we do not care about the whole field size
     if (d->isTiled || d->isPlain) {
         return;
@@ -196,6 +202,8 @@ QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height)
 
 QBrush &KMahjonggBackground::getBackground()
 {
+    Q_D(KMahjonggBackground);
+
     if (d->isPlain) {
         d->backgroundBrush = QBrush(QPixmap());
     } else {
@@ -210,10 +218,14 @@ QBrush &KMahjonggBackground::getBackground()
 
 QString KMahjonggBackground::path() const
 {
+    Q_D(const KMahjonggBackground);
+
     return d->filename;
 }
 
 QString KMahjonggBackground::authorProperty(const QString &key) const
 {
+    Q_D(const KMahjonggBackground);
+
     return d->authorproperties[key];
 }

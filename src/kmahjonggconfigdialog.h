@@ -10,6 +10,9 @@
 // Std
 #include <memory>
 
+// Qt
+#include <QtClassHelperMacros> // Q_DECLARE_PRIVATE
+
 // KF
 #include <KConfigDialog>
 #include <KConfigSkeleton>
@@ -40,8 +43,8 @@ protected Q_SLOTS:
 
 private:
     friend class KMahjonggConfigDialogPrivate;
-    std::unique_ptr<KMahjonggConfigDialogPrivate> const d;
-
+    std::unique_ptr<KMahjonggConfigDialogPrivate> const d_ptr;
+    Q_DECLARE_PRIVATE(KMahjonggConfigDialog)
     Q_DISABLE_COPY(KMahjonggConfigDialog)
 };
 

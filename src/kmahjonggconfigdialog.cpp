@@ -24,8 +24,10 @@ public:
 
 KMahjonggConfigDialog::KMahjonggConfigDialog(QWidget *parent, const QString &name, KConfigSkeleton *config)
     : KConfigDialog(parent, name, config)
-    , d(new KMahjonggConfigDialogPrivate)
+    , d_ptr(new KMahjonggConfigDialogPrivate)
 {
+    Q_D(KMahjonggConfigDialog);
+
     setFaceType(List);
     setModal(true);
     d->m_config = config;
@@ -35,6 +37,8 @@ KMahjonggConfigDialog::~KMahjonggConfigDialog() = default;
 
 void KMahjonggConfigDialog::addTilesetPage()
 {
+    Q_D(KMahjonggConfigDialog);
+
     auto *ts = new KMahjonggTilesetSelector(this, d->m_config);
     // TODO: Use the cards icon for our page for now, need to get one for tilesets made
     addPage(ts, i18n("Tiles"), QStringLiteral("games-config-tiles"));
@@ -42,6 +46,8 @@ void KMahjonggConfigDialog::addTilesetPage()
 
 void KMahjonggConfigDialog::addBackgroundPage()
 {
+    Q_D(KMahjonggConfigDialog);
+
     auto *ts = new KMahjonggBackgroundSelector(this, d->m_config);
     // TODO: need icon
     addPage(ts, i18n("Background"), QStringLiteral("games-config-background"));

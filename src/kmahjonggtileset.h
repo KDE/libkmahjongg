@@ -9,6 +9,7 @@
 #define KMAHJONGGTILESET_H
 
 // Qt
+#include <QtClassHelperMacros> // Q_DECLARE_PRIVATE
 #include <QPixmap>
 #include <QString>
 // Std
@@ -57,8 +58,8 @@ protected:
 
 private:
     friend class KMahjonggTilesetPrivate;
-    std::unique_ptr<KMahjonggTilesetPrivate> const d;
-
+    std::unique_ptr<KMahjonggTilesetPrivate> const d_ptr;
+    Q_DECLARE_PRIVATE(KMahjonggTileset)
     Q_DISABLE_COPY(KMahjonggTileset)
 };
 
