@@ -27,7 +27,7 @@ KMahjonggTilesetSelector::KMahjonggTilesetSelector(QWidget * parent, KConfigSkel
 
 KMahjonggTilesetSelector::~KMahjonggTilesetSelector()
 {
-    tilesetMap.clear();
+    qDeleteAll(tilesetMap);
 }
 
 void KMahjonggTilesetSelector::setupData(KConfigSkeleton * aconfig)
