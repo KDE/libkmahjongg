@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:44+0000\n"
+"POT-Creation-Date: 2023-10-08 02:22+0000\n"
 "PO-Revision-Date: 2013-10-27 00:08+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
@@ -22,31 +22,31 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: kmahjonggbackgroundselector.ui:46 kmahjonggtilesetselector.ui:46
+#: kmahjonggbackgroundselector.ui:34 kmahjonggtilesetselector.ui:34
 #, kde-format
 msgid "Preview"
 msgstr "Esikatselu"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: kmahjonggbackgroundselector.ui:81 kmahjonggtilesetselector.ui:81
+#: kmahjonggbackgroundselector.ui:63 kmahjonggtilesetselector.ui:63
 #, kde-format
 msgid "Properties"
 msgstr "Ominaisuudet"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: kmahjonggbackgroundselector.ui:101 kmahjonggtilesetselector.ui:101
+#: kmahjonggbackgroundselector.ui:74 kmahjonggtilesetselector.ui:74
 #, kde-format
 msgid "Author:"
 msgstr "Tekijä:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: kmahjonggbackgroundselector.ui:111 kmahjonggtilesetselector.ui:111
+#: kmahjonggbackgroundselector.ui:84 kmahjonggtilesetselector.ui:84
 #, kde-format
 msgid "Contact:"
 msgstr "Yhteystiedot:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: kmahjonggbackgroundselector.ui:121 kmahjonggtilesetselector.ui:121
+#: kmahjonggbackgroundselector.ui:94 kmahjonggtilesetselector.ui:94
 #, kde-format
 msgid "Description:"
 msgstr "Kuvaus:"
