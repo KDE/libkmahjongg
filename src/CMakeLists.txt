@@ -65,7 +65,6 @@ target_link_libraries(KMahjongglib
     PRIVATE
         KF6::WidgetsAddons
         KF6::I18n
-        KF6::Completion
         KF6::ConfigGui
         Qt6::Core
         Qt6::Svg
