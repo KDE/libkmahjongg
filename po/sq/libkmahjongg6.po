@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 01:40+0000\n"
+"POT-Creation-Date: 2023-10-09 01:45+0000\n"
 "PO-Revision-Date: 2009-07-30 21:40+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -32,19 +32,19 @@ msgid "Properties"
 msgstr "Parametrat"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: kmahjonggbackgroundselector.ui:74 kmahjonggtilesetselector.ui:74
+#: kmahjonggbackgroundselector.ui:69 kmahjonggtilesetselector.ui:69
 #, kde-format
 msgid "Author:"
 msgstr "Autori:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: kmahjonggbackgroundselector.ui:84 kmahjonggtilesetselector.ui:84
+#: kmahjonggbackgroundselector.ui:79 kmahjonggtilesetselector.ui:79
 #, kde-format
 msgid "Contact:"
 msgstr "Kontakti:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: kmahjonggbackgroundselector.ui:94 kmahjonggtilesetselector.ui:94
+#: kmahjonggbackgroundselector.ui:89 kmahjonggtilesetselector.ui:89
 #, kde-format
 msgid "Description:"
 msgstr "Përshkrimi:"

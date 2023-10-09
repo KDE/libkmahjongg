@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahajongg trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 01:40+0000\n"
+"POT-Creation-Date: 2023-10-09 01:45+0000\n"
 "PO-Revision-Date: 2008-12-30 17:30+0530\n"
 "Last-Translator: Abhishek Jacob <abhishekjacob123@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -30,19 +30,19 @@ msgid "Properties"
 msgstr "വിശേഷണങ്ങള്‍"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: kmahjonggbackgroundselector.ui:74 kmahjonggtilesetselector.ui:74
+#: kmahjonggbackgroundselector.ui:69 kmahjonggtilesetselector.ui:69
 #, kde-format
 msgid "Author:"
 msgstr "രചയിതാവ്:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: kmahjonggbackgroundselector.ui:84 kmahjonggtilesetselector.ui:84
+#: kmahjonggbackgroundselector.ui:79 kmahjonggtilesetselector.ui:79
 #, kde-format
 msgid "Contact:"
 msgstr "വിലാസം:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: kmahjonggbackgroundselector.ui:94 kmahjonggtilesetselector.ui:94
+#: kmahjonggbackgroundselector.ui:89 kmahjonggtilesetselector.ui:89
 #, kde-format
 msgid "Description:"
 msgstr "വിവരണം:"
