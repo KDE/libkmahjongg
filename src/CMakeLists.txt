@@ -10,7 +10,7 @@ ecm_setup_version(${libkmahjongg_VERSION}
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kmahjongglib_version.h"
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/${CMAKECONFIG_NAME}ConfigVersion.cmake"
     COMPATIBILITY SameMajorVersion
-    SOVERSION 5
+    SOVERSION 6
 )
 
 add_library(KMahjongglib SHARED)
