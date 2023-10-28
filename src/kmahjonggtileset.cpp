@@ -306,35 +306,46 @@ void KMahjonggTileset::buildElementIdTable()
 {
     Q_D(KMahjonggTileset);
 
+    constexpr int tileCount = 4;
+    constexpr int characterCount = 9;
+    constexpr int bambooCount = 9;
+    constexpr int rodCount = 9;
+    constexpr int seasonCount = 4;
+    constexpr int windCount = 4;
+    constexpr int dragonCount = 3;
+    constexpr int flowerCount = 4;
+
+    d->elementIdTable.reserve(2 * tileCount + characterCount + bambooCount + rodCount + seasonCount + windCount + dragonCount + flowerCount);
+
     // Build a list for faster lookup of element ids, mapped to the enumeration used by GameData and BoardWidget
     // Unselected tiles
-    for (short idx = 1; idx <= 4; idx++) {
+    for (short idx = 1; idx <= tileCount; idx++) {
         d->elementIdTable.append(QStringLiteral("TILE_%1").arg(idx));
     }
     // Selected tiles
-    for (short idx = 1; idx <= 4; idx++) {
+    for (short idx = 1; idx <= tileCount; idx++) {
         d->elementIdTable.append(QStringLiteral("TILE_%1_SEL").arg(idx));
     }
     // now faces
-    for (short idx = 1; idx <= 9; idx++) {
+    for (short idx = 1; idx <= characterCount; idx++) {
         d->elementIdTable.append(QStringLiteral("CHARACTER_%1").arg(idx));
     }
-    for (short idx = 1; idx <= 9; idx++) {
+    for (short idx = 1; idx <= bambooCount; idx++) {
         d->elementIdTable.append(QStringLiteral("BAMBOO_%1").arg(idx));
     }
-    for (short idx = 1; idx <= 9; idx++) {
+    for (short idx = 1; idx <= rodCount; idx++) {
         d->elementIdTable.append(QStringLiteral("ROD_%1").arg(idx));
     }
-    for (short idx = 1; idx <= 4; idx++) {
+    for (short idx = 1; idx <= seasonCount; idx++) {
         d->elementIdTable.append(QStringLiteral("SEASON_%1").arg(idx));
     }
-    for (short idx = 1; idx <= 4; idx++) {
+    for (short idx = 1; idx <= windCount; idx++) {
         d->elementIdTable.append(QStringLiteral("WIND_%1").arg(idx));
     }
-    for (short idx = 1; idx <= 3; idx++) {
+    for (short idx = 1; idx <= dragonCount; idx++) {
         d->elementIdTable.append(QStringLiteral("DRAGON_%1").arg(idx));
     }
-    for (short idx = 1; idx <= 4; idx++) {
+    for (short idx = 1; idx <= flowerCount; idx++) {
         d->elementIdTable.append(QStringLiteral("FLOWER_%1").arg(idx));
     }
 }
