@@ -57,7 +57,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton *aconfig)
     for (const QString &bgpath : std::as_const(bgsAvailable)) {
         auto *abg = new KMahjonggBackground();
         if (abg->load(bgpath, backgroundPreview->width(), backgroundPreview->height())) {
-            const QString name = abg->authorProperty(QStringLiteral("Name"));
+            const QString name = abg->name();
             backgroundMap.insert(name, abg);
             backgroundList->addItem(name);
             // Find if this is our currently configured background
@@ -87,11 +87,11 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     }
 
     kcfg_Background->setText(selBG->path());
-    backgroundAuthor->setText(selBG->authorProperty(QStringLiteral("Author")));
-    backgroundContact->setText(selBG->authorProperty(QStringLiteral("AuthorEmail")));
-    backgroundDescription->setText(selBG->authorProperty(QStringLiteral("Description")));
+    backgroundAuthor->setText(selBG->authorName());
+    backgroundContact->setText(selBG->authorEmailAddress());
+    backgroundDescription->setText(selBG->description());
 
-    if (selBG->authorProperty(QStringLiteral("Plain")) == QLatin1String("1")) {
+    if (selBG->isPlain()) {
         backgroundPreview->setPixmap(QPixmap());
         return;
     }

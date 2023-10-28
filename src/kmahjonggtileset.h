@@ -36,7 +36,11 @@ public:
     bool loadGraphics();
     bool reloadTileset(QSize newTilesize);
     QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells) const;
-    QString authorProperty(const QString &key) const;
+
+    QString name() const;
+    QString description() const;
+    QString authorName() const;
+    QString authorEmailAddress() const;
 
     short width() const;
     short height() const;

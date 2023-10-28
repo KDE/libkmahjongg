@@ -59,7 +59,7 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton *aconfig)
     for (const QString &atileset : std::as_const(tilesAvailable)) {
         auto *aset = new KMahjonggTileset();
         if (aset->loadTileset(atileset)) {
-            const QString name = aset->authorProperty(QStringLiteral("Name"));
+            const QString name = aset->name();
             tilesetMap.insert(name, aset);
             tilesetList->addItem(name);
             // Find if this is our currently configured Tileset
@@ -89,9 +89,9 @@ void KMahjonggTilesetSelector::tilesetChanged()
     }
 
     kcfg_TileSet->setText(selTileset->path());
-    tilesetAuthor->setText(selTileset->authorProperty(QStringLiteral("Author")));
-    tilesetContact->setText(selTileset->authorProperty(QStringLiteral("AuthorEmail")));
-    tilesetDescription->setText(selTileset->authorProperty(QStringLiteral("Description")));
+    tilesetAuthor->setText(selTileset->authorName());
+    tilesetContact->setText(selTileset->authorEmailAddress());
+    tilesetDescription->setText(selTileset->description());
 
     // Make sure SVG is loaded when graphics is selected
     if (!selTileset->loadGraphics()) {

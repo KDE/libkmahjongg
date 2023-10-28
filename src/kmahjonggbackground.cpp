@@ -11,7 +11,6 @@
 // Qt
 #include <QFile>
 #include <QImage>
-#include <QHash>
 #include <QPainter>
 #include <QPixmap>
 #include <QPixmapCache>
@@ -31,7 +30,11 @@ public:
     KMahjonggBackgroundPrivate() = default;
 
 public:
-    QHash<QString, QString> authorproperties;
+    QString name;
+    QString description;
+    QString authorName;
+    QString authorEmailAddress;
+
     QString pixmapCacheNameFromElementId(const QString &elementid);
     QPixmap renderBG(short width, short height);
 
@@ -90,14 +93,10 @@ bool KMahjonggBackground::load(const QString &file, short width, short height)
     KConfigGroup group = bgconfig.group("KMahjonggBackground");
 
     d->isPlain = group.readEntry("Plain", 0) != 0;
-    d->authorproperties = {
-        {QStringLiteral("Name"), group.readEntry("Name")}, // Returns translated data
-        {QStringLiteral("Author"), group.readEntry("Author")},
-        {QStringLiteral("Description"), group.readEntry("Description")},
-        {QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail")},
-        // The "Plain" key is set to 1 by the color_plain background.
-        {QStringLiteral("Plain"), d->isPlain ? QStringLiteral("1") : QStringLiteral("0")},
-    };
+    d->name = group.readEntry("Name"); // Returns translated data
+    d->description = group.readEntry("Description");
+    d->authorName = group.readEntry("Author");
+    d->authorEmailAddress = group.readEntry("AuthorEmail");
 
     // Version control
     int bgversion = group.readEntry("VersionFormat", 0);
@@ -173,7 +172,7 @@ void KMahjonggBackground::sizeChanged(int newW, int newH)
 
 QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid)
 {
-    return authorproperties[QStringLiteral("Name")] + elementid + QStringLiteral("W%1H%2").arg(w).arg(h);
+    return name + elementid + QStringLiteral("W%1H%2").arg(w).arg(h);
 }
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height)
@@ -211,9 +210,37 @@ QString KMahjonggBackground::path() const
     return d->filename;
 }
 
-QString KMahjonggBackground::authorProperty(const QString &key) const
+QString KMahjonggBackground::name() const
 {
     Q_D(const KMahjonggBackground);
 
-    return d->authorproperties[key];
+    return d->name;
+}
+
+QString KMahjonggBackground::description() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->description;
+}
+
+QString KMahjonggBackground::authorName() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->authorName;
+}
+
+QString KMahjonggBackground::authorEmailAddress() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->authorEmailAddress;
+}
+
+bool KMahjonggBackground::isPlain() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->isPlain;
 }

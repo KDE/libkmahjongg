@@ -14,7 +14,6 @@
 // Qt
 #include <QFile>
 #include <QGuiApplication>
-#include <QHash>
 #include <QImage>
 #include <QPainter>
 #include <QPixmapCache>
@@ -49,7 +48,11 @@ public:
 
 public:
     QList<QString> elementIdTable;
-    QHash<QString, QString> authorproperties;
+
+    QString name;
+    QString description;
+    QString authorName;
+    QString authorEmailAddress;
 
     KMahjonggTilesetMetricsData originaldata;
     KMahjonggTilesetMetricsData scaleddata;
@@ -124,11 +127,32 @@ bool KMahjonggTileset::loadDefault()
     return loadTileset(tilesetPath);
 }
 
-QString KMahjonggTileset::authorProperty(const QString &key) const
+QString KMahjonggTileset::name() const
 {
     Q_D(const KMahjonggTileset);
 
-    return d->authorproperties[key];
+    return d->name;
+}
+
+QString KMahjonggTileset::description() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->description;
+}
+
+QString KMahjonggTileset::authorName() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->authorName;
+}
+
+QString KMahjonggTileset::authorEmailAddress() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->authorEmailAddress;
 }
 
 short KMahjonggTileset::width() const
@@ -189,12 +213,13 @@ bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
 
     // qCDebug(LIBKMAHJONGG_LOG) << "Attempting to load .desktop at" << tilesetPath;
 
-    // clear our properties map
-    d->authorproperties.clear();
-
     // verify if it is a valid file first and if we can open it
     QFile tilesetfile(tilesetPath);
     if (!tilesetfile.open(QIODevice::ReadOnly)) {
+        d->name.clear();
+        d->description.clear();
+        d->authorName.clear();
+        d->authorEmailAddress.clear();
         return false;
     }
     tilesetfile.close();
@@ -202,12 +227,10 @@ bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
     KConfig tileconfig(tilesetPath, KConfig::SimpleConfig);
     KConfigGroup group = tileconfig.group("KMahjonggTileset");
 
-    d->authorproperties = {
-        {QStringLiteral("Name"),        group.readEntry("Name")}, // Returns translated data
-        {QStringLiteral("Author"),      group.readEntry("Author")},
-        {QStringLiteral("Description"), group.readEntry("Description")},
-        {QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail")},
-    };
+    d->name = group.readEntry("Name"); // Returns translated data
+    d->description = group.readEntry("Description");
+    d->authorName = group.readEntry("Author");
+    d->authorEmailAddress = group.readEntry("AuthorEmail");
 
     // Version control
     int tileversion = group.readEntry("VersionFormat", 0);
@@ -344,7 +367,7 @@ QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString &elementid)
 {
     Q_D(const KMahjonggTileset);
 
-    return authorProperty(QStringLiteral("Name")) + elementid + QStringLiteral("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
+    return d->name + elementid + QStringLiteral("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString &elementid) const

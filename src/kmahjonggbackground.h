@@ -36,7 +36,12 @@ public:
     void sizeChanged(int newW, int newH);
     QBrush &getBackground();
     QString path() const;
-    QString authorProperty(const QString &key) const;
+
+    QString name() const;
+    QString description() const;
+    QString authorName() const;
+    QString authorEmailAddress() const;
+    bool isPlain() const;
 
 private:
     std::unique_ptr<KMahjonggBackgroundPrivate> const d_ptr;
