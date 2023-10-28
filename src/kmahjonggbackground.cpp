@@ -91,13 +91,15 @@ bool KMahjonggBackground::load(const QString &file, short width, short height)
     KConfig bgconfig(file, KConfig::SimpleConfig);
     KConfigGroup group = bgconfig.group("KMahjonggBackground");
 
-    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name")); // Returns translated data
-    d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
-    d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
-    d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
-    // The "Plain" key is set to 1 by the color_plain background.
     d->isPlain = group.readEntry("Plain", 0) != 0;
-    d->authorproperties.insert(QStringLiteral("Plain"), d->isPlain ? QStringLiteral("1") : QStringLiteral("0"));
+    d->authorproperties = {
+        {QStringLiteral("Name"), group.readEntry("Name")}, // Returns translated data
+        {QStringLiteral("Author"), group.readEntry("Author")},
+        {QStringLiteral("Description"), group.readEntry("Description")},
+        {QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail")},
+        // The "Plain" key is set to 1 by the color_plain background.
+        {QStringLiteral("Plain"), d->isPlain ? QStringLiteral("1") : QStringLiteral("0")},
+    };
 
     // Version control
     int bgversion = group.readEntry("VersionFormat", 0);

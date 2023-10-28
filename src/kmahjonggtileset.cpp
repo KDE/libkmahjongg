@@ -212,10 +212,12 @@ bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
     KConfig tileconfig(tilesetPath, KConfig::SimpleConfig);
     KConfigGroup group = tileconfig.group("KMahjonggTileset");
 
-    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name")); // Returns translated data
-    d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
-    d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
-    d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
+    d->authorproperties = {
+        {QStringLiteral("Name"),        group.readEntry("Name")}, // Returns translated data
+        {QStringLiteral("Author"),      group.readEntry("Author")},
+        {QStringLiteral("Description"), group.readEntry("Description")},
+        {QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail")},
+    };
 
     // Version control
     int tileversion = group.readEntry("VersionFormat", 0);
