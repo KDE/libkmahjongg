@@ -116,9 +116,7 @@ bool KMahjonggTileset::loadDefault()
 {
     Q_D(KMahjonggTileset);
 
-    QString idx = QStringLiteral("default.desktop");
-
-    QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/tilesets/") + idx);
+    const QString tilesetPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/tilesets/default.desktop"));
     qCDebug(LIBKMAHJONGG_LOG) << "Inside LoadDefault(), located path at" << tilesetPath;
     if (tilesetPath.isEmpty()) {
         return false;

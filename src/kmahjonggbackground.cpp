@@ -60,9 +60,7 @@ KMahjonggBackground::~KMahjonggBackground() = default;
 bool KMahjonggBackground::loadDefault()
 {
     // Set default background here.
-    QLatin1String idx("egyptian.desktop");
-
-    QString bgPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/backgrounds/") + idx);
+    const QString bgPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongglib/backgrounds/egyptian.desktop"));
     qCDebug(LIBKMAHJONGG_LOG) << "Inside LoadDefault(), located background at" << bgPath;
     if (bgPath.isEmpty()) {
         return false;
