@@ -32,22 +32,14 @@
 class KMahjonggTilesetMetricsData
 {
 public:
-    short lvloffx; // used for 3D indentation, x value
-    short lvloffy; // used for 3D indentation, y value
-    short w; // tile width ( +border +shadow)
-    short h; // tile height ( +border +shadow)
-    short fw; // face width
-    short fh; // face height
+    short lvloffx = 0; // used for 3D indentation, x value
+    short lvloffy = 0; // used for 3D indentation, y value
+    short w = 0; // tile width ( +border +shadow)
+    short h = 0; // tile height ( +border +shadow)
+    short fw = 0; // face width
+    short fh = 0; // face height
 
-    KMahjonggTilesetMetricsData()
-        : lvloffx(0)
-        , lvloffy(0)
-        , w(0)
-        , h(0)
-        , fw(0)
-        , fh(0)
-    {
-    }
+    KMahjonggTilesetMetricsData() = default;
 };
 
 class KMahjonggTilesetPrivate
