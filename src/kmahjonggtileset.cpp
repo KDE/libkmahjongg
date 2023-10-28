@@ -14,8 +14,8 @@
 // Qt
 #include <QFile>
 #include <QGuiApplication>
+#include <QHash>
 #include <QImage>
-#include <QMap>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QStandardPaths>
@@ -49,7 +49,7 @@ public:
 
 public:
     QList<QString> elementIdTable;
-    QMap<QString, QString> authorproperties;
+    QHash<QString, QString> authorproperties;
 
     KMahjonggTilesetMetricsData originaldata;
     KMahjonggTilesetMetricsData scaleddata;

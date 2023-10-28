@@ -8,7 +8,7 @@
 #define KMAHJONGGTILESETSELECTOR_H
 
 // Qt
-#include <QMap>
+#include <QHash>
 
 // KF
 #include <KConfigSkeleton>
@@ -32,7 +32,7 @@ public Q_SLOTS:
     void tilesetChanged();
 
 private:
-    QMap<QString, KMahjonggTileset *> tilesetMap;
+    QHash<QString, KMahjonggTileset *> tilesetMap;
 };
 
 #endif // KMAHJONGGTILESETSELECTOR_H

@@ -11,7 +11,7 @@
 // Qt
 #include <QFile>
 #include <QImage>
-#include <QMap>
+#include <QHash>
 #include <QPainter>
 #include <QPixmap>
 #include <QPixmapCache>
@@ -31,7 +31,7 @@ public:
     KMahjonggBackgroundPrivate() = default;
 
 public:
-    QMap<QString, QString> authorproperties;
+    QHash<QString, QString> authorproperties;
     QString pixmapCacheNameFromElementId(const QString &elementid);
     QPixmap renderBG(short width, short height);
 

@@ -8,7 +8,7 @@
 #define KMAHJONGGBACKGROUNDSELECTOR_H
 
 // Qt
-#include <QMap>
+#include <QHash>
 
 // KF
 #include <KConfigSkeleton>
@@ -32,7 +32,7 @@ public Q_SLOTS:
     void backgroundChanged();
 
 private:
-    QMap<QString, KMahjonggBackground *> backgroundMap;
+    QHash<QString, KMahjonggBackground *> backgroundMap;
 };
 
 #endif // KMAHJONGGBACKGROUNDSELECTOR_H
