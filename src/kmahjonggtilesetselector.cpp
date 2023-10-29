@@ -97,19 +97,22 @@ void KMahjonggTilesetSelector::tilesetChanged()
     if (!selTileset->loadGraphics()) {
         return;
     }
+    const qreal dpr = qApp->devicePixelRatio();
     // Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
-    QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size() * 1.3, 1, 1);
+    const QSize previewSize = tilesetPreview->size() * dpr;
+    const QSize tilesize = selTileset->preferredTileSize(previewSize * 1.3, 1, 1);
     selTileset->reloadTileset(tilesize);
     // Draw the preview
-    QPixmap qiRend(tilesetPreview->size());
+    QPixmap qiRend(previewSize);
     qiRend.fill(Qt::transparent);
     QPainter p(&qiRend);
     // Calculate the margins to center the tile
-    QSize margin = tilesetPreview->size() - tilesize;
+    const QSize margin = (previewSize - tilesize) / 2;
     // Draw unselected tile and first tileface
-    p.drawPixmap(margin.width() / 2, margin.height() / 2, selTileset->unselectedTile(1));
-    p.drawPixmap(margin.width() / 2, margin.height() / 2, selTileset->tileface(0));
+    p.drawPixmap(margin.width(), margin.height(), selTileset->unselectedTile(1));
+    p.drawPixmap(margin.width(), margin.height(), selTileset->tileface(0));
     p.end();
+    qiRend.setDevicePixelRatio(dpr);
     tilesetPreview->setPixmap(qiRend);
 }
 
