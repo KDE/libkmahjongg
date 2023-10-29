@@ -10,7 +10,6 @@
 
 // Qt
 #include <QFile>
-#include <QImage>
 #include <QMap>
 #include <QPainter>
 #include <QPixmap>
@@ -184,14 +183,14 @@ QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height)
 {
-    QImage qiRend(QSize(width, height), QImage::Format_ARGB32_Premultiplied);
-    qiRend.fill(0);
+    QPixmap qiRend(width, height);
+    qiRend.fill(Qt::transparent);
 
     if (svg.isValid()) {
         QPainter p(&qiRend);
         svg.render(&p);
     }
-    return QPixmap::fromImage(qiRend);
+    return qiRend;
 }
 
 QBrush & KMahjonggBackground::getBackground()
