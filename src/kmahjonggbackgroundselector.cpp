@@ -51,12 +51,15 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton * aconfig)
         }
     }
 
+    const qreal dpr = qApp->devicePixelRatio();
+    const QSize previewSize = backgroundPreview->size() * dpr;
+
     QLatin1String namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < bgsAvailable.size(); ++i) {
         KMahjonggBackground * abg = new KMahjonggBackground();
         QString bgpath = bgsAvailable.at(i);
-        if (abg->load(bgpath, backgroundPreview->width(), backgroundPreview->height())) {
+        if (abg->load(bgpath, previewSize.width(), previewSize.height())) {
             backgroundMap.insert(abg->authorProperty(namestr), abg);
             backgroundList->addItem(abg->authorProperty(namestr));
             //Find if this is our currently configured background
@@ -104,11 +107,13 @@ void KMahjonggBackgroundSelector::backgroundChanged()
 
     //Draw the preview
     //TODO here: add code to load and keep proportions for non-tiled content?
-    QPixmap qiRend(backgroundPreview->size());
+    const qreal dpr = qApp->devicePixelRatio();
+    QPixmap qiRend(backgroundPreview->size() * dpr);
     qiRend.fill(Qt::transparent);
     QPainter p(&qiRend);
     p.fillRect(p.viewport(), selBG->getBackground());
     p.end();
+    qiRend.setDevicePixelRatio(dpr);
     backgroundPreview->setPixmap(qiRend);
 }
 
