@@ -14,7 +14,6 @@
 // Qt
 #include <QFile>
 #include <QGuiApplication>
-#include <QImage>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QStandardPaths>
@@ -378,15 +377,15 @@ QPixmap KMahjonggTileset::renderElement(short width, short height, const QString
     const qreal dpr = qApp->devicePixelRatio();
     width = width * dpr;
     height = height * dpr;
-    QImage qiRend(QSize(width, height), QImage::Format_ARGB32_Premultiplied);
-    qiRend.fill(0);
+    QPixmap qiRend(width, height);
+    qiRend.fill(Qt::transparent);
 
     if (d->svg.isValid()) {
         QPainter p(&qiRend);
         d->svg.render(&p, elementid);
     }
     qiRend.setDevicePixelRatio(dpr);
-    return QPixmap::fromImage(qiRend);
+    return qiRend;
 }
 
 QPixmap KMahjonggTileset::selectedTile(int num) const

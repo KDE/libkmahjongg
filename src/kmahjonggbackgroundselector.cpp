@@ -103,12 +103,12 @@ void KMahjonggBackgroundSelector::backgroundChanged()
 
     // Draw the preview
     // TODO here: add code to load and keep proportions for non-tiled content?
-    QImage qiRend(backgroundPreview->size(), QImage::Format_ARGB32_Premultiplied);
-    qiRend.fill(0);
+    QPixmap qiRend(backgroundPreview->size());
+    qiRend.fill(Qt::transparent);
     QPainter p(&qiRend);
     p.fillRect(p.viewport(), selBG->getBackground());
     p.end();
-    backgroundPreview->setPixmap(QPixmap::fromImage(qiRend));
+    backgroundPreview->setPixmap(qiRend);
 }
 
 #include "moc_kmahjonggbackgroundselector.cpp"

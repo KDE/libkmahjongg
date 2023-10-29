@@ -101,8 +101,8 @@ void KMahjonggTilesetSelector::tilesetChanged()
     QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size() * 1.3, 1, 1);
     selTileset->reloadTileset(tilesize);
     // Draw the preview
-    QImage qiRend(tilesetPreview->size(), QImage::Format_ARGB32_Premultiplied);
-    qiRend.fill(0);
+    QPixmap qiRend(tilesetPreview->size());
+    qiRend.fill(Qt::transparent);
     QPainter p(&qiRend);
     // Calculate the margins to center the tile
     QSize margin = tilesetPreview->size() - tilesize;
@@ -110,7 +110,7 @@ void KMahjonggTilesetSelector::tilesetChanged()
     p.drawPixmap(margin.width() / 2, margin.height() / 2, selTileset->unselectedTile(1));
     p.drawPixmap(margin.width() / 2, margin.height() / 2, selTileset->tileface(0));
     p.end();
-    tilesetPreview->setPixmap(QPixmap::fromImage(qiRend));
+    tilesetPreview->setPixmap(qiRend);
 }
 
 #include "moc_kmahjonggtilesetselector.cpp"
