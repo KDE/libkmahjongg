@@ -14,6 +14,7 @@
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QSvgRenderer>
+#include <QGuiApplication>
 
 // KF
 #include <KConfig>
@@ -176,13 +177,15 @@ QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height)
 {
-    QPixmap qiRend(width, height);
+    const qreal dpr = qApp->devicePixelRatio();
+    QPixmap qiRend(width * dpr, height * dpr);
     qiRend.fill(Qt::transparent);
 
     if (svg.isValid()) {
         QPainter p(&qiRend);
         svg.render(&p);
     }
+    qiRend.setDevicePixelRatio(dpr);
     return qiRend;
 }
 
