@@ -34,7 +34,7 @@ void KMahjonggTilesetSelector::setupData(KConfigSkeleton *aconfig)
 {
     // Get our currently configured Tileset entry
     KConfig *config = aconfig->config();
-    KConfigGroup group = config->group("General");
+    KConfigGroup group = config->group(QStringLiteral("General"));
     QString initialGroup = group.readEntry("Tileset_file");
 
     // The lineEdit widget holds our tileset path, but the user does not manipulate it directly

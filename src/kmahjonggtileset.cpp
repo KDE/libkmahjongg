@@ -224,7 +224,7 @@ bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
     tilesetfile.close();
 
     KConfig tileconfig(tilesetPath, KConfig::SimpleConfig);
-    KConfigGroup group = tileconfig.group("KMahjonggTileset");
+    KConfigGroup group = tileconfig.group(QStringLiteral("KMahjonggTileset"));
 
     d->name = group.readEntry("Name"); // Returns translated data
     d->description = group.readEntry("Description");

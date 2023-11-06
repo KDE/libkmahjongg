@@ -33,7 +33,7 @@ void KMahjonggBackgroundSelector::setupData(KConfigSkeleton *aconfig)
 {
     // Get our currently configured background entry
     KConfig *config = aconfig->config();
-    KConfigGroup group = config->group("General");
+    KConfigGroup group = config->group(QStringLiteral("General"));
     QString initialGroup = group.readEntry("Background_file");
 
     // The lineEdit widget holds our bg path, but the user does not manipulate it directly

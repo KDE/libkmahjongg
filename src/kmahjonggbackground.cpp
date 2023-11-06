@@ -90,7 +90,7 @@ bool KMahjonggBackground::load(const QString &file, short width, short height)
     bgfile.close();
 
     KConfig bgconfig(file, KConfig::SimpleConfig);
-    KConfigGroup group = bgconfig.group("KMahjonggBackground");
+    KConfigGroup group = bgconfig.group(QStringLiteral("KMahjonggBackground"));
 
     d->isPlain = group.readEntry("Plain", 0) != 0;
     d->name = group.readEntry("Name"); // Returns translated data
