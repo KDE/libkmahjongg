@@ -50,6 +50,11 @@ public:
 
     QString name;
     QString description;
+    QString license;
+    QString copyrightText;
+    QString version;
+    QString website;
+    QString bugReportUrl;
     QString authorName;
     QString authorEmailAddress;
 
@@ -140,6 +145,41 @@ QString KMahjonggTileset::description() const
     return d->description;
 }
 
+QString KMahjonggTileset::license() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->license;
+}
+
+QString KMahjonggTileset::copyrightText() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->copyrightText;
+}
+
+QString KMahjonggTileset::version() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->version;
+}
+
+QString KMahjonggTileset::website() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->website;
+}
+
+QString KMahjonggTileset::bugReportUrl() const
+{
+    Q_D(const KMahjonggTileset);
+
+    return d->bugReportUrl;
+}
+
 QString KMahjonggTileset::authorName() const
 {
     Q_D(const KMahjonggTileset);
@@ -217,6 +257,11 @@ bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
     if (!tilesetfile.open(QIODevice::ReadOnly)) {
         d->name.clear();
         d->description.clear();
+        d->license.clear();
+        d->copyrightText.clear();
+        d->version.clear();
+        d->website.clear();
+        d->bugReportUrl.clear();
         d->authorName.clear();
         d->authorEmailAddress.clear();
         return false;
@@ -228,6 +273,11 @@ bool KMahjonggTileset::loadTileset(const QString &tilesetPath)
 
     d->name = group.readEntry("Name"); // Returns translated data
     d->description = group.readEntry("Description");
+    d->license = group.readEntry("License");
+    d->copyrightText = group.readEntry("Copyright");
+    d->version = group.readEntry("Version");
+    d->website = group.readEntry("Website");
+    d->bugReportUrl = group.readEntry("BugReportUrl");
     d->authorName = group.readEntry("Author");
     d->authorEmailAddress = group.readEntry("AuthorEmail");
 

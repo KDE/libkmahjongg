@@ -32,6 +32,11 @@ public:
 public:
     QString name;
     QString description;
+    QString license;
+    QString copyrightText;
+    QString version;
+    QString website;
+    QString bugReportUrl;
     QString authorName;
     QString authorEmailAddress;
 
@@ -95,6 +100,11 @@ bool KMahjonggBackground::load(const QString &file, short width, short height)
     d->isPlain = group.readEntry("Plain", 0) != 0;
     d->name = group.readEntry("Name"); // Returns translated data
     d->description = group.readEntry("Description");
+    d->license = group.readEntry("License");
+    d->copyrightText = group.readEntry("Copyright");
+    d->version = group.readEntry("Version");
+    d->website = group.readEntry("Website");
+    d->bugReportUrl = group.readEntry("BugReportUrl");
     d->authorName = group.readEntry("Author");
     d->authorEmailAddress = group.readEntry("AuthorEmail");
 
@@ -224,6 +234,41 @@ QString KMahjonggBackground::description() const
     Q_D(const KMahjonggBackground);
 
     return d->description;
+}
+
+QString KMahjonggBackground::license() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->license;
+}
+
+QString KMahjonggBackground::copyrightText() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->copyrightText;
+}
+
+QString KMahjonggBackground::version() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->version;
+}
+
+QString KMahjonggBackground::website() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->website;
+}
+
+QString KMahjonggBackground::bugReportUrl() const
+{
+    Q_D(const KMahjonggBackground);
+
+    return d->bugReportUrl;
 }
 
 QString KMahjonggBackground::authorName() const

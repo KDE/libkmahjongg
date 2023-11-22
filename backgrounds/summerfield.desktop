@@ -106,6 +106,11 @@ Description[zh_TW]=夏日的原野
 VersionFormat=1
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com
+Website=https://commits.kde.org/libkmahjongg
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=libkmahjongg
+Version=1.0
+Copyright=2006 Eugene Trounev
+License=GPL-2.0-or-later
 Type=SVG
 FileName=summerfield.svgz
 Tiled=0

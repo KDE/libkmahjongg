@@ -39,6 +39,11 @@ public:
 
     QString name() const;
     QString description() const;
+    QString license() const;
+    QString copyrightText() const;
+    QString version() const;
+    QString website() const;
+    QString bugReportUrl() const;
     QString authorName() const;
     QString authorEmailAddress() const;
     bool isPlain() const;

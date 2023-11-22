@@ -55,6 +55,11 @@ Name[zh_TW]=Imperial Jade
 VersionFormat=1
 Author=it-s
 AuthorEmail=irs_me@hotmail.com
+Website=https://commits.kde.org/libkmahjongg
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=libkmahjongg
+Version=1.0
+Copyright=2007 Eugene Trounev [it-s]
+License=GPL-2.0-or-later
 FileName=jade.svgz
 LevelOffset=12
 TileFaceHeight=86

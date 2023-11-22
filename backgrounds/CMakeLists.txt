@@ -44,7 +44,6 @@ function(install_svg_background id)
         FILES
             ${id}.desktop
             ${svgz}
-            ${id}.copyright
         DESTINATION  ${KDE_INSTALL_DATADIR}/kmahjongglib/backgrounds
     )
 endfunction()

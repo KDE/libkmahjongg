@@ -54,6 +54,11 @@ Name[zh_TW]=古埃及
 VersionFormat=1
 Author=Eugene Trounev [it-s] & Sean Wilson [Half-Left]
 AuthorEmail=eugene.trounev@gmail.com; suseux@googlemail.com
+Website=https://commits.kde.org/libkmahjongg
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=libkmahjongg
+Version=1.1
+Copyright=2009 Eugene Trounev [it-s], 2009 Sean Wilson [Half-Left]
+License=GPL-2.0-or-later
 FileName=egypt.svgz
 LevelOffsetX=12
 LevelOffsetY=12

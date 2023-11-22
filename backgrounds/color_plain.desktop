@@ -108,4 +108,9 @@ Description[zh_TW]=使用預設的視窗背景顏色。
 VersionFormat=1
 Author=
 AuthorEmail=
+Website=https://commits.kde.org/libkmahjongg
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=libkmahjongg
+Version=1.0
+Copyright=
+License=GPL-2.0-or-later
 Plain=1

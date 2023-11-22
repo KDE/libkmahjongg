@@ -111,6 +111,11 @@ Description[zh_TW]=重組木桌的外觀
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com
+Website=https://commits.kde.org/libkmahjongg
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=libkmahjongg
+Version=1.0
+Copyright=2007 Raquel Ravanini
+License=GPL-2.0-or-later
 Type=SVG
 FileName=wood_light.svgz
 Tiled=1

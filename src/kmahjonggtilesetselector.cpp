@@ -13,6 +13,7 @@
 #include <QStandardPaths>
 
 // KF
+#include <KAboutLicense>
 #include <KLocalizedString>
 
 // LibKMahjongg
@@ -92,6 +93,15 @@ void KMahjonggTilesetSelector::tilesetChanged()
     tilesetAuthor->setText(selTileset->authorName());
     tilesetContact->setText(selTileset->authorEmailAddress());
     tilesetDescription->setText(selTileset->description());
+    tilesetVersion->setText(selTileset->version());
+    QString website = selTileset->website();
+    if (!website.isEmpty()) {
+        website = QLatin1String("<a href=\"") + website + QLatin1String("\">") + website + QLatin1String("</a>");
+    }
+    tilesetWebsite->setText(website);
+    tilesetCopyright->setText(selTileset->copyrightText());
+    const QString licenseName = KAboutLicense::byKeyword(selTileset->license()).name(KAboutLicense::FullName);
+    tilesetLicense->setText(licenseName);
 
     // Make sure SVG is loaded when graphics is selected
     if (!selTileset->loadGraphics()) {

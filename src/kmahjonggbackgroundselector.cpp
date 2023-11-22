@@ -12,6 +12,7 @@
 #include <QPainter>
 
 // KF
+#include <KAboutLicense>
 #include <KLocalizedString>
 
 // LibKMahjongg
@@ -93,6 +94,16 @@ void KMahjonggBackgroundSelector::backgroundChanged()
     backgroundAuthor->setText(selBG->authorName());
     backgroundContact->setText(selBG->authorEmailAddress());
     backgroundDescription->setText(selBG->description());
+    backgroundDescription->setText(selBG->description());
+    backgroundVersion->setText(selBG->version());
+    QString website = selBG->website();
+    if (!website.isEmpty()) {
+        website = QLatin1String("<a href=\"") + website + QLatin1String("\">") + website + QLatin1String("</a>");
+    }
+    backgroundWebsite->setText(website);
+    backgroundCopyright->setText(selBG->copyrightText());
+    const QString licenseName = KAboutLicense::byKeyword(selBG->license()).name(KAboutLicense::FullName);
+    backgroundLicense->setText(licenseName);
 
     if (selBG->isPlain()) {
         backgroundPreview->setPixmap(QPixmap());

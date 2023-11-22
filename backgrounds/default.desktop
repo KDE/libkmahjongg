@@ -118,6 +118,11 @@ Description[zh_TW]=綠色背景，上面有一些幾何圖形
 VersionFormat=1
 Author=Raquel Ravanini
 AuthorEmail=raquel@tabuleiro.com
+Website=https://commits.kde.org/libkmahjongg
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=libkmahjongg
+Version=1.0
+Copyright=2006 Raquel Ravanini
+License=GPL-2.0-or-later
 Type=SVG
 FileName=default.svgz
 Tiled=1

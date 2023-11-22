@@ -105,5 +105,10 @@ Description[zh_TW]=古埃及樣式的背景。
 VersionFormat=1
 Author=Sean Wilson
 AuthorEmail=suseux@gmail.com
+Website=https://commits.kde.org/libkmahjongg
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=libkmahjongg
+Version=1.0
+Copyright=2009 Sean Wilson
+License=GPL-2.0-or-later
 Type=SVG
 FileName=egyptian.svgz
