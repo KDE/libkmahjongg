@@ -2,18 +2,26 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
+find_package(7Zip)
+set_package_properties(7Zip PROPERTIES
+    PURPOSE "For installing SVG files as SVGZ"
+)
+
 if(WIN32)
-    find_package(7z)
-    set_package_properties(7z PROPERTIES
+    set_package_properties(7Zip PROPERTIES
         TYPE REQUIRED
-        PURPOSE "For installing SVG files as SVGZ"
     )
 else()
-    find_package(gzip)
-    set_package_properties(gzip PROPERTIES
-        TYPE REQUIRED
-        PURPOSE "For installing SVG files as SVGZ"
+    set_package_properties(7Zip PROPERTIES
+        TYPE OPTIONAL
     )
+    if(NOT TARGET 7Zip::7Zip)
+        find_package(gzip)
+        set_package_properties(gzip PROPERTIES
+            TYPE REQUIRED
+            PURPOSE "For installing SVG files as SVGZ (less efficient fallback for 7Zip)"
+        )
+    endif()
 endif()
 
 find_package(svgcleaner)
@@ -76,12 +84,14 @@ function(generate_svgz svg_file svgz_file target_prefix)
         set(svg_file ${cleaned_svg_file})
     endif()
 
-    if(WIN32)
+    if(TARGET 7Zip::7Zip)
         add_custom_command(
             OUTPUT ${svgz_file}
-            COMMAND 7z::7z
+            COMMAND 7Zip::7Zip
             ARGS
                 a
+                -bd # silence logging
+                -mx9 # compress best
                 -tgzip
                 ${svgz_file} ${svg_file}
             DEPENDS ${svg_file}
