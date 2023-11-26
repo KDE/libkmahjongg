@@ -45,6 +45,17 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     I18n
 )
 
+option(BUILD_SVG_CHECKS "Build SVG rendering checks." OFF)
+add_feature_info(BUILD_SVG_CHECKS BUILD_SVG_CHECKS "Build SVG rendering checks.")
+
+if(BUILD_SVG_CHECKS)
+    find_package(ImageMagick COMPONENTS compare)
+    set_package_properties(ImageMagick PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "For checking cleaned SVG file renderings"
+    )
+endif()
+
 include(InternalMacros)
 
 ecm_set_disabled_deprecation_versions(

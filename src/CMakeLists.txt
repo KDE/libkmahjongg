@@ -7,6 +7,10 @@ set(CMAKECONFIG_NAME "KMahjongglib6")
 set(LIBRARYFILE_NAME "KMahjongg6") # no need to repeat "lib" with the actualy library file name
 set(TARGET_EXPORT_NAME "KMahjongglib6")
 
+if(BUILD_SVG_CHECKS)
+    add_subdirectory(tools)
+endif()
+
 add_definitions(-DTRANSLATION_DOMAIN="libkmahjongg6")
 
 ecm_setup_version(${libkmahjongg_VERSION}
