@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020-2023 Friedrich W. H. Kossebau <kossebau@kde.org>
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
 set(kmahjongg_INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KMahjongg6)
 set(CMAKECONFIG_NAME "KMahjongglib6")
 set(LIBRARYFILE_NAME "KMahjongg6") # no need to repeat "lib" with the actualy library file name

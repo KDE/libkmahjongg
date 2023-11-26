@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Friedrich W. H. Kossebau <kossebau@kde.org>
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
 function(install_tileset id)
     set(svgz "${CMAKE_CURRENT_BINARY_DIR}/${id}.svgz")
     generate_svgz(${id}.svg ${svgz} "tileset-")
