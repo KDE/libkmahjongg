@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-11-27 01:37+0000\n"
 "PO-Revision-Date: 2009-10-24 21:11+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -48,6 +48,31 @@ msgstr "ទំនាក់ទំនង ៖"
 #, kde-format
 msgid "Description:"
 msgstr "សេចក្ដី​​ពិពណ៌នា ៖"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "Version:"
+msgstr "សេចក្ដី​​ពិពណ៌នា ៖"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:109 kmahjonggtilesetselector.ui:109
+#, kde-format
+msgid "Website:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:123 kmahjonggtilesetselector.ui:123
+#, kde-format
+msgid "Copyright:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:133 kmahjonggtilesetselector.ui:133
+#, kde-format
+msgid "License:"
+msgstr ""
 
 #: kmahjonggconfigdialog.cpp:46
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-11-27 01:37+0000\n"
 "PO-Revision-Date: 2008-08-05 22:27+0200\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (lengadocian) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -47,6 +47,31 @@ msgstr "Contacte :"
 #, kde-format
 msgid "Description:"
 msgstr "Descripcion :"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "Version:"
+msgstr "Descripcion :"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:109 kmahjonggtilesetselector.ui:109
+#, kde-format
+msgid "Website:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:123 kmahjonggtilesetselector.ui:123
+#, kde-format
+msgid "Copyright:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: kmahjonggbackgroundselector.ui:133 kmahjonggtilesetselector.ui:133
+#, kde-format
+msgid "License:"
+msgstr ""
 
 #: kmahjonggconfigdialog.cpp:46
 #, kde-format
