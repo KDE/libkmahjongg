@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-27 01:37+0000\n"
-"PO-Revision-Date: 2009-11-14 15:51+0100\n"
-"Last-Translator: Emmanuelle Richard <emmrichard@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-11-28 20:59+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -48,30 +48,30 @@ msgstr "Kontakto:"
 msgid "Description:"
 msgstr "Priskribi:"
 
+# , kde-format
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Version:"
-msgstr "Priskribi:"
+msgstr "Versio:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:109 kmahjonggtilesetselector.ui:109
 #, kde-format
 msgid "Website:"
-msgstr ""
+msgstr "Retejo:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:123 kmahjonggtilesetselector.ui:123
 #, kde-format
 msgid "Copyright:"
-msgstr ""
+msgstr "Kopirajto:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:133 kmahjonggtilesetselector.ui:133
 #, kde-format
 msgid "License:"
-msgstr ""
+msgstr "Permesilo:"
 
 #: kmahjonggconfigdialog.cpp:46
 #, kde-format
