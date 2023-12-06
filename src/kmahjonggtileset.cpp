@@ -444,10 +444,11 @@ QPixmap KMahjonggTileset::selectedTile(int num) const
 
     QPixmap pm;
     QString elemId = d->elementIdTable.at(num + 4); // selected offset in our idtable;
-    if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), &pm)) {
+    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId);
+    if (!QPixmapCache::find(pixmapCacheName, &pm)) {
         // use tile size
         pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
-        QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
+        QPixmapCache::insert(pixmapCacheName, pm);
     }
     return pm;
 }
@@ -458,10 +459,11 @@ QPixmap KMahjonggTileset::unselectedTile(int num) const
 
     QPixmap pm;
     QString elemId = d->elementIdTable.at(num);
-    if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), &pm)) {
+    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId);
+    if (!QPixmapCache::find(pixmapCacheName, &pm)) {
         // use tile size
         pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
-        QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
+        QPixmapCache::insert(pixmapCacheName, pm);
     }
     return pm;
 }
@@ -477,10 +479,11 @@ QPixmap KMahjonggTileset::tileface(int num) const
     }
 
     QString elemId = d->elementIdTable.at(num + 8); // tileface offset in our idtable;
-    if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), &pm)) {
+    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId);
+    if (!QPixmapCache::find(pixmapCacheName, &pm)) {
         // use face size
         pm = renderElement(d->scaleddata.fw, d->scaleddata.fh, elemId);
-        QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
+        QPixmapCache::insert(pixmapCacheName, pm);
     }
     return pm;
 }

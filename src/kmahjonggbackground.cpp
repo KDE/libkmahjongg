@@ -206,9 +206,10 @@ QBrush &KMahjonggBackground::getBackground()
     if (d->isPlain) {
         d->backgroundBrush = QBrush(QPixmap());
     } else {
-        if (!QPixmapCache::find(d->pixmapCacheNameFromElementId(d->filename), &d->backgroundPixmap)) {
+        const QString pixmapCacheName = d->pixmapCacheNameFromElementId(d->filename);
+        if (!QPixmapCache::find(pixmapCacheName, &d->backgroundPixmap)) {
             d->backgroundPixmap = d->renderBG(d->w, d->h);
-            QPixmapCache::insert(d->pixmapCacheNameFromElementId(d->filename), d->backgroundPixmap);
+            QPixmapCache::insert(pixmapCacheName, d->backgroundPixmap);
         }
         d->backgroundBrush = QBrush(d->backgroundPixmap);
     }
