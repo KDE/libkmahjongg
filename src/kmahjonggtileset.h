@@ -59,12 +59,6 @@ public:
     QPixmap unselectedTile(int num) const;
     QPixmap tileface(int num) const;
 
-protected:
-    void updateScaleInfo(short tilew, short tileh);
-    void buildElementIdTable(void);
-    QString pixmapCacheNameFromElementId(const QString &elementid, short width, short height) const;
-    QPixmap renderElement(short width, short height, const QString &elementid) const;
-
 private:
     friend class KMahjonggTilesetPrivate;
     std::unique_ptr<KMahjonggTilesetPrivate> const d_ptr;
