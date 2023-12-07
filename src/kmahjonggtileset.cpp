@@ -412,11 +412,11 @@ void KMahjonggTileset::buildElementIdTable()
     }
 }
 
-QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString &elementid) const
+QString KMahjonggTileset::pixmapCacheNameFromElementId(const QString &elementid, short width, short height) const
 {
     Q_D(const KMahjonggTileset);
 
-    return d->name + elementid + QStringLiteral("W%1H%2").arg(d->scaleddata.w).arg(d->scaleddata.h);
+    return d->name + elementid + QStringLiteral("W%1H%2").arg(width).arg(height);
 }
 
 QPixmap KMahjonggTileset::renderElement(short width, short height, const QString &elementid) const
@@ -424,9 +424,6 @@ QPixmap KMahjonggTileset::renderElement(short width, short height, const QString
     Q_D(const KMahjonggTileset);
 
     // qCDebug(LIBKMAHJONGG_LOG) << "render element" << elementid << width << height;
-    const qreal dpr = qApp->devicePixelRatio();
-    width = width * dpr;
-    height = height * dpr;
     QPixmap qiRend(width, height);
     qiRend.fill(Qt::transparent);
 
@@ -434,7 +431,6 @@ QPixmap KMahjonggTileset::renderElement(short width, short height, const QString
         QPainter p(&qiRend);
         d->svg.render(&p, elementid);
     }
-    qiRend.setDevicePixelRatio(dpr);
     return qiRend;
 }
 
@@ -443,11 +439,17 @@ QPixmap KMahjonggTileset::selectedTile(int num) const
     Q_D(const KMahjonggTileset);
 
     QPixmap pm;
+
+    const qreal dpr = qApp->devicePixelRatio();
+    // use tile size
+    const short width = d->scaleddata.w * dpr;
+    const short height = d->scaleddata.h * dpr;
     QString elemId = d->elementIdTable.at(num + 4); // selected offset in our idtable;
-    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId);
+    // using raw pixmap size with cache id, as the rendering is done dpr-ignorant
+    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId, width, height);
     if (!QPixmapCache::find(pixmapCacheName, &pm)) {
-        // use tile size
-        pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
+        pm = renderElement(width, height, elemId);
+        pm.setDevicePixelRatio(dpr);
         QPixmapCache::insert(pixmapCacheName, pm);
     }
     return pm;
@@ -458,11 +460,17 @@ QPixmap KMahjonggTileset::unselectedTile(int num) const
     Q_D(const KMahjonggTileset);
 
     QPixmap pm;
+
+    const qreal dpr = qApp->devicePixelRatio();
+    // use tile size
+    const short width = d->scaleddata.w * dpr;
+    const short height = d->scaleddata.h * dpr;
     QString elemId = d->elementIdTable.at(num);
-    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId);
+    // using raw pixmap size with cache id, as the rendering is done dpr-ignorant
+    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId, width, height);
     if (!QPixmapCache::find(pixmapCacheName, &pm)) {
-        // use tile size
-        pm = renderElement(d->scaleddata.w, d->scaleddata.h, elemId);
+        pm = renderElement(width, height, elemId);
+        pm.setDevicePixelRatio(dpr);
         QPixmapCache::insert(pixmapCacheName, pm);
     }
     return pm;
@@ -478,11 +486,16 @@ QPixmap KMahjonggTileset::tileface(int num) const
         return pm;
     }
 
+    const qreal dpr = qApp->devicePixelRatio();
+    // use face size
+    const short width = d->scaleddata.fw * dpr;
+    const short height = d->scaleddata.fh * dpr;
     QString elemId = d->elementIdTable.at(num + 8); // tileface offset in our idtable;
-    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId);
+    // using raw pixmap size with cache id, as the rendering is done dpr-ignorant
+    const  QString pixmapCacheName = pixmapCacheNameFromElementId(elemId, width, height);
     if (!QPixmapCache::find(pixmapCacheName, &pm)) {
-        // use face size
-        pm = renderElement(d->scaleddata.fw, d->scaleddata.fh, elemId);
+        pm = renderElement(width, height, elemId);
+        pm.setDevicePixelRatio(dpr);
         QPixmapCache::insert(pixmapCacheName, pm);
     }
     return pm;

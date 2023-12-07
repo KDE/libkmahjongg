@@ -40,7 +40,7 @@ public:
     QString authorName;
     QString authorEmailAddress;
 
-    QString pixmapCacheNameFromElementId(const QString &elementid);
+    QString pixmapCacheNameFromElementId(const QString &elementid, short width, short height);
     QPixmap renderBG(short width, short height);
 
     QPixmap backgroundPixmap;
@@ -180,22 +180,20 @@ void KMahjonggBackground::sizeChanged(int newW, int newH)
     d->h = newH;
 }
 
-QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid)
+QString KMahjonggBackgroundPrivate::pixmapCacheNameFromElementId(const QString &elementid, short width, short height)
 {
-    return name + elementid + QStringLiteral("W%1H%2").arg(w).arg(h);
+    return name + elementid + QStringLiteral("W%1H%2").arg(width).arg(height);
 }
 
 QPixmap KMahjonggBackgroundPrivate::renderBG(short width, short height)
 {
-    const qreal dpr = qApp->devicePixelRatio();
-    QPixmap qiRend(width * dpr, height * dpr);
+    QPixmap qiRend(width, height);
     qiRend.fill(Qt::transparent);
 
     if (svg.isValid()) {
         QPainter p(&qiRend);
         svg.render(&p);
     }
-    qiRend.setDevicePixelRatio(dpr);
     return qiRend;
 }
 
@@ -206,9 +204,15 @@ QBrush &KMahjonggBackground::getBackground()
     if (d->isPlain) {
         d->backgroundBrush = QBrush(QPixmap());
     } else {
-        const QString pixmapCacheName = d->pixmapCacheNameFromElementId(d->filename);
+        const qreal dpr = qApp->devicePixelRatio();
+        const short width = d->w * dpr;
+        const short height = d->h * dpr;
+
+        // using raw pixmap size with cache id, as the rendering is done dpr-ignorant
+        const QString pixmapCacheName = d->pixmapCacheNameFromElementId(d->filename, width, height);
         if (!QPixmapCache::find(pixmapCacheName, &d->backgroundPixmap)) {
-            d->backgroundPixmap = d->renderBG(d->w, d->h);
+            d->backgroundPixmap = d->renderBG(width, height);
+            d->backgroundPixmap.setDevicePixelRatio(dpr);
             QPixmapCache::insert(pixmapCacheName, d->backgroundPixmap);
         }
         d->backgroundBrush = QBrush(d->backgroundPixmap);

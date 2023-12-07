@@ -62,7 +62,7 @@ public:
 protected:
     void updateScaleInfo(short tilew, short tileh);
     void buildElementIdTable(void);
-    QString pixmapCacheNameFromElementId(const QString &elementid) const;
+    QString pixmapCacheNameFromElementId(const QString &elementid, short width, short height) const;
     QPixmap renderElement(short width, short height, const QString &elementid) const;
 
 private:
