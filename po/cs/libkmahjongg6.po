@@ -49,28 +49,27 @@ msgstr "Popis:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Version:"
-msgstr "Popis:"
+msgstr "Verze:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:109 kmahjonggtilesetselector.ui:109
 #, kde-format
 msgid "Website:"
-msgstr ""
+msgstr "Webová stránka:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:123 kmahjonggtilesetselector.ui:123
 #, kde-format
 msgid "Copyright:"
-msgstr ""
+msgstr "Autorská práva:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:133 kmahjonggtilesetselector.ui:133
 #, kde-format
 msgid "License:"
-msgstr ""
+msgstr "Licence:"
 
 #: kmahjonggconfigdialog.cpp:46
 #, kde-format
