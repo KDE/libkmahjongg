@@ -48,7 +48,8 @@ ecm_generate_headers(kmahjongg_LIB_CamelCase_HEADERS
 ecm_qt_declare_logging_category(KMahjongglib
     HEADER libkmahjongg_debug.h
     IDENTIFIER LIBKMAHJONGG_LOG
-    CATEGORY_NAME log_libkmahjongg
+    CATEGORY_NAME libkmahjongg
+    OLD_CATEGORY_NAMES log_libkmahjongg
     DESCRIPTION "libkmahjongg"
     EXPORT KMAHJONGG
 )
