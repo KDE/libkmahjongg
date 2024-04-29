@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahajongg trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-27 01:37+0000\n"
+"POT-Creation-Date: 2024-04-29 00:38+0000\n"
 "PO-Revision-Date: 2008-12-30 17:30+0530\n"
 "Last-Translator: Abhishek Jacob <abhishekjacob123@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -73,11 +73,15 @@ msgid "License:"
 msgstr ""
 
 #: kmahjonggconfigdialog.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tiles"
+msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "പലകകള്‍"
 
 #: kmahjonggconfigdialog.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Background"
+msgctxt "@title:tab"
 msgid "Background"
 msgstr "പശ്ചാത്തലം"

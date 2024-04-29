@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-27 01:37+0000\n"
+"POT-Creation-Date: 2024-04-29 00:38+0000\n"
 "PO-Revision-Date: 2008-08-03 19:23+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -75,11 +75,15 @@ msgid "License:"
 msgstr ""
 
 #: kmahjonggconfigdialog.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tiles"
+msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Brikker"
 
 #: kmahjonggconfigdialog.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Background"
+msgctxt "@title:tab"
 msgid "Background"
 msgstr "Bakgrunn"

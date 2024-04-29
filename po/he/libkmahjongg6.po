@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-27 01:37+0000\n"
+"POT-Creation-Date: 2024-04-29 00:38+0000\n"
 "PO-Revision-Date: 2024-02-16 09:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -73,11 +73,15 @@ msgid "License:"
 msgstr "רישיון:"
 
 #: kmahjonggconfigdialog.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tiles"
+msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "אריחים"
 
 #: kmahjonggconfigdialog.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Background"
+msgctxt "@title:tab"
 msgid "Background"
 msgstr "רקע"

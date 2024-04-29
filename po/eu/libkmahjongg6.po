@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-27 01:37+0000\n"
+"POT-Creation-Date: 2024-04-29 00:38+0000\n"
 "PO-Revision-Date: 2023-11-27 07:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -75,11 +75,15 @@ msgid "License:"
 msgstr "Lizentzia:"
 
 #: kmahjonggconfigdialog.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tiles"
+msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Fitxak"
 
 #: kmahjonggconfigdialog.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Background"
+msgctxt "@title:tab"
 msgid "Background"
 msgstr "Atzeko aldea"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-27 01:37+0000\n"
+"POT-Creation-Date: 2024-04-29 00:38+0000\n"
 "PO-Revision-Date: 2009-06-13 16:24+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: icelandic <kde-isl@molar.is>\n"
@@ -76,10 +76,12 @@ msgstr ""
 
 #: kmahjonggconfigdialog.cpp:46
 #, fuzzy, kde-format
+msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Flísar"
 
 #: kmahjonggconfigdialog.cpp:55
 #, fuzzy, kde-format
+msgctxt "@title:tab"
 msgid "Background"
 msgstr "Bakgrunnur"
