@@ -2,7 +2,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the kmahjongg package.
 # Luciano Montanaro <mikelima@cirulla.net>, 2007.
-# SPDX-FileCopyrightText: 2023 Valter Mura <valtermura@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Valter Mura <valtermura@gmail.com>
 #
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: kmahjonggbackgroundselector.ui:34 kmahjonggtilesetselector.ui:34
