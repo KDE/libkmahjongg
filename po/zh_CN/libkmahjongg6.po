@@ -74,9 +74,9 @@ msgstr ""
 #: kmahjonggconfigdialog.cpp:46
 #, kde-format
 msgid "Tiles"
-msgstr "牌面"
+msgstr ""
 
 #: kmahjonggconfigdialog.cpp:55
 #, kde-format
 msgid "Background"
-msgstr "背景"
+msgstr ""
