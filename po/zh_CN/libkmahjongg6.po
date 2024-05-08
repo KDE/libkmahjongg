@@ -72,15 +72,13 @@ msgid "License:"
 msgstr ""
 
 #: kmahjonggconfigdialog.cpp:46
-#, fuzzy, kde-format
-#| msgid "Tiles"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Tiles"
-msgstr "牌面"
+msgstr ""
 
 #: kmahjonggconfigdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
-msgstr "背景"
+msgstr ""
