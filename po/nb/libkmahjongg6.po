@@ -52,7 +52,6 @@ msgstr "Beskrivelse:"
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
 #, fuzzy, kde-format
-#| msgid "Description:"
 msgid "Version:"
 msgstr "Beskrivelse:"
 
@@ -76,14 +75,12 @@ msgstr ""
 
 #: kmahjonggconfigdialog.cpp:46
 #, fuzzy, kde-format
-#| msgid "Tiles"
 msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Brikker"
 
 #: kmahjonggconfigdialog.cpp:55
 #, fuzzy, kde-format
-#| msgid "Background"
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Bakgrunn"
