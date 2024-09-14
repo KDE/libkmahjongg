@@ -1,17 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Stefan Winter <swinter@kde.org>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-29 00:38+0000\n"
-"PO-Revision-Date: 2007-09-14 11:55+0200\n"
-"Last-Translator: Stefan Winter <swinter@kde.org>\n"
+"PO-Revision-Date: 2024-09-13 16:06+0200\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: kmahjonggbackgroundselector.ui:34 kmahjonggtilesetselector.ui:34
@@ -45,39 +47,36 @@ msgstr "Beschreibung:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Version:"
-msgstr "Beschreibung:"
+msgstr "Version:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:109 kmahjonggtilesetselector.ui:109
 #, kde-format
 msgid "Website:"
-msgstr ""
+msgstr "Webseite:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:123 kmahjonggtilesetselector.ui:123
 #, kde-format
 msgid "Copyright:"
-msgstr ""
+msgstr "Copyright:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:133 kmahjonggtilesetselector.ui:133
 #, kde-format
 msgid "License:"
-msgstr ""
+msgstr "Lizenz:"
 
 #: kmahjonggconfigdialog.cpp:46
-#, fuzzy, kde-format
-#| msgid "Tiles"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Steine"
 
 #: kmahjonggconfigdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Hintergrund"
