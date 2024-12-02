@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Niklas Laxström <niklas.laxstrom+kdetrans@gmail.com>, 2007.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013.
-# Tommi Nieminen <translator@legisign.org>, 2024.
+# SPDX-FileCopyrightText: 2024 Tommi Nieminen <translator@legisign.org>
 #
 # KDE Finnish translation sprint participants:
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-29 00:38+0000\n"
-"PO-Revision-Date: 2024-02-08 10:46+0200\n"
+"PO-Revision-Date: 2024-10-29 14:57+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -19,8 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-POT-Import-Date: 2012-12-01 22:24:08+0000\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: kmahjonggbackgroundselector.ui:34 kmahjonggtilesetselector.ui:34
@@ -77,15 +76,13 @@ msgid "License:"
 msgstr "Lisenssi:"
 
 #: kmahjonggconfigdialog.cpp:46
-#, fuzzy, kde-format
-#| msgid "Tiles"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Tiilet"
 
 #: kmahjonggconfigdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Tausta"
