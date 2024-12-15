@@ -74,10 +74,10 @@ msgstr "अनुज्ञापत्रम् : १."
 #, kde-format
 msgctxt "@title:tab"
 msgid "Tiles"
-msgstr ""
+msgstr "टाइल्स"
 
 #: kmahjonggconfigdialog.cpp:55
 #, kde-format
 msgctxt "@title:tab"
 msgid "Background"
-msgstr ""
+msgstr "पृष्ठभूमि"
