@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
-# Stefan Winter <swinter@kde.org>, 2007.
+# SPDX-FileCopyrightText: 2007 Stefan Winter <swinter@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg6\n"
