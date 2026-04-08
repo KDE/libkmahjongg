@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: kmahjonggbackgroundselector.ui:34 kmahjonggtilesetselector.ui:34
@@ -47,8 +47,7 @@ msgstr "Popis:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Version:"
 msgstr "Popis:"
 
@@ -56,30 +55,28 @@ msgstr "Popis:"
 #: kmahjonggbackgroundselector.ui:109 kmahjonggtilesetselector.ui:109
 #, kde-format
 msgid "Website:"
-msgstr ""
+msgstr "Webová stránka:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:123 kmahjonggtilesetselector.ui:123
 #, kde-format
 msgid "Copyright:"
-msgstr ""
+msgstr "Autorské práva:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:133 kmahjonggtilesetselector.ui:133
 #, kde-format
 msgid "License:"
-msgstr ""
+msgstr "Licencia:"
 
 #: kmahjonggconfigdialog.cpp:46
-#, fuzzy, kde-format
-#| msgid "Tiles"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Dlaždice"
 
 #: kmahjonggconfigdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Pozadie"
