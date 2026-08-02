@@ -1,5 +1,6 @@
 # Translation of libkmahjongg6 to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
