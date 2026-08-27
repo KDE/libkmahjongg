@@ -126,3 +126,18 @@ install(EXPORT KMahjonggTargets
     FILE ${CMAKECONFIG_NAME}Targets.cmake
     COMPONENT Devel
 )
+
+if(${ECM_VERSION} VERSION_GREATER_EQUAL 6.30)
+include(ECMInstalledLibraryCheck)
+
+ecm_add_installed_library_check(KMahjongglib
+    PACKAGE_NAME "${CMAKECONFIG_NAME}"
+    NO_PACKAGE_TARGET_NAMESPACE
+)
+
+ecm_installed_library_check_include_strings(KMahjongglib
+    HEADERS ${kmahjongg_LIB_CamelCase_HEADERS}
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KMahjongglib)
+endif()
