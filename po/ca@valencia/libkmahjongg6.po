@@ -5,7 +5,7 @@
 #
 # SPDX-FileCopyrightText: 2007 Aleix Pol <aleixpol@gmail.com>
 # SPDX-FileCopyrightText: 2020 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2023-2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
