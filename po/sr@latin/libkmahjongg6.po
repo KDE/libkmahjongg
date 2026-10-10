@@ -1,12 +1,13 @@
 # Translation of libkmahjongg.po to Serbian.
 # Slobodan Simic <slsimic@gmail.com>, 2007.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2007-10-16 11:30+0200\n"
-"Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
+"PO-Revision-Date: 2026-10-09 22:30+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -51,39 +52,36 @@ msgstr "Opis:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:99 kmahjonggtilesetselector.ui:99
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Version:"
-msgstr "Opis:"
+msgstr "Izdanje:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:109 kmahjonggtilesetselector.ui:109
 #, kde-format
 msgid "Website:"
-msgstr ""
+msgstr "Veb sajt:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:123 kmahjonggtilesetselector.ui:123
 #, kde-format
 msgid "Copyright:"
-msgstr ""
+msgstr "Autorska prava:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: kmahjonggbackgroundselector.ui:133 kmahjonggtilesetselector.ui:133
 #, kde-format
 msgid "License:"
-msgstr ""
+msgstr "Licenca:"
 
 #: kmahjonggconfigdialog.cpp:46
-#, fuzzy, kde-format
-#| msgid "Tiles"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Tiles"
 msgstr "Pločice"
 
 #: kmahjonggconfigdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Pozadina"
