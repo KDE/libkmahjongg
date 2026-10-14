@@ -1,0 +1,30 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = LibKMahjongg
+description = libkmahjongg is a library used for loading and rendering of Mahjongg tilesets and associated backgrounds.
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+excludedirs += ./tools
+
+outputformats = HTML
+
+depends += kde qtcore qtgui kconfiggui
+
+qhp.projects = LibKMahjongg
+
+qhp.LibKMahjongg.file          = libkmahjongg.qhp
+qhp.LibKMahjongg.namespace     = org.kde.libkmahjongg.$QT_VERSION_TAG
+qhp.LibKMahjongg.virtualFolder = libkmahjongg
+qhp.LibKMahjongg.indexTitle    = LibKMahjongg
+qhp.LibKMahjongg.indexRoot     =
+
+qhp.LibKMahjongg.subprojects = classes
+qhp.LibKMahjongg.subprojects.classes.title = Classes
+qhp.LibKMahjongg.subprojects.classes.indexTitle = LibKMahjongg Classes
+qhp.LibKMahjongg.subprojects.classes.selectors = class fake:headerfile
+qhp.LibKMahjongg.subprojects.classes.sortPages = true
+
+tagfile = libkmahjongg.tags

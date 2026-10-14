@@ -57,6 +57,7 @@ include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateExportHeader)
+include(ECMGenerateQDoc)
 include(CMakePackageConfigHelpers)
 include(FeatureSummary)
 

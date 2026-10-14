@@ -1,0 +1,23 @@
+/*!
+    \page libkmahjongg-index.html
+    \title LibKMahjongg
+
+    libkmahjongg is a library used for loading and rendering of Mahjongg tilesets and associated backgrounds, 
+    used by KMahjongg, KShisen, and Kajongg. Shared data is installed to {kdedir}/share/apps/kmahjongglib/*
+
+    Contents:
+    \list
+      \li kmahjonggtileset.cpp/.h : implementation of the \l{KMahjonggTileset}{KMahjonggTileset} class
+      \li kmahjonggbackground.cpp/.h: implementation of the \l{KMahjonggBackground}{KMahjonggBackground} class
+      \li tilesets: Directory for svg files and .desktop data describing the metrics of tiles
+      \li backgrounds: Art and .desktop description for backgrounds
+    \endlist
+
+    Questions? Contact Mauricio Piacentini <mauricio@tabuleiro.com>
+
+    \section1 API Reference
+
+    \list
+        \li \l{LibKMahjongg Classes}
+    \endlist
+*/

@@ -1,0 +1,5 @@
+/*!
+   \module LibKMahjongg
+   \title LibKMahjongg Classes
+   \brief libkmahjongg is a library used for loading and rendering of Mahjongg tilesets and associated backgrounds.
+ */

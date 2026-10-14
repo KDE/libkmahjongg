@@ -141,3 +141,5 @@ ecm_installed_library_check_include_strings(KMahjongglib
 
 ecm_installed_library_check_version_preprocessor_macros(KMahjongglib)
 endif()
+
+ecm_generate_qdoc(KMahjongglib libkmahjongg.qdocconf)
